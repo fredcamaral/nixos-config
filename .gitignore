@@ -1,0 +1,34 @@
+# Ignore Nix build outputs
+result
+result-*
+
+# Ignore direnv files
+.direnv
+
+# Ignore editor-specific files
+.vscode/
+.idea/
+*.swp
+*~
+
+# Ignore OS-specific files
+.DS_Store
+Thumbs.db
+
+# Ignore log files
+*.log
+
+# Ignore temporary files
+*.tmp
+*.bak
+
+# Ignore sensitive information
+**/tailscale.auth
+**/secrets.nix
+**/private.nix
+
+# Ignore user-specific files
+home/**/local.nix
+
+# Ignore Nix-specific files
+.envrc

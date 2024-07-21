@@ -1,0 +1,11 @@
+[submodule "home/assets/alacritty"]
+	path = home/assets/alacritty
+	url = https://github.com/alacritty/alacritty-theme
+
+[submodule "home/assets/zellij"]
+	path = home/assets/zellij
+	url = https://github.com/zellij-org/zellij
+
+[submodule "home/assets/schemes"]
+	path = home/assets/schemes
+	url = https://github.com/tinted-theming/schemes
