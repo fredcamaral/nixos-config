@@ -19,6 +19,58 @@ To be added: config files for sonic (macOS), bomberman (homelab) and donkey-kong
 - AMD GPU optimization
 - Extensive package selection for productivity and development
 
+## Source Tree
+
+```
+nix-configs
+├── flake.nix
+├── home
+│   ├── default.nix
+│   ├── xdg.nix
+│   ├── programs.nix
+│   ├── aliases.nix
+│   ├── direnv.nix
+│   ├── assets
+│   │   ├── userChrome.css
+│   │   ├── userContent.css
+│   │   └── wallpapers
+│   │       └── (files)
+│   ├── programs
+│   │   ├── git.nix
+│   │   ├── firefox.nix
+│   │   ├── vscode.nix
+│   │   ├── alacritty.nix
+│   │   ├── zellij.nix
+│   │   └── kitty.nix
+│   └── gnome
+│       ├── default.nix
+│       └── dconf.nix
+├── system
+│   ├── configuration.nix
+│   ├── modules
+│   │   ├── default.nix
+│   │   ├── fonts.nix
+│   │   ├── internationalisation.nix
+│   │   ├── networking.nix
+│   │   ├── nixsettings.nix
+│   │   ├── programs.nix
+│   │   ├── time.nix
+│   │   ├── users.nix
+│   │   ├── virtualisation.nix
+│   │   ├── services.nix
+│   │   ├── hardware.nix
+│   │   ├── security.nix
+│   │   ├── boot.nix
+│   │   ├── packages.nix
+│   │   ├── console.nix
+│   │   ├── stylix.nix
+│   │   ├── zfs.nix
+│   │   ├── gnome.nix
+│   │   └── secrets
+│   └── hardware-configuration.nix
+└── flake.lock
+```
+
 ## Installation
 
 1. Clone this repository:

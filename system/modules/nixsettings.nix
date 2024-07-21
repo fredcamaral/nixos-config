@@ -22,6 +22,7 @@
     experimental-features = nix-command flakes
   '';
 
+  # TODO: Add the following configuration with a revamp
   # Garbage Collection
   # nix.gc = {
   #   automatic = true;

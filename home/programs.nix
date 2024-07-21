@@ -20,6 +20,12 @@
       enable = true;
     };
 
+    # Configuration for the 'fd' find clone
+    fzf = {
+      enable = true;
+      enableZshIntegration = true;
+    };
+
     # Enable nix-index for querying available packages
     nix-index = {
       enable = true;
