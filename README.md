@@ -76,8 +76,8 @@ nix-configs
 1. Clone this repository:
 
    ```bash
-   git clone https://github.com/yourusername/nix-configs.git
-   cd nix-configs
+   git clone https://github.com/fredcamaral/nix-config.git ~/repos/nix-configs # opinionated repo location for aliases
+   cd ~/repos/nix-configs
    ```
 
 2. Ensure you have a NixOS system with flakes enabled.
