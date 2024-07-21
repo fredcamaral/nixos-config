@@ -18,7 +18,8 @@
 
     # Enable Tailscale VPN
     tailscale.enable = true;
-    tailscale.authKeyFile = ./secrets/tailscale.auth;
+    # TODO: use agenix to manage the auth key
+    # tailscale.authKeyFile = ./secrets/tailscale.auth;
 
     # Configure PipeWire for audio
     pipewire = {
