@@ -76,7 +76,7 @@ nix-configs
 1. Clone this repository:
 
    ```bash
-   git clone https://github.com/fredcamaral/nix-config.git ~/repos/nix-configs # opinionated repo location for aliases
+   git clone https://github.com/fredcamaral/nixos-config.git ~/repos/nix-configs # opinionated repo location for aliases
    cd ~/repos/nix-configs
    ```
 
