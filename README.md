@@ -1,10 +1,10 @@
-# MEGAMAN NixOS Configuration
+# NixOS Configuration
 
 A comprehensive NixOS and Home Manager configuration leveraging Nix flakes for a personalized desktop environment.
 
 ## Description
 
-This repository contains a detailed NixOS system configuration and Home Manager setup, designed for a personal desktop environment named "megaman". It utilizes Nix flakes for reproducible builds and easy management of system and user-level packages and settings.
+This repository contains a detailed NixOS system configuration and Home Manager setup, designed for a personal desktop environment named "megaman". To be added: sonic (macOS), bomberman (homelab) and donkeykong (cloud server). It utilizes Nix flakes for reproducible builds and easy management of system and user-level packages and settings.
 
 ## Features
 

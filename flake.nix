@@ -1,6 +1,6 @@
 # flake.nix
 {
-  description = "Megadrive NixOS";
+  description = "Paradise NixOS (fredamaral config)";
 
   # Define external dependencies and inputs for the flake
   inputs = {
