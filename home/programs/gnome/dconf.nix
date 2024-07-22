@@ -2,6 +2,7 @@
 {
   lib,
   pkgs,
+  config,
   ...
 }:
 with lib.hm.gvariant; {
@@ -100,8 +101,8 @@ with lib.hm.gvariant; {
 
     "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1" = {
       binding = "<Super>f";
-      command = "${pkgs.firefox}/bin/firefox --class misc";
-      name = "Firefox";
+      command = "${config.home.homeDirectory}/.local/bin/init-gnome-default-apps.sh";
+      name = "Init Gnome Default Apps";
     };
 
     "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom2" = {
