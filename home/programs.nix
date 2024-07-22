@@ -10,6 +10,7 @@
     "vscode"
     "kitty"
     "zellij"
+    "gnome"
   ];
 
   programs = {

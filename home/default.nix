@@ -7,16 +7,7 @@ in {
     username = "${user}";
     homeDirectory = "/home/${user}";
 
-    # Install GNOME shell extensions
-    packages = with pkgs.gnomeExtensions; [
-      space-bar
-      gtile
-      focus-changer
-      appindicator
-      dim-background-windows
-    ];
-
-    # Set default applications
+    # Set session variables
     sessionVariables = {
       BROWSER = "firefox";
       EDITOR = "micro";
@@ -26,10 +17,6 @@ in {
 
   # Import additional configuration files
   imports = [
-    # WM
-    ./gnome
-
-    # Others
     ./xdg.nix
     ./programs.nix
     ./aliases.nix
