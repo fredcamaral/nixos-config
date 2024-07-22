@@ -25,7 +25,7 @@ in {
         ${pkgs.kitty}/bin/kitty --class "aux-1" &
         ${pkgs.kitty}/bin/kitty --class "btop" btop &
         ${pkgs.vscode}/bin/code --class "vscode" &
-        ${pkgs.qbittorrent}/bin/qbittorrent --class "qbit" &
+        ${pkgs.qbittorrent}/bin/qbittorrent &
         ${pkgs.obsidian}/bin/obsidian --class "obsidian" &
         ${pkgs.dopamine}/bin/dopamine --class "dopamine" &
         ${pkgs.telegram-desktop}/bin/telegram-desktop --class "telegram" &
