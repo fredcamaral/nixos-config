@@ -28,6 +28,9 @@
       echo "Upgrade complete! Reboot your computer..."
     '';
 
+    # Shortcut for importing all ZFS pools
+    importPools = "sudo zpool import -a";
+
     # Use 'nvim' instead of 'vim' or 'vi'
     vim = "nvim";
     vi = "nvim";

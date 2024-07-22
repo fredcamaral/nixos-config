@@ -10,7 +10,7 @@
     "vscode"
     "kitty"
     "zellij"
-    "gnome"
+    "dconf"
   ];
 
   programs = {

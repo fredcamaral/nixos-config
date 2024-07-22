@@ -127,7 +127,6 @@ with lib.hm.gvariant; {
         "space-bar@luchrioh"
         "focus-changer@heartmire"
         "appindicatorsupport@rgcjonas.gmail.com"
-        "dim-background-windows@stephane-13.github.com"
         "day-progress@arcaege.github.io"
         "monitor@astraext.github.io"
         "smart-auto-move@khimaros.com"

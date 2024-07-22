@@ -33,7 +33,6 @@
       gtile
       focus-changer
       appindicator
-      dim-background-windows
       day-progress
       astra-monitor
       smart-auto-move
