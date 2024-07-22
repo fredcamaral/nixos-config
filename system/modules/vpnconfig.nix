@@ -83,6 +83,10 @@ in {
         firewall = {
           enable = true;
           trustedInterfaces = [cfg.freeFlowInterface cfg.vpnedInterface];
+          extraCommands = ''
+            iptables -t mangle -F
+            iptables -t nat -F
+          '';
         };
       };
 
@@ -109,8 +113,6 @@ in {
 
         firewall = {
           extraCommands = ''
-            iptables -t mangle -F
-            iptables -t nat -F
             iptables -t mangle -A PREROUTING -p tcp -m multiport --dports ${cfg.vpnedPorts} -j MARK --set-mark 1
             iptables -t mangle -A OUTPUT -p tcp -m multiport --dports ${cfg.vpnedPorts} -j MARK --set-mark 1
             iptables -t nat -A POSTROUTING -m mark --mark 1 -o ${cfg.vpnedInterface} -j MASQUERADE
