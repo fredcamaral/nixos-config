@@ -44,7 +44,7 @@
         ms-azuretools.vscode-docker
         ms-vscode.makefile-tools
         kamadorueda.alejandra
-        bbenoist.nix
+        jnoortheen.nix-ide
         hashicorp.terraform
 
         # Markdown support

@@ -58,8 +58,8 @@ with lib.hm.gvariant; {
     "org/gnome/desktop/wm/preferences" = {
       action-middle-click-titlebar = "none";
       focus-mode = "click";
-      num-workspaces = 4;
-      workspace-names = ["Main" "Dev" "qBit" "Misc"];
+      num-workspaces = 5;
+      workspace-names = ["Main" "Dev" "qBit" "Notes" "Misc"];
     };
 
     "org/gnome/desktop/input-sources" = {

@@ -52,6 +52,7 @@
       # Note: Limited options available by default
       # TODO: Look into OSPO tools like gh-net, gh-sbom
       gh-eco
+      gh-copilot
     ];
     settings = {
       # Add any custom GitHub CLI settings here
