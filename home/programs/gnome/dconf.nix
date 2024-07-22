@@ -59,8 +59,8 @@ with lib.hm.gvariant; {
     "org/gnome/desktop/wm/preferences" = {
       action-middle-click-titlebar = "none";
       focus-mode = "click";
-      num-workspaces = 5;
-      workspace-names = ["Main" "Dev" "qBit" "Notes" "Misc"];
+      num-workspaces = 7;
+      workspace-names = ["Main" "Dev" "qBit" "Notes" "Comms" "Calibre" "Misc"];
     };
 
     "org/gnome/desktop/input-sources" = {
@@ -128,6 +128,7 @@ with lib.hm.gvariant; {
         "dim-background-windows@stephane-13.github.com"
         "day-progress@arcaege.github.io"
         "monitor@astraext.github.io"
+        "smart-auto-move@khimaros.com"
       ];
       last-selected-power-profile = "performance";
     };
@@ -273,6 +274,35 @@ with lib.hm.gvariant; {
       show-swap = false;
     };
 
+    "org/gnome/shell/extensions/smart-auto-move" = {
+      activate-workspace = true;
+      debug-logging = false;
+      freeze-saves = true;
+      ignore-position = false;
+      ignore-workspace = false;
+      match-threshold = 0.7;
+      overrides = ''
+        {}
+      '';
+      save-frequency = 1000;
+      saved-windows = ''
+        {"obsidian":[{"id":864151842,"hash":864151842,"sequence":17,"title":"PIX Update - 24.07.2024 - Fred Amaral - Obsidian v1.6.7","workspace":3,"maximized":0,"fullscreen":false,"above":false,"monitor":1,"x":1540,"y":1659,"width":3576,"height":1397,"occupied":true}],"firefox":[{"id":864151841,"hash":864151841,"sequence":16,"title":"Mozilla Firefox","workspace":3,"maximized":0,"fullscreen":false,"above":false,"monitor":1,"x":4,"y":1659,"width":1528,"height":1397,"occupied":true},{"id":864151840,"hash":864151840,"sequence":15,"title":"Mozilla Firefox","workspace":2,"maximized":0,"fullscreen":false,"above":false,"monitor":1,"x":4,"y":1659,"width":2040,"height":1397,"occupied":true},{"id":864151839,"hash":864151839,"sequence":14,"title":"Mozilla Firefox","workspace":1,"maximized":0,"fullscreen":false,"above":false,"monitor":1,"x":4,"y":1659,"width":1528,"height":1397,"occupied":true},{"id":864151838,"hash":864151838,"sequence":13,"title":"Mozilla Firefox","workspace":0,"maximized":0,"fullscreen":false,"above":false,"monitor":1,"x":1028,"y":1659,"width":2552,"height":1397,"occupied":true}],"Code":[{"id":864151837,"hash":864151837,"sequence":12,"title":"packages.nix - nix-configs - Visual Studio Code","workspace":1,"maximized":0,"fullscreen":false,"above":false,"monitor":1,"x":1540,"y":1659,"width":3576,"height":1397,"occupied":true}],"Slack":[{"id":864151844,"hash":864151844,"sequence":19,"title":"Sign in | Slack","workspace":4,"maximized":0,"fullscreen":false,"above":false,"monitor":1,"x":3588,"y":1659,"width":1528,"height":1397,"occupied":true}],"whatsapp-for-linux":[{"id":864151835,"hash":864151835,"sequence":10,"title":"WhatsApp for Linux","workspace":4,"maximized":0,"fullscreen":false,"above":false,"monitor":1,"x":1540,"y":1659,"width":2040,"height":1397,"occupied":true}],"org.telegram.desktop":[{"id":864151836,"hash":864151836,"sequence":11,"title":"Telegram (836)","workspace":4,"maximized":0,"fullscreen":false,"above":false,"monitor":1,"x":4,"y":1659,"width":1528,"height":1397,"occupied":true}],"org.qbittorrent.qBittorrent":[{"id":864151845,"hash":864151845,"sequence":20,"title":"qBittorrent v4.6.5","workspace":2,"maximized":0,"fullscreen":false,"above":false,"monitor":1,"x":2052,"y":1659,"width":3064,"height":1397,"occupied":true}],"btop":[{"id":864151833,"hash":864151833,"sequence":8,"title":"btop","workspace":0,"maximized":0,"fullscreen":false,"above":false,"monitor":0,"x":4502,"y":0,"width":1724,"height":1620,"occupied":true}],"space-main":[{"id":864151834,"hash":864151834,"sequence":9,"title":"fredamaral@megaman:~","workspace":0,"maximized":0,"fullscreen":false,"above":false,"monitor":1,"x":3588,"y":1659,"width":1528,"height":1397,"occupied":true}],"Dopamine":[{"id":864151843,"hash":864151843,"sequence":18,"title":"Dopamine","workspace":0,"maximized":0,"fullscreen":false,"above":false,"monitor":0,"x":3347,"y":814,"width":1147,"height":806,"occupied":true}],"aux-1":[{"id":864151832,"hash":864151832,"sequence":7,"title":"fredamaral@megaman:~","workspace":0,"maximized":0,"fullscreen":false,"above":false,"monitor":0,"x":3347,"y":0,"width":1147,"height":806,"occupied":true}],"org.gnome.Extensions":[{"id":864151846,"hash":864151846,"sequence":21,"title":"Extensions","workspace":0,"maximized":0,"fullscreen":false,"above":false,"monitor":1,"x":0,"y":1655,"width":895,"height":1170,"occupied":false}]}
+      '';
+      startup-delay = 2500;
+      sync-frequency = 100;
+      sync-mode = "RESTORE";
+    };
+
+    "org/gnome/mutter" = {
+      workspaces-only-on-primary = true;
+    };
+
+    "org/gnome/nautilus/preferences" = {
+      default-folder-viewer = "icon-view";
+      migrated-gtk-settings = true;
+      search-filter-time-type = "last_modified";
+    };
+
     "org/gnome/shell/keybindings" = {
       focus-active-notification = [];
       show-screenshot-ui = ["Print"];
@@ -284,6 +314,11 @@ with lib.hm.gvariant; {
       toggle-message-tray = [];
       toggle-overview = [];
       toggle-quick-settings = [];
+    };
+
+    "org/gnome/shell/extensions/day-progress" = {
+      reset-hour = 19;
+      start-hour = 6;
     };
 
     "org/gnome/system/location" = {
