@@ -23,10 +23,21 @@
     };
   };
 
-  environment.systemPackages = with pkgs; [
-    # GNOME Specific
-    gnome-tweaks # Graphical interface for advanced GNOME 3 settings
-  ];
+  environment.systemPackages = with pkgs;
+    [
+      # GNOME Specific
+      gnome-tweaks # Graphical interface for advanced GNOME 3 settings
+    ]
+    ++ (with pkgs.gnomeExtensions; [
+      space-bar
+      gtile
+      focus-changer
+      appindicator
+      dim-background-windows
+      day-progress
+      astra-monitor
+      smart-auto-move
+    ]);
 
   # Excluded GNOME packages
   environment.gnome.excludePackages = with pkgs;

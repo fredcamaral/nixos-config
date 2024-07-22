@@ -20,14 +20,17 @@ in {
         ${pkgs.firefox}/bin/firefox -P "space-main" -no-remote &
         ${pkgs.firefox}/bin/firefox -P "space-dev" -no-remote &
         ${pkgs.firefox}/bin/firefox -P "space-qbit" -no-remote &
-        ${pkgs.firefox}/bin/firefox -P "space-qbit" -no-remote &
+        ${pkgs.firefox}/bin/firefox -P "space-notes" -no-remote &
         ${pkgs.kitty}/bin/kitty --class "space-main" &
         ${pkgs.kitty}/bin/kitty --class "aux-1" &
         ${pkgs.kitty}/bin/kitty --class "btop" btop &
-        ${pkgs.code}/bin/code --class "vscode" &
-        ${pkgs.qbittorrent}/bin/qbittorrent --class "qbit" &
         ${pkgs.vscode}/bin/code --class "vscode" &
+        ${pkgs.qbittorrent}/bin/qbittorrent --class "qbit" &
         ${pkgs.obsidian}/bin/obsidian --class "obsidian" &
+        ${pkgs.dopamine}/bin/dopamine --class "dopamine" &
+        ${pkgs.telegram-desktop}/bin/telegram-desktop --class "telegram" &
+        ${pkgs.whatsapp-for-linux}/bin/whatsapp-for-linux --class "whatsapp" &
+        ${pkgs.slack}/bin/slack --class "slack" &
       '';
       executable = true;
     };

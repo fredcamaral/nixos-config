@@ -21,6 +21,8 @@
     # Communication and Collaboration
     teams-for-linux # Microsoft Teams client for Linux
     telegram-desktop # Fast and secure messaging app
+    whatsapp-for-linux # WhatsApp client for Linux
+    slack # Team communication and collaboration software
     zoom-us # Video conferencing and online meeting platform
     google-chrome # Web browser developed by Google
 
