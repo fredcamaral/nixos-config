@@ -5,6 +5,9 @@
     dopamine # Music player that tries to make organizing and listening to music easy and pretty
     taskwarrior3 # Task management tool
     taskwarrior-tui # Taskwarrior terminal user interface
+    gtop # System monitoring dashboard for terminal
+    amdgpu_top # AMD GPU utilization monitor
+    wirelesstools # Tools for setting up wireless networking
 
     # Archiving and Compression
     unrar # Extraction utility for RAR archives
@@ -140,7 +143,6 @@
     powertop # Power consumption and power management diagnosis tool
     smartmontools # Tools for monitoring and controlling S.M.A.R.T. enabled hard drives
     usbutils # USB utilities (such as lsusb)
-    lact # AMD GPU overclocking and monitoring tool
 
     # System Utilities
     remmina # Remote desktop client for POSIX-based computer systems
