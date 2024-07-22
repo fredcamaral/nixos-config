@@ -6,6 +6,7 @@ in {
   home = {
     username = "${user}";
     homeDirectory = "/home/${user}";
+    sessionPath = ["$HOME/.local/bin"];
     preferXdgDirectories = true;
 
     # Set session variables
@@ -32,6 +33,25 @@ in {
         ${pkgs.telegram-desktop}/bin/telegram-desktop --class "telegram" &
         ${pkgs.whatsapp-for-linux}/bin/whatsapp-for-linux --class "whatsapp" &
         ${pkgs.slack}/bin/slack --class "slack" &
+      '';
+      executable = true;
+    };
+
+    file.".local/bin/wayland-sessions.sh" = {
+      text = ''
+        #!/bin/sh
+        gdbus call --session \
+        --dest org.gnome.Shell \
+        --object-path /org/gnome/Shell \
+        --method org.gnome.Shell.Eval \
+        "const windows = global.get_window_actors().map(w => w.meta_window);
+         windows.forEach(w => {
+           print('Title: ' + w.get_title());
+           print('App ID: ' + (w.get_gtk_application_id() || 'N/A'));
+           print('WM Class: ' + w.get_wm_class());
+           print('Process ID: ' + w.get_pid());
+           print('---');
+         });"
       '';
       executable = true;
     };

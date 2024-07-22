@@ -13,6 +13,10 @@
               value = "packages";
             }
             {
+              name = "channel";
+              value = "unstable";
+            }
+            {
               name = "query";
               value = "{searchTerms}";
             }
@@ -28,6 +32,30 @@
       iconUpdateURL = "https://nixos.wiki/favicon.png";
       updateInterval = 24 * 60 * 60 * 1000; # every day
       definedAliases = ["@nw"];
+    };
+    # Search for NixOS Options
+    "NixOS Options" = {
+      urls = [
+        {
+          template = "https://search.nixos.org/options";
+          params = [
+            {
+              name = "type";
+              value = "packages";
+            }
+            {
+              name = "channel";
+              value = "unstable";
+            }
+            {
+              name = "query";
+              value = "{searchTerms}";
+            }
+          ];
+        }
+      ];
+      icon = "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
+      definedAliases = ["@no"];
     };
 
     # Hide default search engines
