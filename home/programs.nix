@@ -46,15 +46,17 @@
     };
 
     # OBS Studio configuration
-    obs-studio.enable = true;
-    obs-studio.plugins = with pkgs; [
-      # List of OBS plugins
-      obs-studio-plugins.obs-gstreamer
-      obs-studio-plugins.obs-vkcapture
-      obs-studio-plugins.obs-pipewire-audio-capture
-      obs-studio-plugins.obs-multi-rtmp
-      obs-studio-plugins.obs-move-transition
-    ];
+    obs-studio = {
+      enable = true;
+      plugins = with pkgs; [
+        # List of OBS plugins
+        obs-studio-plugins.obs-gstreamer
+        obs-studio-plugins.obs-vkcapture
+        obs-studio-plugins.obs-pipewire-audio-capture
+        obs-studio-plugins.obs-multi-rtmp
+        obs-studio-plugins.obs-move-transition
+      ];
+    };
 
     # Zsh shell configuration
     zsh = {
@@ -75,6 +77,7 @@
 
     # Configuration for various other programs
     micro.enable = true;
+
     yazi = {
       enable = true;
       # Integrations
@@ -98,6 +101,7 @@
       # Keybindings, nothing for now
       keymap = {};
     };
+
     zoxide = {
       enable = true;
       enableZshIntegration = true;
