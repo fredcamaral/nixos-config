@@ -14,6 +14,7 @@
       dim-background-windows
       taskwhisperer
       day-progress
+      astra-monitor
     ];
 
     # Set default applications
