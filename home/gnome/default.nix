@@ -12,7 +12,6 @@
       focus-changer
       appindicator
       dim-background-windows
-      taskwhisperer
       day-progress
       astra-monitor
     ];
