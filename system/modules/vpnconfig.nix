@@ -53,98 +53,108 @@ in {
     };
   };
 
-  config = mkIf cfg.enable {
-    networking = {
-      hostName = cfg.hostName;
-      networkmanager.enable = true;
-      enableIPv6 = false;
+  config = mkMerge [
+    # Common configuration (applies regardless of enable status)
+    {
+      networking = {
+        hostName = cfg.hostName;
+        nameservers = cfg.nameservers;
+        defaultGateway = cfg.defaultGatewayAddress;
 
-      networkmanager.unmanaged = [cfg.vpnedInterface cfg.freeFlowInterface];
+        interfaces = {
+          ${cfg.freeFlowInterface} = {
+            ipv4.addresses = [
+              {
+                address = "${cfg.networkPrefix}.2";
+                prefixLength = 24;
+              }
+            ];
+          };
+          ${cfg.vpnedInterface} = {
+            ipv4.addresses = [
+              {
+                address = "${cfg.networkPrefix}.3";
+                prefixLength = 24;
+              }
+            ];
+          };
+        };
 
-      networkmanager.settings = {
-        main = {
-          no-auto-default = "*";
+        firewall = {
+          enable = true;
+          trustedInterfaces = [cfg.freeFlowInterface cfg.vpnedInterface];
         };
       };
 
-      firewall = {
-        enable = true;
-        trustedInterfaces = [cfg.freeFlowInterface cfg.vpnedInterface];
-        extraCommands = ''
-          iptables -t mangle -F
-          iptables -t nat -F
-          iptables -t mangle -A PREROUTING -p tcp -m multiport --dports ${cfg.vpnedPorts} -j MARK --set-mark 1
-          iptables -t mangle -A OUTPUT -p tcp -m multiport --dports ${cfg.vpnedPorts} -j MARK --set-mark 1
-          iptables -t nat -A POSTROUTING -m mark --mark 1 -o ${cfg.vpnedInterface} -j MASQUERADE
+      programs.nm-applet.enable = true;
+
+      boot.kernel.sysctl = {
+        "net.ipv4.ip_forward" = 1;
+      };
+    }
+
+    # VPN-specific configuration (only applies when enabled)
+    (mkIf cfg.enable {
+      networking = {
+        networkmanager.enable = true;
+        enableIPv6 = false;
+
+        networkmanager.unmanaged = [cfg.vpnedInterface cfg.freeFlowInterface];
+
+        networkmanager.settings = {
+          main = {
+            no-auto-default = "*";
+          };
+        };
+
+        firewall = {
+          extraCommands = ''
+            iptables -t mangle -F
+            iptables -t nat -F
+            iptables -t mangle -A PREROUTING -p tcp -m multiport --dports ${cfg.vpnedPorts} -j MARK --set-mark 1
+            iptables -t mangle -A OUTPUT -p tcp -m multiport --dports ${cfg.vpnedPorts} -j MARK --set-mark 1
+            iptables -t nat -A POSTROUTING -m mark --mark 1 -o ${cfg.vpnedInterface} -j MASQUERADE
+          '';
+        };
+
+        iproute2 = {
+          enable = true;
+          rttablesExtraConfig = ''
+            200 marked
+          '';
+        };
+      };
+
+      systemd.services.custom-routes = {
+        description = "Set up custom routes and rules";
+        after = ["network-online.target"];
+        wants = ["network-online.target"];
+        wantedBy = ["multi-user.target"];
+        path = [pkgs.iproute2];
+        script = ''
+          run_cmd() {
+            "$@" || echo "Command failed: $*"
+          }
+
+          run_cmd ip route flush table marked
+          run_cmd ip rule del fwmark 1 table marked
+          run_cmd ip rule add fwmark 1 table marked priority 90
+          run_cmd ip route add default via ${cfg.defaultGatewayAddress} dev ${cfg.vpnedInterface} table marked
+          run_cmd ip route del default
+          run_cmd ip route add default via ${cfg.defaultGatewayAddress} dev ${cfg.freeFlowInterface}
+
+          echo "Current ip rules:"
+          ip rule show
+          echo "Current main routing table:"
+          ip route show table main
+          echo "Current marked routing table:"
+          ip route show table marked
         '';
-      };
-
-      nameservers = cfg.nameservers;
-
-      defaultGateway = null;
-
-      interfaces = {
-        ${cfg.freeFlowInterface} = {
-          ipv4.addresses = [
-            {
-              address = "${cfg.networkPrefix}.2";
-              prefixLength = 24;
-            }
-          ];
-        };
-        ${cfg.vpnedInterface} = {
-          ipv4.addresses = [
-            {
-              address = "${cfg.networkPrefix}.3";
-              prefixLength = 24;
-            }
-          ];
+        serviceConfig = {
+          Type = "oneshot";
+          RemainAfterExit = true;
         };
       };
-
-      iproute2 = {
-        enable = true;
-        rttablesExtraConfig = ''
-          200 marked
-        '';
-      };
-    };
-
-    programs.nm-applet.enable = true;
-
-    boot.kernel.sysctl = {
-      "net.ipv4.ip_forward" = 1;
-    };
-
-    systemd.services.custom-routes = {
-      description = "Set up custom routes and rules";
-      after = ["network-online.target"];
-      wants = ["network-online.target"];
-      wantedBy = ["multi-user.target"];
-      path = [pkgs.iproute2];
-      script = ''
-        run_cmd() {
-          "$@" || echo "Command failed: $*"
-        }
-
-        run_cmd ip route flush table marked
-        run_cmd ip rule del fwmark 1 table marked
-        run_cmd ip rule add fwmark 1 table marked priority 90
-        run_cmd ip route add default via ${cfg.defaultGatewayAddress} dev ${cfg.vpnedInterface} table marked
-        run_cmd ip route del default
-        run_cmd ip route add default via ${cfg.defaultGatewayAddress} dev ${cfg.freeFlowInterface}
-
-        echo "Current ip rules:"
-        ip rule show
-        echo "Current main routing table:"
-        ip route show table main
-        echo "Current marked routing table:"
-        ip route show table marked
-      '';
-      serviceConfig = {
-        Type = "oneshot";
-        RemainAfterExit = true;
-      };
-    };
-  };
+    })
+  ];
 }
