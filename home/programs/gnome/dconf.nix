@@ -29,6 +29,7 @@ with lib.hm.gvariant; {
       move-to-workspace-4 = ["<Alt><Super>4"];
       move-to-workspace-5 = ["<Alt><Super>5"];
       move-to-workspace-6 = ["<Alt><Super>6"];
+      move-to-workspace-7 = ["<Alt><Super>7"];
       move-to-workspace-last = [];
       move-to-workspace-left = [];
       move-to-workspace-right = [];
@@ -47,6 +48,7 @@ with lib.hm.gvariant; {
       switch-to-workspace-4 = ["<Super>4"];
       switch-to-workspace-5 = ["<Super>5"];
       switch-to-workspace-6 = ["<Super>6"];
+      switch-to-workspace-7 = ["<Super>7"];
       switch-to-workspace-last = [];
       switch-to-workspace-left = ["<Alt><Super>Left"];
       switch-to-workspace-right = ["<Alt><Super>Right"];
