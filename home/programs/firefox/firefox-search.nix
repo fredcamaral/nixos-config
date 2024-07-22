@@ -1,4 +1,4 @@
-{
+{pkgs, ...}: {
   force = true;
   default = "DuckDuckGo";
   engines = {

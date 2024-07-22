@@ -5,9 +5,6 @@
       # Enable GNOME Keyring
       gnome-keyring.enable = true;
 
-      # Enable GNOME Browser Integration
-      gnome-browser-connector.enable = true;
-
       # Enable GNOME's quick file previewer
       sushi.enable = true;
     };
