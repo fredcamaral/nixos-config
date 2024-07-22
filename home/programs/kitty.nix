@@ -34,6 +34,13 @@
       tab_bar_edge = "bottom";
       tab_bar_min_tabs = 1;
 
+      # Window layout
+      inactive_text_alpha = "0.8";
+      confirm_os_window_close = 0;
+
+      # Color scheme
+      background_opacity = "0.85";
+
       # Customize tab title format
       # Shows: <tab_index>: <active_program> @ <working_directory>
       tab_title_template = "{index}: {tab.active_exe} @ {tab.active_wd}";

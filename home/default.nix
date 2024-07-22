@@ -8,13 +8,6 @@ in {
     homeDirectory = "/home/${user}";
     preferXdgDirectories = true;
 
-    # Garbage Collection
-    nix.gc = {
-      automatic = true;
-      frequency = "weekly";
-      options = "--delete-older-than 7d";
-    };
-
     # Set session variables
     sessionVariables = {
       BROWSER = "firefox";
@@ -51,6 +44,13 @@ in {
     ./aliases.nix
     ./direnv.nix
   ];
+
+  # Garbage Collection
+  nix.gc = {
+    automatic = true;
+    frequency = "weekly";
+    options = "--delete-older-than 7d";
+  };
 
   # Enable numlock on session start
   xsession.numlock.enable = true;
