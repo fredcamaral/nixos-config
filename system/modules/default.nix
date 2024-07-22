@@ -5,7 +5,11 @@
     "hardware"
     "internationalisation"
     "console"
+
+    # Networking and VPN
+    "vpnconfig"
     "networking"
+
     "nixsettings"
     "packages"
     "programs"
