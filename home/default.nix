@@ -44,6 +44,7 @@ in {
     ./programs.nix
     ./aliases.nix
     ./direnv.nix
+    ./dotfiles.nix
   ];
 
   # Garbage Collection

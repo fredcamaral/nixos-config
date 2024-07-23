@@ -50,6 +50,10 @@
     tmk = "tmux kill-session -t";
 
     # Git add, commit, and push in one command
-    gacp = "git add . && git commit -m 'new update' && git push";
+    gacp = "git add . && git commit -m 'new update' && git push main HEAD";
+    # Git add, commit, and push in one command
+    gac = "git add . && git commit -m 'new update'";
+    # Git add, commit, and push in one command
+    ga = "git add .";
   };
 }
