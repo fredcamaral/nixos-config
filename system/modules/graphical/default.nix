@@ -1,18 +1,23 @@
-{pkgs, ...}: {
-  services = {
-    xserver = {
-      enable = true;
-      xkb.layout = "us";
-      xkb.variant = "intl";
+{
+  config,
+  pkgs,
+  ...
+}: {
+  imports = [
+    ./graphical-module.nix
+  ];
 
-      desktopManager.xterm.enable = false;
+  # Graphical environment configuration
+  graphical = {
+    xdefaults.enable = true; # Enable X-Server defaults (true by default)
+    managers = {
+      enable = true; # Enable graphical environment (false by default)
+
+      # Choose one of the following (or none for default GNOME):
+      gnome.enable = true;
+      # hyprland.enable = true;
+      # sway.enable = true;
+      # i3.enable = true;
     };
   };
-  # Import the graphical modules
-  imports = [
-    ./wayland-and-gnome
-    # ./wayland-and-kyprland
-    # ./wayland-and-sway
-    # ./xserver-and-i3
-  ];
 }
