@@ -1,7 +1,10 @@
-{...}: {
-  security = {
-    rtkit.enable = true;
-    polkit.enable = true;
+{
+  config,
+  pkgs,
+  ...
+}: {
+  programs.hyprland = {
+    enable = true;
   };
 
   systemd = {
@@ -26,4 +29,19 @@
       polkit_gnome
     ];
   };
+
+  environment.systemPackages = with pkgs; [
+    hyprpaper
+    kitty
+    libnotify
+    mako
+    qt5.qtwayland
+    qt6.qtwayland
+    swayidle
+    swaylock-effects
+    wlogout
+    wl-clipboard
+    wofi
+    waybar
+  ];
 }
