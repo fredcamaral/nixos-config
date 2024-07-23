@@ -23,7 +23,7 @@ Thumbs.db
 *.bak
 
 # Ignore sensitive information
-**/tailscale.auth
+tailscale.auth
 **/secrets.nix
 **/private.nix
 

@@ -8,10 +8,11 @@
       desktopManager.xterm.enable = false;
     };
   };
-
   # Import the graphical modules
-  imports = map (graphical: ./graphical/${graphical}.nix) [
-    "gnome"
-    # "i3"
+  imports = [
+    "./wayland-and-gnome"
+    # "./wayland-and-kyprland"
+    # "./wayland-and-sway"
+    # "./xserver-and-i3"
   ];
 }
