@@ -20,6 +20,9 @@
     # Shortcut for rebuilding NixOS
     rebuild = "sudo nixos-rebuild switch --flake ~/repos/nix-configs/";
 
+    # Shortcut for rebuilding NixOS
+    rebuildForBoot = "sudo nixos-rebuild boot --flake ~/repos/nix-configs/";
+
     # Shortcut for upgrading NixOS
     upgrade = ''
       cd ~/repos/nix-configs
