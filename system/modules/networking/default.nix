@@ -1,6 +1,6 @@
 {...}: {
   # Import the module
-  imports = ./routing-module.nix;
+  imports = [./routing-module.nix];
 
   # Define the config for the module networking
   networking.vpnConfig = {

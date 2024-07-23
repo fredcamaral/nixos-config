@@ -6,6 +6,12 @@
 }:
 with lib; let
   cfg = config.graphical;
+
+  # Define the folder paths as variables
+  waylandGnomePath = ./wayland-and-gnome;
+  waylandHyprlandPath = ./wayland-and-hyprland;
+  waylandSwayPath = ./wayland-and-sway;
+  xserverI3Path = ./xserver-and-i3;
 in {
   options.graphical = {
     xdefaults.enable = mkOption {
@@ -51,12 +57,11 @@ in {
         desktopManager.xterm.enable = false;
       };
     })
-
     (mkIf (cfg.managers.enable || (!cfg.managers.gnome.enable && !cfg.managers.hyprland.enable && !cfg.managers.sway.enable && !cfg.managers.i3.enable)) (mkMerge [
-      (mkIf (cfg.managers.gnome.enable || (!cfg.managers.hyprland.enable && !cfg.managers.sway.enable && !cfg.managers.i3.enable)) (import ./wayland-and-gnome.nix {inherit config pkgs lib;}))
-      (mkIf cfg.managers.hyprland.enable (import ./wayland-and-hyprland.nix {inherit config pkgs lib;}))
-      (mkIf cfg.managers.sway.enable (import ./wayland-and-sway.nix {inherit config pkgs lib;}))
-      (mkIf cfg.managers.i3.enable (import ./xserver-and-i3.nix {inherit config pkgs lib;}))
+      (mkIf (cfg.managers.gnome.enable || (!cfg.managers.hyprland.enable && !cfg.managers.sway.enable && !cfg.managers.i3.enable)) (import waylandGnomePath {inherit config pkgs lib;}))
+      (mkIf cfg.managers.hyprland.enable (import waylandHyprlandPath {inherit config pkgs lib;}))
+      (mkIf cfg.managers.sway.enable (import waylandSwayPath {inherit config pkgs lib;}))
+      (mkIf cfg.managers.i3.enable (import xserverI3Path {inherit config pkgs lib;}))
     ]))
   ];
 }

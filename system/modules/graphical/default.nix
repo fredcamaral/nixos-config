@@ -3,9 +3,7 @@
   pkgs,
   ...
 }: {
-  imports = [
-    ./graphical-module.nix
-  ];
+  imports = [./graphical-module.nix];
 
   # Graphical environment configuration
   graphical = {
