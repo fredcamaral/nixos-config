@@ -11,10 +11,6 @@
 
     # Configure X11 display server
     xserver = {
-      enable = true;
-      xkb.layout = "us";
-      xkb.variant = "intl";
-
       # Enable GNOME desktop environment
       desktopManager.gnome.enable = true;
 

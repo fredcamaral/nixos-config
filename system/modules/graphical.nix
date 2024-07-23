@@ -4,6 +4,8 @@
       enable = true;
       xkb.layout = "us";
       xkb.variant = "intl";
+
+      desktopManager.xterm.enable = false;
     };
   };
 
