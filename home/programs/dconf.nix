@@ -103,7 +103,7 @@ with lib.hm.gvariant; {
 
     "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1" = {
       binding = "<Super>f";
-      command = "${config.home.homeDirectory}/.local/bin/init-gnome-default-apps.sh";
+      command = "${config.home.homeDirectory}/.local/bin/init-default-apps.sh";
       name = "Init Gnome Default Apps";
     };
 

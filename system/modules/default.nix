@@ -1,4 +1,5 @@
 {...}: {
+  # Import the modules
   imports = map (module: ./${module}.nix) [
     "boot"
     "fonts"
@@ -20,8 +21,6 @@
     "users"
     "virtualisation"
     "zfs"
-
-    # WM
-    "gnome"
+    "graphical"
   ];
 }

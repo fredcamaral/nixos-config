@@ -13,7 +13,7 @@
     xserver = {
       enable = true;
       xkb.layout = "us";
-      # xkb.variant = "intl";
+      xkb.variant = "intl";
 
       # Enable GNOME desktop environment
       desktopManager.gnome.enable = true;
