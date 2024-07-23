@@ -7,11 +7,6 @@
       "hardware"
       "internationalisation"
       "console"
-
-      # Networking and VPN
-      "vpnconfig"
-      "networking"
-
       "nixsettings"
       "packages"
       "programs"
@@ -25,10 +20,10 @@
     ]
     ++ [
       # Graphical environment
-      "./graphical"
+      ./graphical
       # Networking and VPN
-      "./networking"
+      ./networking
       # Secrets Setup
-      "./secrets"
+      ./secrets
     ];
 }

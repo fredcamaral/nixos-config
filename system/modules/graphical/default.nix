@@ -10,9 +10,9 @@
   };
   # Import the graphical modules
   imports = [
-    "./wayland-and-gnome"
-    # "./wayland-and-kyprland"
-    # "./wayland-and-sway"
-    # "./xserver-and-i3"
+    ./wayland-and-gnome
+    # ./wayland-and-kyprland
+    # ./wayland-and-sway
+    # ./xserver-and-i3
   ];
 }
