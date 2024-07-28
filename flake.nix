@@ -1,0 +1,99 @@
+# flake.nix
+{
+  description = "Paradise NixOS (fredamaral config)";
+  inputs = {
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-24.05";
+
+    nixos-hardware.url = "github:nixos/nixos-hardware";
+
+    systems.url = "github:nix-systems/default-linux";
+
+    agenix = {
+      url = "github:ryantm/agenix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    stylix.url = "github:danth/stylix";
+
+    home-manager = {
+      url = "github:nix-community/home-manager";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
+  };
+
+  outputs = {
+    self,
+    nixpkgs,
+    nixpkgs-stable,
+    nixos-hardware,
+    systems,
+    home-manager,
+    agenix,
+    stylix,
+    hyprland,
+    ...
+  } @ inputs: let
+    # Extend the nixpkgs library with home-manager library
+    lib = nixpkgs.lib.extend (_final: _prev: home-manager.lib);
+
+    # Define pkgs for the Nixpkgs Unstable tree
+    pkgs = import nixpkgs {
+      inherit system;
+      config.allowUnfree = true;
+    };
+    # Define pkgs-stable for the Nixpkgs Stable tree
+    pkgs-stable = import nixpkgs-stable {
+      inherit system;
+      config.allowUnfree = true;
+    };
+
+    # User configuration
+    user = "fredamaral";
+
+    # Machine names
+    desktop = "megaman";
+    laptop = "sonic";
+    homelab = "zelda";
+    raspi = "dk";
+    cloudserver = "bomberman";
+
+    domain = "fredamaral.com";
+    system = "x86_64-linux";
+  in {
+    formatter = pkgs.alejandra;
+
+    nixosConfigurations = {
+      ${desktop} = lib.nixosSystem {
+        inherit system;
+        specialArgs = {inherit inputs user desktop;};
+        modules = [
+          ./system/configuration.nix
+          nixos-hardware.nixosModules.common-gpu-amd
+          stylix.nixosModules.stylix
+          agenix.nixosModules.default
+          {environment.systemPackages = [agenix.packages.${system}.default];}
+          home-manager.nixosModules.home-manager
+          {
+            home-manager = {
+              useGlobalPkgs = true;
+              useUserPackages = true;
+              backupFileExtension = "bkp3";
+              extraSpecialArgs = {inherit inputs lib;};
+              users.${user} = {
+                pkgs,
+                config,
+                ...
+              }: {
+                imports = [./home];
+                _module.args.nixosConfig = config;
+              };
+            };
+          }
+        ];
+      };
+    };
+  };
+}
