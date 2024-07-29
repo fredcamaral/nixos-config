@@ -1,6 +1,6 @@
 {...}: {
   # Import the modules
-  imports = map (module: ./${module}.nix) [
+  imports = map (common: ./${common}.nix) [
     "boot"
     "fonts"
     "internationalisation"
