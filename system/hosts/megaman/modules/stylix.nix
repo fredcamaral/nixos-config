@@ -5,7 +5,7 @@
     enable = true;
 
     # Set the wallpaper image
-    image = ../../home/assets/wallpapers/groot.jpg;
+    image = ../../../../home/assets/wallpapers/groot.jpg;
 
     # Set the theme polarity (dark or light)
     polarity = "dark";

@@ -38,7 +38,7 @@
     gtk4 # for GTK applications
     glib # for GTK applications
     gsettings-desktop-schemas # for GTK applications
-    gnome.seahorse # for GNOME applications
+    seahorse # for GNOME applications
     xdg-utils # for XDG applications
   ];
 }
