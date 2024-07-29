@@ -10,6 +10,18 @@
     ./modules
   ];
 
+  boot = {
+    consoleLogLevel = 0;
+    kernelParams = ["quiet" "udev.log_priority=3"];
+  };
+
+  systemd.services.getty = {
+    serviceConfig.ExecStart = [
+      ""
+      "${pkgs.systemd}/lib/systemd/systemd-getty-generator %I"
+    ];
+  };
+
   ## ! CONFIG HERE: options for proprietary modules ##########################
   # Define the config for the module networking
   networking = {

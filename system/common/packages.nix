@@ -5,6 +5,7 @@
     todoist-electron # To-do list manager
     age # Tool for encrypting files
     nh # Command-line note-taking tool
+    vlc
 
     # Archiving and Compression
     pigz # Parallel implementation of gzip for faster compression
