@@ -46,8 +46,8 @@ in {
         mouseWarping = true;
       };
       gaps = {
-        inner = 3;
-        outer = 4;
+        inner = 8;
+        outer = 3;
       };
       bars = [
         {
@@ -141,6 +141,10 @@ in {
         "${modifier}+Shift+8" = "move container to workspace number 8";
         "${modifier}+Shift+9" = "move container to workspace number 9";
         "${modifier}+Shift+0" = "move container to workspace number 10";
+
+        # Switch workspaces.
+        "${modifier}+Alt+Right" = "workspace next";
+        "${modifier}+Alt+Left" = "workspace prev";
 
         # Move the focused container to the specified output.
         "${modifier}+Right" = "focus right";
