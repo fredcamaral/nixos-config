@@ -1,9 +1,13 @@
-{config, ...}: {
+{
+  config,
+  hostname,
+  ...
+}: {
   age = {
-    identityPaths = ["${config.users.users.fredamaral.home}/repos/.secrets/megaman-tailscale.txt"];
+    identityPaths = ["${config.users.users.fredamaral.home}/repos/.secrets/${hostname}-tailscale.txt"];
 
-    secrets.megaman-tailscale-auth = {
-      file = "${config.users.users.fredamaral.home}/repos/.secrets/megaman-tailscale-auth.age";
+    secrets."${hostname}-tailscale-auth" = {
+      file = "${config.users.users.fredamaral.home}/repos/.secrets/${hostname}-tailscale-auth.age";
 
       owner = "root";
       group = "root";

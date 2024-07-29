@@ -23,7 +23,7 @@
     # Enable Tailscale VPN
     tailscale = {
       enable = true;
-      #      authKeyFile = config.age.secrets.megaman-tailscale-auth.path;
+      authKeyFile = config.age.secrets.sonic-tailscale-auth.path;
     };
 
     mpd = {
