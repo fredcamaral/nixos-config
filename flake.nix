@@ -99,7 +99,7 @@
               useUserPackages = true;
               backupFileExtension = "bkp3";
               extraSpecialArgs = {
-                inherit inputs lib;
+                inherit inputs lib desktop laptop homelab raspi cloudserver domain;
                 hostname = config.networking.hostName;
               };
               users.${user} = {
@@ -118,7 +118,7 @@
       # Mac Intel Configuration
       ${laptop} = lib.nixosSystem {
         inherit system;
-        specialArgs = {inherit inputs user desktop;};
+        specialArgs = {inherit inputs user desktop laptop homelab raspi cloudserver domain;};
         modules = [
           ./system/hosts/${laptop}/configuration.nix
           ./system/common/default.nix
@@ -136,8 +136,7 @@
               useUserPackages = true;
               backupFileExtension = "bkp3";
               extraSpecialArgs = {
-                inherit inputs lib;
-                hostname = config.networking.hostName;
+                inherit inputs lib desktop laptop homelab raspi cloudserver domain;
               };
               users.${user} = {
                 pkgs,
