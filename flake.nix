@@ -78,12 +78,43 @@
     formatter = pkgs.alejandra;
 
     nixosConfigurations = {
+      # Desktop Configuration
       ${desktop} = lib.nixosSystem {
         inherit system;
         specialArgs = {inherit inputs user desktop;};
         modules = [
           ./system/hosts/${desktop}/configuration.nix
           nixos-hardware.nixosModules.common-gpu-amd
+          stylix.nixosModules.stylix
+          agenix.nixosModules.default
+          {environment.systemPackages = [agenix.packages.${system}.default];}
+          home-manager.nixosModules.home-manager
+          {
+            home-manager = {
+              useGlobalPkgs = true;
+              useUserPackages = true;
+              backupFileExtension = "bkp3";
+              extraSpecialArgs = {inherit inputs lib;};
+              users.${user} = {
+                pkgs,
+                config,
+                ...
+              }: {
+                imports = [./home];
+                _module.args.nixosConfig = config;
+              };
+            };
+          }
+        ];
+      };
+
+      # Mac Intel Configuration
+      ${laptop} = lib.nixosSystem {
+        inherit system;
+        specialArgs = {inherit inputs user desktop;};
+        modules = [
+          ./system/hosts/${desktop}/configuration.nix
+          nixos-hardware.nixosModules.apple-t2
           stylix.nixosModules.stylix
           agenix.nixosModules.default
           {environment.systemPackages = [agenix.packages.${system}.default];}
