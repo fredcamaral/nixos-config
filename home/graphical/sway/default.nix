@@ -17,6 +17,8 @@ in {
     ./swaylock
     ./wlogout
     ./wofi
+
+    ./dotfiles.nix
   ];
 
   services.mako.enable = true;
