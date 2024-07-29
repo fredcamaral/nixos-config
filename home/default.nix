@@ -92,7 +92,6 @@ in {
       ./programs.nix
       ./aliases.nix
       ./direnv.nix
-      ./dotfiles.nix
       ./stylix.nix
     ]
     ++ lib.optional nixosConfig.graphical.managers.hyprland.enable hyprlandConfigPath

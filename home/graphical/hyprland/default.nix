@@ -1,5 +1,9 @@
 # home.nix
 {
+  imports = [
+    ./dotfiles.nix
+  ];
+
   wayland.windowManager.hyprland = {
     enable = true;
 
