@@ -84,10 +84,13 @@
         specialArgs = {inherit inputs user desktop laptop homelab raspi cloudserver domain;};
         modules = [
           ./system/hosts/${desktop}/configuration.nix
-          nixos-hardware.nixosModules.common-gpu-amd
+          ./system/common
           stylix.nixosModules.stylix
           agenix.nixosModules.default
           {environment.systemPackages = [agenix.packages.${system}.default];}
+
+          # NIX-OS Hardware Specific Configuration
+          nixos-hardware.nixosModules.common-gpu-amd
           home-manager.nixosModules.home-manager
           {
             home-manager = {
@@ -114,10 +117,13 @@
         specialArgs = {inherit inputs user desktop;};
         modules = [
           ./system/hosts/${laptop}/configuration.nix
-          nixos-hardware.nixosModules.apple-t2
+          ./system/common
           stylix.nixosModules.stylix
           agenix.nixosModules.default
           {environment.systemPackages = [agenix.packages.${system}.default];}
+
+          # NIX-OS Hardware Specific Configuration
+          nixos-hardware.nixosModules.apple-t2
           home-manager.nixosModules.home-manager
           {
             home-manager = {
