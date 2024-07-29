@@ -1,6 +1,7 @@
 # configuration.nix
 {
   inputs,
+  pkgs,
   hostname,
   ...
 }: {
