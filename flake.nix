@@ -84,7 +84,7 @@
         specialArgs = {inherit inputs user desktop laptop homelab raspi cloudserver domain;};
         modules = [
           ./system/hosts/${desktop}/configuration.nix
-          ./system/common
+          ./system/common/default.nix
           stylix.nixosModules.stylix
           agenix.nixosModules.default
           {environment.systemPackages = [agenix.packages.${system}.default];}
@@ -118,7 +118,7 @@
         specialArgs = {inherit inputs user desktop;};
         modules = [
           ./system/hosts/${laptop}/configuration.nix
-          ./system/common
+          ./system/common/default.nix
           stylix.nixosModules.stylix
           agenix.nixosModules.default
           {environment.systemPackages = [agenix.packages.${system}.default];}
