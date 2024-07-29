@@ -18,6 +18,9 @@
     # Enable all firmware updates
     enableAllFirmware = true;
 
+    # Enable Apple's Boot Set OS Loader firmware
+    apple-t2.enableAppleSetOsLoader = true;
+
     # Firmware configuration
     enableRedistributableFirmware = true;
 
