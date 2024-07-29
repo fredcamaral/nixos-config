@@ -138,12 +138,16 @@ in {
           run_cmd ip route del default
           run_cmd ip route add default via ${cfg.defaultGatewayAddress} dev ${cfg.freeFlowInterface}
 
+          echo "-------------";
           echo "Current ip rules:"
           ip rule show
+          echo "-------------";
           echo "Current main routing table:"
           ip route show table main
+          echo "-------------";
           echo "Current marked routing table:"
           ip route show table marked
+          echo "-------------";
         '';
         serviceConfig = {
           Type = "oneshot";
