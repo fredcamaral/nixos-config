@@ -4,6 +4,7 @@
     map (module: ./${module}.nix) [
       "hardware"
       "services"
+      "packages"
     ]
     ++ [
       # Graphical environment

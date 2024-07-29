@@ -242,6 +242,50 @@ in {
           "clock"
           ;
       }
+      {
+        output = "eDP-1";
+        layer = "top";
+        position = "top";
+        height = 36;
+        spacing = 4;
+        icon_theme = "Vimix-White";
+        modules-left = [
+          "tray"
+          "sway/workspaces"
+          "sway/mode"
+          "network#nic1"
+        ];
+        modules-center = ["sway/window"];
+        modules-right = [
+          "cpu"
+          "custom/temperature"
+          "memory"
+          "custom/gpu-power-usage"
+          "custom/gpu-temperature"
+          "custom/gpu-mem-temperature"
+          "pulseaudio"
+          "pulseaudio#microphone"
+          "custom/user-host-label"
+          "clock"
+        ];
+        inherit
+          (commonModules)
+          "sway/workspaces"
+          "sway/window"
+          "network#nic1"
+          "cpu"
+          "custom/temperature"
+          "memory"
+          "custom/gpu-power-usage"
+          "custom/gpu-temperature"
+          "custom/gpu-mem-temperature"
+          "pulseaudio"
+          "pulseaudio#microphone"
+          "tray"
+          "custom/user-host-label"
+          "clock"
+          ;
+      }
     ];
 
     style = getWaybarStyle config;
