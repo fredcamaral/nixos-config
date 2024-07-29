@@ -3,12 +3,12 @@
   imports =
     map (module: ./${module}.nix) [
       "boot"
-      # "btrfs-snapshots"
+      "btrfs-snapshots"
       "fonts"
       "hardware"
       "internationalisation"
       "console"
-      # "monitoring"
+      "monitoring"
       "nixsettings"
       "packages"
       "power-management"
@@ -24,9 +24,5 @@
     ++ [
       # Graphical environment
       ./graphical
-      # Networking and VPN
-      ./networking
-      # Secrets Setup
-      #./secrets
     ];
 }
