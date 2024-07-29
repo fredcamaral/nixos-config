@@ -34,6 +34,35 @@
       };
     }
     else {};
+
+  startupConfig =
+    if hostname == desktop
+    then {
+      commands = [
+        {command = "${pkgs.dbus}/bin/dbus-update-activation-environment --systemd --all";}
+        {command = "${pkgs.systemd}/bin/systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP";}
+        {command = "${pkgs.wl-clipboard}/bin/wl-paste -t text --watch ${pkgs.clipman}/bin/clipman store";}
+        {command = "${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1";}
+        {command = "${pkgs.networkmanagerapplet}/bin/nm-applet --indicator";}
+        {command = "swaymsg workspace 1";}
+      ];
+    }
+    else if hostname == laptop
+    then {
+      commands = [
+        {command = "${pkgs.dbus}/bin/dbus-update-activation-environment --systemd --all";}
+        {command = "${pkgs.systemd}/bin/systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP";}
+        {command = "${pkgs.wl-clipboard}/bin/wl-paste -t text --watch ${pkgs.clipman}/bin/clipman store";}
+        {command = "${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1";}
+        {command = "${pkgs.networkmanagerapplet}/bin/nm-applet --indicator";}
+        {command = "${pkgs.systemd}/bin/systemctl --user import-environment SWAYSOCK";}
+        {command = "${pkgs.swayidle}/bin/swayidle -w before-sleep '${pkgs.swaylock-effects}/bin/swaylock' \
+            lock '${pkgs.swaylock-effects}/bin/swaylock' \
+            lid-switch 'systemctl hibernate'";}
+        {command = "swaymsg workspace 1";}
+      ];
+    }
+    else {};
 in {
   imports = [
     ./waybar
@@ -74,6 +103,13 @@ in {
         "type:keyboard" = {
           xkb_layout = "us";
           xkb_variant = "intl";
+        };
+        "type:touchpad" = {
+          natural_scroll = "enabled";
+          tap = "enabled";
+          dwt = "enabled";
+          scroll_method = "two_finger";
+          middle_emulation = "enabled";
         };
       };
       workspaceAutoBackAndForth = true;
@@ -185,6 +221,15 @@ in {
         "XF86AudioLowerVolume" = "exec ${pkgs.pulseaudio}/bin/pactl set-sink-volume @DEFAULT_SINK@ -5%";
         "XF86AudioRaiseVolume" = "exec ${pkgs.pulseaudio}/bin/pactl set-sink-volume @DEFAULT_SINK@ +5%";
         "XF86AudioMicMute" = "exec ${pkgs.pulseaudio}/bin/pactl set-source-mute @DEFAULT_SOURCE@ toggle";
+        "XF86MonBrightnessDown" = "exec ${pkgs.light}/bin/light -U 5";
+        "XF86MonBrightnessUp" = "exec ${pkgs.light}/bin/light -A 5";
+        "XF86LaunchA" = "exec ${pkgs.wofi}/bin/wofi --show drun";
+        "XF86LaunchB" = "exec ${pkgs.firefox}/bin/firefox";
+        "XF86KbdBrightnessDown" = "exec ${pkgs.kbdlight}/bin/kbdlight down";
+        "XF86KbdBrightnessUp" = "exec ${pkgs.kbdlight}/bin/kbdlight up";
+        "XF86AudioPlay" = "exec ${pkgs.playerctl}/bin/playerctl play-pause";
+        "XF86AudioNext" = "exec ${pkgs.playerctl}/bin/playerctl next";
+        "XF86AudioPrev" = "exec ${pkgs.playerctl}/bin/playerctl previous";
 
         # Clipboard manager
         "${modifier}+v" = "exec ${pkgs.clipman}/bin/clipman pick -t wofi";
@@ -248,14 +293,7 @@ in {
           # }
         ];
       };
-      startup = [
-        {command = "${pkgs.dbus}/bin/dbus-update-activation-environment --systemd --all";}
-        {command = "${pkgs.systemd}/bin/systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP";}
-        {command = "${pkgs.wl-clipboard}/bin/wl-paste -t text --watch ${pkgs.clipman}/bin/clipman store";}
-        {command = "${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1";}
-        {command = "${pkgs.networkmanagerapplet}/bin/nm-applet --indicator";}
-        {command = "swaymsg workspace 1";}
-      ];
+      startup = startupConfig.commands;
     };
 
     # Enables the swaynag utility, which provides a notification system for Sway, the i3-compatible Wayland compositor.
@@ -265,7 +303,8 @@ in {
 
     # Sets the default floating border width to 2 pixels.
     extraConfig = ''
-      #
+      bindswitch --reload --locked lid:on exec ${pkgs.systemd}/bin/systemctl hibernate
+      bindsym XF86PowerOff exec
     '';
 
     # This code sets up environment variables required for certain applications to work properly with the Wayland display server used by Sway, the i3-compatible Wayland compositor.
