@@ -134,7 +134,7 @@
       syntaxHighlighting.enable = true;
       oh-my-zsh = {
         enable = true;
-        theme = "sorin";
+        theme = "gnzh";
         plugins = [
           "git"
           "history"
