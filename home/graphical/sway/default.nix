@@ -2,6 +2,7 @@
   config,
   lib,
   pkgs,
+  hostname,
   desktop,
   laptop,
   ...
@@ -10,7 +11,7 @@
   # This is typically the "Super" or "Windows" key on most keyboards.
   modifier = "Mod4";
   outputConfig =
-    if config.networking.hostName == desktop
+    if hostname == desktop
     then {
       "DP-1" = {
         mode = "5120x1440@240Hz";
@@ -23,7 +24,7 @@
         scale = "1.0";
       };
     }
-    else if config.networking.hostName == laptop
+    else if hostname == laptop
     then {
       "eDP-1" = {
         mode = "1920x1080";

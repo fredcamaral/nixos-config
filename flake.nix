@@ -98,7 +98,10 @@
               useGlobalPkgs = true;
               useUserPackages = true;
               backupFileExtension = "bkp3";
-              extraSpecialArgs = {inherit inputs lib;};
+              extraSpecialArgs = {
+                inherit inputs lib;
+                hostname = config.networking.hostName;
+              };
               users.${user} = {
                 pkgs,
                 config,
@@ -132,7 +135,10 @@
               useGlobalPkgs = true;
               useUserPackages = true;
               backupFileExtension = "bkp3";
-              extraSpecialArgs = {inherit inputs lib;};
+              extraSpecialArgs = {
+                inherit inputs lib;
+                hostname = config.networking.hostName;
+              };
               users.${user} = {
                 pkgs,
                 config,
