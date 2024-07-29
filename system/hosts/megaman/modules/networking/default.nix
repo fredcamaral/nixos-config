@@ -29,13 +29,13 @@ in {
       description = "Network prefix for IP addresses";
     };
 
-    freeFlowInterface = mkOption {
+    primaryInterface = mkOption {
       type = types.str;
       default = "enp11s0";
       description = "Interface for non-VPN traffic";
     };
 
-    vpnedInterface = mkOption {
+    secondaryInterface = mkOption {
       type = types.str;
       default = "enp10s0";
       description = "Interface for VPN traffic";
@@ -56,7 +56,7 @@ in {
         defaultGateway = cfg.defaultGatewayAddress;
 
         interfaces = {
-          ${cfg.freeFlowInterface} = {
+          ${cfg.primaryInterface} = {
             ipv4.addresses = [
               {
                 address = "${cfg.networkPrefix}.2";
@@ -64,7 +64,7 @@ in {
               }
             ];
           };
-          ${cfg.vpnedInterface} = {
+          ${cfg.secondaryInterface} = {
             ipv4.addresses = [
               {
                 address = "${cfg.networkPrefix}.3";
@@ -76,7 +76,7 @@ in {
 
         firewall = {
           enable = true;
-          trustedInterfaces = [cfg.freeFlowInterface cfg.vpnedInterface];
+          trustedInterfaces = [cfg.primaryInterface cfg.secondaryInterface];
           extraCommands = ''
             iptables -t mangle -F
             iptables -t nat -F
@@ -97,7 +97,7 @@ in {
         networkmanager.enable = true;
         enableIPv6 = false;
 
-        networkmanager.unmanaged = [cfg.vpnedInterface cfg.freeFlowInterface];
+        networkmanager.unmanaged = [cfg.secondaryInterface cfg.primaryInterface];
 
         networkmanager.settings = {
           main = {
@@ -109,7 +109,7 @@ in {
           extraCommands = ''
             iptables -t mangle -A PREROUTING -p tcp -m multiport --dports ${cfg.vpnedPorts} -j MARK --set-mark 1
             iptables -t mangle -A OUTPUT -p tcp -m multiport --dports ${cfg.vpnedPorts} -j MARK --set-mark 1
-            iptables -t nat -A POSTROUTING -m mark --mark 1 -o ${cfg.vpnedInterface} -j MASQUERADE
+            iptables -t nat -A POSTROUTING -m mark --mark 1 -o ${cfg.secondaryInterface} -j MASQUERADE
           '';
         };
 
@@ -135,9 +135,9 @@ in {
           run_cmd ip route flush table marked
           run_cmd ip rule del fwmark 1 table marked
           run_cmd ip rule add fwmark 1 table marked priority 90
-          run_cmd ip route add default via ${cfg.defaultGatewayAddress} dev ${cfg.vpnedInterface} table marked
+          run_cmd ip route add default via ${cfg.defaultGatewayAddress} dev ${cfg.secondaryInterface} table marked
           run_cmd ip route del default
-          run_cmd ip route add default via ${cfg.defaultGatewayAddress} dev ${cfg.freeFlowInterface}
+          run_cmd ip route add default via ${cfg.defaultGatewayAddress} dev ${cfg.primaryInterface}
 
           echo "-------------";
           echo "Current ip rules:"
