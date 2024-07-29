@@ -7,12 +7,12 @@
 
     nixos-hardware = {
       url = "github:nixos/nixos-hardware";
-      inputs.nixpkgs.follows = "nixpkgs";
+      # inputs.nixpkgs.follows = "nixpkgs";
     };
 
     systems = {
       url = "github:nix-systems/default-linux";
-      inputs.nixpkgs.follows = "nixpkgs";
+      # inputs.nixpkgs.follows = "nixpkgs";
     };
 
     agenix = {
