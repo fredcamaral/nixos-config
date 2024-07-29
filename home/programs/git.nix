@@ -3,7 +3,23 @@
   pkgs,
   lib,
   ...
-}: {
+}: let
+  gh-clone-org = pkgs.stdenv.mkDerivation {
+    pname = "gh-clone-org";
+    version = "main";
+    src = pkgs.fetchFromGitHub {
+      owner = "matt-bartel";
+      repo = "gh-clone-org";
+      rev = "master";
+      sha256 = "sha256-ViCtTH8TKU7xgq2oGhWxk0R4WRDZQZSf+yAmNo4xQv8=";
+    };
+    installPhase = ''
+      mkdir -p $out/bin
+      cp gh-clone-org $out/bin/
+      chmod +x $out/bin/gh-clone-org
+    '';
+  };
+in {
   programs.git = {
     enable = true;
     userName = "Fred Amaral";
@@ -50,9 +66,9 @@
     extensions = with pkgs; [
       # Add GitHub CLI extensions here
       # Note: Limited options available by default
-      # TODO: Look into OSPO tools like gh-net, gh-sbom
       gh-eco
       gh-copilot
+      gh-clone-org
     ];
     settings = {
       # Add any custom GitHub CLI settings here

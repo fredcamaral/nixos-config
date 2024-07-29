@@ -42,12 +42,6 @@
       enableZshIntegration = true;
     };
 
-    # A distributed version control system
-    git = {
-      enable = true;
-      # Add any git configurations here
-    };
-
     # An interactive process viewer for Unix
     htop.enable = true;
 

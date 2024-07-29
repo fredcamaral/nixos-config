@@ -20,18 +20,6 @@ in {
   ];
 
   services.mako.enable = true;
-  services.flameshot = {
-    enable = true;
-    settings = {
-      General = {
-        disabledTrayIcon = true;
-        showStartupLaunchMessage = false;
-        filenamePattern = "%F_%H-%M";
-        jpegQuality = 100;
-        savePath = "${config.xdg.userDirs.pictures}/screenshots";
-      };
-    };
-  };
 
   wayland.windowManager.sway = {
     enable = true;
@@ -125,7 +113,7 @@ in {
         "${modifier}+f" = "exec ${pkgs.firefox}/bin/firefox";
         "${modifier}+r" = "reload";
         "Ctrl+Alt+Delete" = "exit";
-        "Print" = "exec ${pkgs.shotman}/bin/shotman --capture region --copy --filename ${config.xdg.userDirs.pictures}/screenshots/%F_%H-%M-%S.png";
+        "Print" = "exec ${pkgs.grim}/bin/grim -g '$(${pkgs.slurp}/bin/slurp)' ${config.xdg.userDirs.pictures}/screenshots/$(date +'%Y-%m-%d_%H-%M-%S').png";
 
         # Floating toggle
         "${modifier}+Shift+v" = "floating toggle";
