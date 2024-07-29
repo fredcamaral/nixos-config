@@ -31,7 +31,6 @@
         position = "0,0";
         scale = "1.75";
         subpixel = "vrgb";
-        adaptive_sync = true;
       };
     }
     else {};
