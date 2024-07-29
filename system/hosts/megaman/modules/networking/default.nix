@@ -23,28 +23,43 @@ in {
       description = "List of DNS servers";
     };
 
-    networkPrefix = mkOption {
-      type = types.str;
-      default = "21.26.7";
-      description = "Network prefix for IP addresses";
+    primaryInterface = {
+      name = mkOption {
+        type = types.str;
+        default = "enp11s0";
+        description = "Name of the primary interface";
+      };
+      dhcp = mkOption {
+        type = types.bool;
+        default = true;
+        description = "Enable DHCP for primary interface";
+      };
     };
 
-    primaryInterface = mkOption {
-      type = types.str;
-      default = "enp11s0";
-      description = "Interface for non-VPN traffic";
+    secondaryInterface = {
+      name = mkOption {
+        type = types.str;
+        default = "enp10s0";
+        description = "Name of the secondary interface";
+      };
+      dhcp = mkOption {
+        type = types.bool;
+        default = true;
+        description = "Enable DHCP for secondary interface";
+      };
     };
 
-    secondaryInterface = mkOption {
-      type = types.str;
-      default = "enp10s0";
-      description = "Interface for VPN traffic";
-    };
-
-    vpnedPorts = mkOption {
-      type = types.str;
-      default = "80,443,8080";
-      description = "Ports to be routed through VPN";
+    vpnedPorts = {
+      enable = mkOption {
+        type = types.bool;
+        default = true;
+        description = "Enable VPN port routing";
+      };
+      list = mkOption {
+        type = types.str;
+        default = "80,443,8080";
+        description = "Ports to be routed through VPN";
+      };
     };
   };
 
@@ -56,22 +71,32 @@ in {
         defaultGateway = cfg.defaultGatewayAddress;
 
         interfaces = {
-          ${cfg.primaryInterface} = {
-            ipv4.addresses = [
-              {
-                address = "${cfg.networkPrefix}.2";
-                prefixLength = 24;
-              }
-            ];
-          };
-          ${cfg.secondaryInterface} = {
-            ipv4.addresses = [
-              {
-                address = "${cfg.networkPrefix}.3";
-                prefixLength = 24;
-              }
-            ];
-          };
+          ${cfg.primaryInterface.name} = mkMerge [
+            (mkIf (!cfg.primaryInterface.dhcp) {
+              ipv4.addresses = [
+                {
+                  address = "${cfg.primaryInterface.ipv4}";
+                  prefixLength = 24;
+                }
+              ];
+            })
+            (mkIf cfg.primaryInterface.dhcp {
+              useDHCP = true;
+            })
+          ];
+          ${cfg.secondaryInterface.name} = mkMerge [
+            (mkIf (!cfg.secondaryInterface.dhcp) {
+              ipv4.addresses = [
+                {
+                  address = "${cfg.secondaryInterface.ipv4}";
+                  prefixLength = 24;
+                }
+              ];
+            })
+            (mkIf cfg.secondaryInterface.dhcp {
+              useDHCP = true;
+            })
+          ];
         };
 
         firewall = {
@@ -97,7 +122,7 @@ in {
         networkmanager.enable = true;
         enableIPv6 = false;
 
-        networkmanager.unmanaged = [cfg.secondaryInterface cfg.primaryInterface];
+        networkmanager.unmanaged = [cfg.primaryInterface cfg.secondaryInterface];
 
         networkmanager.settings = {
           main = {

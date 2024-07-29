@@ -19,9 +19,23 @@
       defaultGatewayAddress = "21.26.7.1";
       nameservers = ["8.8.8.8" "1.1.1.1"];
       networkPrefix = "21.26.7";
-      primaryInterface = "enp11s0";
-      secondaryInterface = "enp10s0";
-      vpnedPorts = "80,443,8080";
+
+      primaryInterface = {
+        name = "enp11s0";
+        ipv4 = "21.26.7.2";
+        dhcp = false;
+      };
+
+      secondaryInterface = {
+        name = "enp10s0";
+        ipv4 = "21.26.7.3";
+        dhcp = false;
+      };
+
+      vpnedPorts = {
+        enable = false;
+        list = "80,443,8080";
+      };
     };
   };
 
