@@ -5,7 +5,7 @@
     enable = true;
 
     # Set the wallpaper image
-    image = ../../../../home/assets/wallpapers/51203074263_3d01ef89c5_o.jpg;
+    image = ../../home/assets/wallpapers/51203074263_3d01ef89c5_o.jpg;
 
     # Set the theme polarity (dark or light)
     polarity = "light";

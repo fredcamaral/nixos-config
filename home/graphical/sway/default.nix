@@ -2,6 +2,8 @@
   config,
   lib,
   pkgs,
+  desktop,
+  laptop,
   ...
 }: let
   # The modifier key used for Sway window management commands.
