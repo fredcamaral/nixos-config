@@ -100,7 +100,6 @@
               backupFileExtension = "bkp3";
               extraSpecialArgs = {
                 inherit inputs lib desktop laptop homelab raspi cloudserver domain;
-                hostname = config.networking.hostName;
               };
               users.${user} = {
                 pkgs,
@@ -109,6 +108,7 @@
               }: {
                 imports = [./home];
                 _module.args.nixosConfig = config;
+                _module.args.hostname = ${desktop};
               };
             };
           }
@@ -145,6 +145,7 @@
               }: {
                 imports = [./home];
                 _module.args.nixosConfig = config;
+                _module.args.hostname = ${laptop};
               };
             };
           }
