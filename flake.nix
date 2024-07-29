@@ -5,6 +5,10 @@
     nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-24.05";
     nixos-hardware.url = "github:nixos/nixos-hardware";
     systems.url = "github:nix-systems/default-linux";
+    nix-index-database = {
+      url = "github:nix-community/nix-index-database";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     agenix = {
       url = "github:ryantm/agenix";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -65,6 +69,8 @@
             ./system/common/default.nix
             stylix.nixosModules.stylix
             agenix.nixosModules.default
+            nix-index-database.nixosModules.nix-index
+            {programs.nix-index-database.comma.enable = true;}
             home-manager.nixosModules.home-manager
             {
               environment.systemPackages = [agenix.packages.${system}.default];
