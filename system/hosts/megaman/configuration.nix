@@ -9,9 +9,9 @@
   ## ! CONFIG HERE: options for proprietary modules ##########################
   # Define the config for the module networking
   networking = {
+    hostName = "megaman";
     vpnConfig = {
       enable = true;
-      hostName = "megaman";
       defaultGatewayAddress = "21.26.7.1";
       nameservers = ["8.8.8.8" "1.1.1.1"];
       networkPrefix = "21.26.7";

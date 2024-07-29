@@ -45,19 +45,12 @@ in {
       default = "80,443,8080";
       description = "Ports to be routed through VPN";
     };
-
-    hostName = mkOption {
-      type = types.str;
-      default = "megaman";
-      description = "Hostname of the system";
-    };
   };
 
   config = mkMerge [
     # Common configuration (applies regardless of enable status)
     {
       networking = {
-        hostName = cfg.hostName;
         nameservers = cfg.nameservers;
         defaultGateway = cfg.defaultGatewayAddress;
 
