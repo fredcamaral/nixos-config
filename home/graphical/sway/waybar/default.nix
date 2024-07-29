@@ -186,6 +186,11 @@
       tooltip-format = "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>";
     };
 
+    "clock#laptop" = {
+      format = "󰅐 {%H:%M}";
+      tooltip-format = "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>";
+    };
+
     "custom/user-host-label" = {
       exec = "${pkgs.coreutils}/bin/echo \"    $(${pkgs.coreutils}/bin/whoami)@$(${pkgs.hostname}/bin/hostname)\"";
       format = "{}";
@@ -293,7 +298,6 @@ in {
           "pulseaudio"
           "pulseaudio#microphone"
           "battery"
-          "custom/user-host-label"
           "clock"
         ];
         inherit
@@ -312,8 +316,7 @@ in {
           "pulseaudio"
           "pulseaudio#microphone"
           "tray"
-          "custom/user-host-label"
-          "clock"
+          "clock#laptop"
           ;
       }
     ];
