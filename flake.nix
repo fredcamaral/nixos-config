@@ -34,6 +34,7 @@
     nixos-hardware,
     systems,
     home-manager,
+    nix-index-database,
     agenix,
     stylix,
     hyprland,
