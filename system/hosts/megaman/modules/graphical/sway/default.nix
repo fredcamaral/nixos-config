@@ -10,13 +10,19 @@
   };
 
   services = {
-    displayManager = {
-      sddm.enable = true;
-      defaultSession = "sway";
-    };
     dbus.enable = true;
     xserver = {
       enable = true;
+    };
+    greetd = {
+      enable = true;
+      restart = true;
+      settings = {
+        default_session = {
+          command = "${pkgs.greetd.greetd}/bin/agreety --cmd sway";
+          user = "fredamaral";
+        };
+      };
     };
     gnome.gnome-keyring.enable = true;
   };

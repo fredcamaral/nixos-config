@@ -5,12 +5,12 @@
     enable = true;
 
     # Set the wallpaper image
-    image = ../../../../home/assets/wallpapers/groot.jpg;
+    image = ../../../../home/assets/wallpapers/51203074263_3d01ef89c5_o.jpg;
 
     # Set the theme polarity (dark or light)
-    polarity = "dark";
+    polarity = "light";
 
-    base16Scheme = "${pkgs.base16-schemes}/share/themes/ashes.yaml";
+    base16Scheme = "${pkgs.base16-schemes}/share/themes/tokyo-city-light.yaml";
 
     # Configure cursor theme
     cursor = {
@@ -50,12 +50,12 @@
       };
     };
 
-    # # Set opacity levels for different contexts
-    # opacity = {
-    #   # applications = 0.85;
-    #   desktop = 0.40;
-    #   # popups = 0.85;
-    #   terminal = 0.85;
-    # };
+    # Set opacity levels for different contexts
+    opacity = {
+      applications = 0.95;
+      desktop = 0.85;
+      popups = 0.85;
+      terminal = 0.85;
+    };
   };
 }

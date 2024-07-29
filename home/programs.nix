@@ -140,7 +140,7 @@
       syntaxHighlighting.enable = true;
       oh-my-zsh = {
         enable = true;
-        theme = "fino-time";
+        theme = "sorin";
         plugins = [
           "git"
           "history"
