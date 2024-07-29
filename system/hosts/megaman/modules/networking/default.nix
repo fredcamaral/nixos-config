@@ -9,8 +9,6 @@ with lib; let
   cfg = config.networking.${hostname};
 in {
   options.networking.${hostname} = {
-    enable = mkEnableOption "VPN configuration";
-
     defaultGatewayAddress = mkOption {
       type = types.str;
       default = "21.26.7.1";
@@ -29,6 +27,11 @@ in {
         default = "enp11s0";
         description = "Name of the primary interface";
       };
+      ipv4 = mkOption {
+        type = types.str;
+        default = "21.26.7.2";
+        description = "IPV4 of the primary interface";
+      };
       dhcp = mkOption {
         type = types.bool;
         default = true;
@@ -42,6 +45,11 @@ in {
         default = "enp10s0";
         description = "Name of the secondary interface";
       };
+      ipv4 = mkOption {
+        type = types.str;
+        default = "21.26.7.3";
+        description = "IPV4 of the secondary (vpned if true) interface";
+      };
       dhcp = mkOption {
         type = types.bool;
         default = true;
@@ -49,13 +57,13 @@ in {
       };
     };
 
-    vpnedPorts = {
+    vpn = {
       enable = mkOption {
         type = types.bool;
         default = true;
         description = "Enable VPN port routing";
       };
-      list = mkOption {
+      destinationPorts = mkOption {
         type = types.str;
         default = "80,443,8080";
         description = "Ports to be routed through VPN";
@@ -67,6 +75,7 @@ in {
     # Common configuration (applies regardless of enable status)
     {
       networking = {
+        hostName = hostname;
         nameservers = cfg.nameservers;
         defaultGateway = cfg.defaultGatewayAddress;
 

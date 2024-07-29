@@ -13,7 +13,6 @@
   ## ! CONFIG HERE: options for proprietary modules ##########################
   # Define the config for the module networking
   networking = {
-    hostName = hostname;
     ${hostname} = {
       defaultGatewayAddress = "21.26.7.1";
       nameservers = ["8.8.8.8" "1.1.1.1"];
