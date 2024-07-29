@@ -4,7 +4,6 @@
     map (module: ./${module}.nix) [
       "hardware"
       "monitoring"
-      "security"
       "services"
       "zfs"
     ]
