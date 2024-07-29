@@ -117,7 +117,7 @@ in {
     }
 
     # VPN-specific configuration (only applies when enabled)
-    (mkIf cfg.enable {
+    (mkIf cfg.vpn.enable {
       networking = {
         networkmanager.enable = true;
         enableIPv6 = false;

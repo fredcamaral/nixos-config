@@ -15,10 +15,8 @@
   networking = {
     hostName = hostname;
     ${hostname} = {
-      enable = true;
       defaultGatewayAddress = "21.26.7.1";
       nameservers = ["8.8.8.8" "1.1.1.1"];
-      networkPrefix = "21.26.7";
 
       primaryInterface = {
         name = "enp11s0";
@@ -32,9 +30,12 @@
         dhcp = false;
       };
 
-      vpnedPorts = {
+      vpn = {
         enable = false;
-        list = "80,443,8080";
+        ports = {
+          enable = false;
+          vpnedPorts = "80,443,8080";
+        };
       };
     };
   };
