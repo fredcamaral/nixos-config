@@ -113,20 +113,18 @@
       interface = "enp7s0u1";
       format-ethernet = "󰈀 Wired ({ipaddr}): 󰕒 {bandwidthUpBytes} 󰇚 {bandwidthDownBytes}";
       format-linked = "{ifname} (No IP)";
-      format-disconnected = "Wired Disconnected ⚠";
+      format-disconnected = "Wired ⚠";
       tooltip-format = "{ifname}: {ipaddr}/{cidr}";
       interval = 1;
-      min-length = 30;
     };
 
     "network#nic4" = {
       interface = "wlp3s0";
       format-wifi = "󰈀 WiFi ({ipaddr}): 󰕒 {bandwidthUpBytes} 󰇚 {bandwidthDownBytes}";
       format-linked = "{ifname} (No IP)";
-      format-disconnected = "WiFi Disconnected ⚠";
+      format-disconnected = "WiFi ⚠";
       tooltip-format = "{ifname}: {ipaddr}/{cidr}";
       interval = 1;
-      min-length = 30;
     };
 
     tray = {
