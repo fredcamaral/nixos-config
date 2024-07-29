@@ -3,6 +3,7 @@
   inputs,
   pkgs,
   hostname,
+  config,
   ...
 }: {
   # Import all necessary configuration modules
