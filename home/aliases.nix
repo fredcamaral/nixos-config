@@ -5,7 +5,7 @@
     cat = "bat";
 
     # Use 'eza' instead of 'ls' with icons always enabled
-    ls = "eza --icons=always";
+    ls = "eza --icons=always -o --git -s type";
 
     # Alias for full system cleanup
     fullClean = ''
