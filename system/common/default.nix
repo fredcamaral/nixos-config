@@ -20,6 +20,6 @@
       # Graphical environment
       ./graphical
       # Secrets Setup
-      #./secrets
+      ./secrets
     ];
 }

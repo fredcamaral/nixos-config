@@ -1,6 +1,6 @@
 {config, ...}: {
   age = {
-    identityPaths = ["${config.users.users.fredamaral.home}/repos/.secrets/key.txt"];
+    identityPaths = ["${config.users.users.fredamaral.home}/repos/.secrets/megaman-tailscale.txt"];
 
     secrets.megaman-tailscale-auth = {
       file = "${config.users.users.fredamaral.home}/repos/.secrets/megaman-tailscale-auth.age";
