@@ -108,7 +108,7 @@
               }: {
                 imports = [./home];
                 _module.args.nixosConfig = config;
-                _module.args.hostname = ${desktop};
+                _module.args.hostname = desktop;
               };
             };
           }
@@ -145,7 +145,7 @@
               }: {
                 imports = [./home];
                 _module.args.nixosConfig = config;
-                _module.args.hostname = ${laptop};
+                _module.args.hostname = laptop;
               };
             };
           }
