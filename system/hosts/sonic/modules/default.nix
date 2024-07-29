@@ -3,6 +3,7 @@
   imports = map (module: ./${module}.nix) [
     "hardware"
     "services"
+    "virtualisation"
     "packages"
   ];
 }

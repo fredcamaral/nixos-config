@@ -5,6 +5,7 @@
       "hardware"
       "monitoring"
       "services"
+      "virtualisation"
       "zfs"
     ]
     ++ [

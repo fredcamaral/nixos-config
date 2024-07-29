@@ -14,7 +14,6 @@
       "stylix"
       "time"
       "users"
-      "virtualisation"
     ]
     ++ [
       # Graphical environment

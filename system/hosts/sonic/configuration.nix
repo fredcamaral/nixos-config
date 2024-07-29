@@ -12,6 +12,7 @@
   ];
 
   boot = {
+    loader.efi.efiSysMountPoint = "/boot";
     consoleLogLevel = 0;
     kernelParams = ["quiet" "udev.log_priority=3"];
   };
