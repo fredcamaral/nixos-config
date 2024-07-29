@@ -1,5 +1,9 @@
 # configuration.nix
-{inputs, ...}: {
+{
+  inputs,
+  hostname,
+  ...
+}: {
   # Import all necessary configuration modules
   imports = [
     ./hardware-configuration.nix
@@ -9,7 +13,7 @@
   ## ! CONFIG HERE: options for proprietary modules ##########################
   # Define the config for the module networking
   networking = {
-    hostName = "sonic";
+    hostName = hostname;
     wireless = {
       enable = true;
       userControlled.enable = true;
@@ -28,7 +32,6 @@
       # hyprland.enable = true;
       sway.enable = true;
       # i3.enable = true;
-      # river.enable = true;
     };
   };
   ## ! END CONFIG #############################################################

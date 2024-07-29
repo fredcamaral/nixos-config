@@ -7,7 +7,7 @@
       "packages"
     ]
     ++ [
-      # Graphical environment
-      ./graphical
+      # Networking and VPN
+      ./networking
     ];
 }

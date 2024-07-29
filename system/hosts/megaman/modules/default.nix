@@ -8,11 +8,7 @@
       "zfs"
     ]
     ++ [
-      # Graphical environment
-      ./graphical
       # Networking and VPN
       ./networking
-      # Secrets Setup
-      #./secrets
     ];
 }

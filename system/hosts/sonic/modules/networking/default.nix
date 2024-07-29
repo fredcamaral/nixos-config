@@ -2,13 +2,12 @@
   config,
   pkgs,
   lib,
-  hostname,
   ...
 }:
 with lib; let
-  cfg = config.networking.${hostname};
+  cfg = config.networking.megaDrive;
 in {
-  options.networking.${hostname} = {
+  options.networking.megaDrive = {
     enable = mkEnableOption "VPN configuration";
 
     defaultGatewayAddress = mkOption {

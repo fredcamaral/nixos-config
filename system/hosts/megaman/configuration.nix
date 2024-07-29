@@ -1,5 +1,9 @@
 # configuration.nix
-{inputs, ...}: {
+{
+  inputs,
+  hostname,
+  ...
+}: {
   # Import all necessary configuration modules
   imports = [
     ./hardware-configuration.nix
@@ -9,8 +13,8 @@
   ## ! CONFIG HERE: options for proprietary modules ##########################
   # Define the config for the module networking
   networking = {
-    hostName = "megaman";
-    vpnConfig = {
+    hostName = hostname;
+    ${hostname} = {
       enable = true;
       defaultGatewayAddress = "21.26.7.1";
       nameservers = ["8.8.8.8" "1.1.1.1"];
@@ -32,7 +36,6 @@
       # hyprland.enable = true;
       sway.enable = true;
       # i3.enable = true;
-      # river.enable = true;
     };
   };
   ## ! END CONFIG #############################################################
