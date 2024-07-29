@@ -60,7 +60,7 @@ in {
     vpn = {
       enable = mkOption {
         type = types.bool;
-        default = true;
+        default = false;
         description = "Enable VPN port routing";
       };
       destinationPorts = mkOption {
@@ -107,15 +107,6 @@ in {
             })
           ];
         };
-
-        firewall = {
-          enable = true;
-          trustedInterfaces = [cfg.primaryInterface.name cfg.secondaryInterface.name];
-          extraCommands = ''
-            iptables -t mangle -F
-            iptables -t nat -F
-          '';
-        };
       };
 
       programs.nm-applet.enable = true;
@@ -140,7 +131,11 @@ in {
         };
 
         firewall = {
+          enable = true;
+          trustedInterfaces = [cfg.primaryInterface.name cfg.secondaryInterface.name];
           extraCommands = ''
+            iptables -t mangle -F
+            iptables -t nat -F
             iptables -t mangle -A PREROUTING -p tcp -m multiport --dports ${cfg.vpn.destinationPorts} -j MARK --set-mark 1
             iptables -t mangle -A OUTPUT -p tcp -m multiport --dports ${cfg.vpn.destinationPorts} -j MARK --set-mark 1
             iptables -t nat -A POSTROUTING -m mark --mark 1 -o ${cfg.secondaryInterface.name} -j MASQUERADE
@@ -183,6 +178,27 @@ in {
           echo "Current marked routing table:"
           ip route show table marked
           echo "-------------";
+        '';
+        serviceConfig = {
+          Type = "oneshot";
+          RemainAfterExit = true;
+        };
+      };
+    })
+
+    # Non-VPN configuration
+    (mkIf (!cfg.vpn.enable) {
+      networking.firewall.enable = true;
+
+      systemd.services.default-routes = {
+        description = "Set up default routes";
+        after = ["network-online.target"];
+        wants = ["network-online.target"];
+        wantedBy = ["multi-user.target"];
+        path = [pkgs.iproute2];
+        script = ''
+          ip route flush all
+          ip route add default via ${cfg.defaultGatewayAddress} dev ${cfg.primaryInterface.name}
         '';
         serviceConfig = {
           Type = "oneshot";
