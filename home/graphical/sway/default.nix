@@ -7,8 +7,29 @@
   # The modifier key used for Sway window management commands.
   # This is typically the "Super" or "Windows" key on most keyboards.
   modifier = "Mod4";
-  monitorMain = "DP-1";
-  monitorSecondary = "DP-2";
+  outputConfig =
+    if config.networking.hostName == desktop
+    then {
+      "DP-1" = {
+        mode = "5120x1440@240Hz";
+        position = "0,0";
+        scale = "1.0";
+      };
+      "DP-2" = {
+        mode = "2560x1440@60Hz";
+        position = "3600,-1440";
+        scale = "1.0";
+      };
+    }
+    else if config.networking.hostName == laptop
+    then {
+      "eDP-1" = {
+        mode = "1920x1080";
+        position = "0,0";
+        scale = "1.0";
+      };
+    }
+    else {};
 in {
   imports = [
     ./waybar
@@ -31,18 +52,7 @@ in {
       terminal = "kitty";
       menu = "wofi --show drun";
       defaultWorkspace = "1";
-      output = {
-        ${monitorMain} = {
-          mode = "5120x1440@240Hz";
-          position = "0,0";
-          scale = "1.0";
-        };
-        ${monitorSecondary} = {
-          mode = "2560x1440@60Hz";
-          position = "3600,-1440";
-          scale = "1.0";
-        };
-      };
+      output = outputConfig;
       focus = {
         followMouse = true;
         mouseWarping = true;

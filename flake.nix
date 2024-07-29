@@ -81,7 +81,7 @@
       # Desktop Configuration
       ${desktop} = lib.nixosSystem {
         inherit system;
-        specialArgs = {inherit inputs user desktop;};
+        specialArgs = {inherit inputs user desktop laptop homelab raspi cloudserver domain;};
         modules = [
           ./system/hosts/${desktop}/configuration.nix
           nixos-hardware.nixosModules.common-gpu-amd
