@@ -27,11 +27,11 @@
       secondaryInterface = {
         name = "enp10s0";
         ipv4 = "21.26.7.3";
-        dhcp = false;
+        dhcp = true;
       };
 
       vpn = {
-        enable = false;
+        enable = true;
         destinationPorts = "80,443,8080";
       };
     };

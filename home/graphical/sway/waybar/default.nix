@@ -91,7 +91,7 @@
 
     "network#nic1" = {
       interface = "enp11s0";
-      format-ethernet = "󰈀 21.26.7.2 󰕒 {bandwidthUpBytes} 󰇚 {bandwidthDownBytes}";
+      format-ethernet = "󰈀 {ipaddr} 󰕒 {bandwidthUpBytes} 󰇚 {bandwidthDownBytes}";
       format-linked = "{ifname} (No IP)";
       format-disconnected = "Disconnected ⚠";
       tooltip-format = "{ifname}: {ipaddr}/{cidr}";
@@ -101,7 +101,7 @@
 
     "network#nic2" = {
       interface = "enp10s0";
-      format-ethernet = "󰈀 21.26.7.3 󰕒 {bandwidthUpBytes} 󰇚 {bandwidthDownBytes}";
+      format-ethernet = "󰈀 {ipaddr} 󰕒 {bandwidthUpBytes} 󰇚 {bandwidthDownBytes}";
       format-linked = "{ifname} (No IP)";
       format-disconnected = "Disconnected ⚠";
       tooltip-format = "{ifname}: {ipaddr}/{cidr}";
@@ -111,7 +111,7 @@
 
     "network#nic3" = {
       interface = "enp7s0u1";
-      format-ethernet = "󰈀 Wired: 󰕒 {bandwidthUpBytes} 󰇚 {bandwidthDownBytes}";
+      format-ethernet = "󰈀 Wired ({ipaddr}): 󰕒 {bandwidthUpBytes} 󰇚 {bandwidthDownBytes}";
       format-linked = "{ifname} (No IP)";
       format-disconnected = "Wired Disconnected ⚠";
       tooltip-format = "{ifname}: {ipaddr}/{cidr}";
@@ -121,7 +121,7 @@
 
     "network#nic4" = {
       interface = "wlp3s0";
-      format-wifi = "󰈀 WiFi: 󰕒 {bandwidthUpBytes} 󰇚 {bandwidthDownBytes}";
+      format-wifi = "󰈀 WiFi ({ipaddr}): 󰕒 {bandwidthUpBytes} 󰇚 {bandwidthDownBytes}";
       format-linked = "{ifname} (No IP)";
       format-disconnected = "WiFi Disconnected ⚠";
       tooltip-format = "{ifname}: {ipaddr}/{cidr}";
