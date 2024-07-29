@@ -101,7 +101,7 @@ in {
 
         firewall = {
           enable = true;
-          trustedInterfaces = [cfg.primaryInterface cfg.secondaryInterface];
+          trustedInterfaces = [cfg.primaryInterface.name cfg.secondaryInterface.name];
           extraCommands = ''
             iptables -t mangle -F
             iptables -t nat -F
@@ -122,7 +122,7 @@ in {
         networkmanager.enable = true;
         enableIPv6 = false;
 
-        networkmanager.unmanaged = [cfg.primaryInterface cfg.secondaryInterface];
+        networkmanager.unmanaged = [cfg.primaryInterface.name cfg.secondaryInterface.name];
 
         networkmanager.settings = {
           main = {
@@ -132,9 +132,9 @@ in {
 
         firewall = {
           extraCommands = ''
-            iptables -t mangle -A PREROUTING -p tcp -m multiport --dports ${cfg.vpnedPorts} -j MARK --set-mark 1
-            iptables -t mangle -A OUTPUT -p tcp -m multiport --dports ${cfg.vpnedPorts} -j MARK --set-mark 1
-            iptables -t nat -A POSTROUTING -m mark --mark 1 -o ${cfg.secondaryInterface} -j MASQUERADE
+            iptables -t mangle -A PREROUTING -p tcp -m multiport --dports ${cfg.vpn.destinationPorts} -j MARK --set-mark 1
+            iptables -t mangle -A OUTPUT -p tcp -m multiport --dports ${cfg.vpn.destinationPorts} -j MARK --set-mark 1
+            iptables -t nat -A POSTROUTING -m mark --mark 1 -o ${cfg.secondaryInterface.name} -j MASQUERADE
           '';
         };
 
@@ -160,9 +160,9 @@ in {
           run_cmd ip route flush table marked
           run_cmd ip rule del fwmark 1 table marked
           run_cmd ip rule add fwmark 1 table marked priority 90
-          run_cmd ip route add default via ${cfg.defaultGatewayAddress} dev ${cfg.secondaryInterface} table marked
+          run_cmd ip route add default via ${cfg.defaultGatewayAddress} dev ${cfg.secondaryInterface.name} table marked
           run_cmd ip route del default
-          run_cmd ip route add default via ${cfg.defaultGatewayAddress} dev ${cfg.primaryInterface}
+          run_cmd ip route add default via ${cfg.defaultGatewayAddress} dev ${cfg.primaryInterface.name}
 
           echo "-------------";
           echo "Current ip rules:"

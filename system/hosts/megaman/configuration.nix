@@ -24,6 +24,7 @@
         dhcp = false;
       };
 
+      # VPNed Interface
       secondaryInterface = {
         name = "enp10s0";
         ipv4 = "21.26.7.3";
@@ -32,10 +33,7 @@
 
       vpn = {
         enable = false;
-        ports = {
-          enable = false;
-          vpnedPorts = "80,443,8080";
-        };
+        destinationPorts = "80,443,8080";
       };
     };
   };
