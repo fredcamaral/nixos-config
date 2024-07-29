@@ -20,7 +20,4 @@
 
   # Enable systemd in the initial ramdisk
   boot.initrd.systemd.enable = true;
-
-  # Use the latest kernel version
-  # boot.kernelPackages = pkgs.linuxPackages_latest;
 }
