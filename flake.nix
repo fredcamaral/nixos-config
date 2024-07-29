@@ -113,7 +113,7 @@
         inherit system;
         specialArgs = {inherit inputs user desktop;};
         modules = [
-          ./system/hosts/${desktop}/configuration.nix
+          ./system/hosts/${laptop}/configuration.nix
           nixos-hardware.nixosModules.apple-t2
           stylix.nixosModules.stylix
           agenix.nixosModules.default
