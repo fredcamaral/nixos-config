@@ -91,6 +91,7 @@
 
           # NIX-OS Hardware Specific Configuration
           nixos-hardware.nixosModules.common-gpu-amd
+
           home-manager.nixosModules.home-manager
           {
             home-manager = {
@@ -124,6 +125,7 @@
 
           # NIX-OS Hardware Specific Configuration
           nixos-hardware.nixosModules.apple-t2
+
           home-manager.nixosModules.home-manager
           {
             home-manager = {
