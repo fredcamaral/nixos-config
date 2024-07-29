@@ -109,6 +109,26 @@
       min-length = 30;
     };
 
+    "network#nic3" = {
+      interface = "enp7s0u1";
+      format-ethernet = "󰈀 21.26.7.3 󰕒 {bandwidthUpBytes} 󰇚 {bandwidthDownBytes}";
+      format-linked = "{ifname} (No IP)";
+      format-disconnected = "Disconnected ⚠";
+      tooltip-format = "{ifname}: {ipaddr}/{cidr}";
+      interval = 1;
+      min-length = 30;
+    };
+
+    "network#nic4" = {
+      interface = "wlp3s0";
+      format-ethernet = "󰈀 21.26.7.3 󰕒 {bandwidthUpBytes} 󰇚 {bandwidthDownBytes}";
+      format-linked = "{ifname} (No IP)";
+      format-disconnected = "Disconnected ⚠";
+      tooltip-format = "{ifname}: {ipaddr}/{cidr}";
+      interval = 1;
+      min-length = 30;
+    };
+
     tray = {
       icon-size = 12;
       spacing = 10;
@@ -253,7 +273,8 @@ in {
           "tray"
           "sway/workspaces"
           "sway/mode"
-          "network#nic1"
+          "network#nic3"
+          "network#nic4"
         ];
         modules-center = ["sway/window"];
         modules-right = [
@@ -269,7 +290,8 @@ in {
           (commonModules)
           "sway/workspaces"
           "sway/window"
-          "network#nic1"
+          "network#nic3"
+          "network#nic4"
           "cpu"
           "custom/temperature"
           "memory"
