@@ -18,6 +18,7 @@
     xserver = {
       enable = true;
     };
+    gnome.gnome-keyring.enable = true;
   };
 
   xdg.portal = {
@@ -37,6 +38,7 @@
     gtk4 # for GTK applications
     glib # for GTK applications
     gsettings-desktop-schemas # for GTK applications
+    gnome.seahorse # for GNOME applications
     xdg-utils # for XDG applications
   ];
 }

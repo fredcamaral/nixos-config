@@ -70,7 +70,7 @@
         inherit system;
         specialArgs = {inherit inputs user desktop;};
         modules = [
-          ./system/configuration.nix
+          ./system/hosts/${desktop}/configuration.nix
           nixos-hardware.nixosModules.common-gpu-amd
           stylix.nixosModules.stylix
           agenix.nixosModules.default
