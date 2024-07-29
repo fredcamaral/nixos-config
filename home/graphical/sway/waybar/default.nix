@@ -307,7 +307,6 @@ in {
           "custom/temperature"
           "memory"
           "custom/gpu-power-usage"
-          h
           "custom/gpu-temperature"
           "custom/gpu-mem-temperature"
           "pulseaudio"
