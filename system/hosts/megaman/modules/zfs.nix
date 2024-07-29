@@ -9,7 +9,7 @@
     kernelPackages = config.boot.zfs.package.latestCompatibleLinuxPackages;
 
     # Enable ZFS support
-    supportedFilesystems = ["zfs"];
+    supportedFilesystems = ["zfs" "exfat"];
 
     #zfs.extraPools = [
     #  "ness"
