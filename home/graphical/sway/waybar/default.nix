@@ -35,6 +35,17 @@
       max-length = 100;
     };
 
+    battery = {
+      format = "{capacity}% {icon}";
+      format-icons = ["󰂎" "󰁺" "󰁻" "󰁼" "󰁽" "󰁾" "󰁿" "󰂀" "󰂁" "󰂂" "󰁹"];
+      format-charging = "{capacity}% 󰂄";
+      interval = 30;
+      states = {
+        warning = 30;
+        critical = 15;
+      };
+    };
+
     "custom/cpu-label" = {
       exec = "${pkgs.coreutils}/bin/echo 'CPU:'";
       format = "{}";
@@ -281,6 +292,7 @@ in {
           "memory"
           "pulseaudio"
           "pulseaudio#microphone"
+          "battery"
           "custom/user-host-label"
           "clock"
         ];
@@ -290,10 +302,12 @@ in {
           "sway/window"
           "network#nic3"
           "network#nic4"
+          "battery"
           "cpu"
           "custom/temperature"
           "memory"
           "custom/gpu-power-usage"
+          h
           "custom/gpu-temperature"
           "custom/gpu-mem-temperature"
           "pulseaudio"
