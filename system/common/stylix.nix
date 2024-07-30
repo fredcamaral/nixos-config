@@ -5,12 +5,12 @@
     enable = true;
 
     # Set the wallpaper image
-    image = ../../home/assets/wallpapers/51203074263_3d01ef89c5_o.jpg;
+    image = ../../home/assets/wallpapers/wp7786806.webp;
 
     # Set the theme polarity (dark or light)
-    polarity = "light";
+    polarity = "dark";
 
-    base16Scheme = "${pkgs.base16-schemes}/share/themes/tokyo-city-light.yaml";
+    base16Scheme = "${pkgs.base16-schemes}/share/themes/ayu-dark.yaml";
 
     # Configure cursor theme
     cursor = {
