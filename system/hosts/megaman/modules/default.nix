@@ -6,6 +6,7 @@
       "monitoring"
       "services"
       "virtualisation"
+      "packages"
       "power-management"
       "zfs"
     ]

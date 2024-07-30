@@ -5,12 +5,6 @@
   ...
 }: {
   services = {
-    # Enable OpenRGB for RGB lighting control
-    hardware.openrgb.enable = false;
-
-    # Add OpenRGB udev rules
-    # udev.packages = with pkgs; [openrgb];
-
     # Enable periodic TRIM for SSDs
     fstrim.enable = true;
 
@@ -26,10 +20,15 @@
       authKeyFile = config.age.secrets.megaman-tailscale-auth.path;
     };
 
-    mpd = {
+    navidrome = {
       enable = true;
-      musicDirectory = "/media/limbo/music";
-      startWhenNeeded = true;
+      openFirewall = true;
+      settings = {
+        Port = 4533;
+        MusicFolder = "/media/limbo/music";
+        DataFolder = "/media/limbo/navidrome/data";
+        CacheFolder = "/media/limbo/navidrome/cache";
+      }
     };
 
     # Configure PipeWire for audio

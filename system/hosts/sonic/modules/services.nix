@@ -26,12 +26,6 @@
       authKeyFile = config.age.secrets.sonic-tailscale-auth.path;
     };
 
-    mpd = {
-      enable = true;
-      musicDirectory = "/media/limbo/music";
-      startWhenNeeded = true;
-    };
-
     # Configure PipeWire for audio
     pipewire = {
       enable = true;
