@@ -28,7 +28,7 @@
         MusicFolder = "/media/limbo/music";
         DataFolder = "/media/limbo/navidrome/data";
         CacheFolder = "/media/limbo/navidrome/cache";
-      }
+      };
     };
 
     # Configure PipeWire for audio
