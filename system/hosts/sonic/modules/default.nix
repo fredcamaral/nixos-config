@@ -5,5 +5,6 @@
     "services"
     "virtualisation"
     "packages"
+    "power-management"
   ];
 }
