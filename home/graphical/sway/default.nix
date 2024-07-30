@@ -14,7 +14,7 @@
     if hostname == desktop
     then {
       "DP-1" = {
-        mode = "5120x1440@240Hz";
+        mode = "5120x1440@60Hz";
         position = "0,0";
         scale = "1.0";
       };
@@ -25,7 +25,7 @@
       };
       "DP-3" = {
         mode = "2560x1440@60Hz";
-        position = "3600,-1440";
+        position = "-300,-1440";
         scale = "1.0";
       };
     }

@@ -277,6 +277,27 @@ in {
           ;
       }
       {
+        output = "DP-3";
+        layer = "top";
+        position = "top";
+        height = 36;
+        spacing = 4;
+        icon_theme = "Vimix-White";
+        modules-left = ["sway/workspaces" "sway/mode"];
+        modules-center = ["sway/window"];
+        modules-right = [
+          "custom/user-host-label"
+          "clock"
+        ];
+        inherit
+          (commonModules)
+          "sway/workspaces"
+          "sway/window"
+          "custom/user-host-label"
+          "clock"
+          ;
+      }
+      {
         output = "eDP-1";
         layer = "top";
         position = "top";
