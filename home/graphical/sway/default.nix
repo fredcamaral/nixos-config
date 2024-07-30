@@ -23,6 +23,11 @@
         position = "3600,-1440";
         scale = "1.0";
       };
+      "DP-3" = {
+        mode = "2560x1440@60Hz";
+        position = "3600,-1440";
+        scale = "1.0";
+      };
     }
     else if hostname == laptop
     then {
@@ -144,15 +149,15 @@ in {
         }
         {
           workspace = "8";
-          output = "DP-2";
+          output = "DP-3";
         }
         {
           workspace = "9";
-          output = "DP-2";
+          output = "DP-3";
         }
         {
           workspace = "10";
-          output = "DP-2";
+          output = "DP-3";
         }
       ];
       keybindings = lib.mkOptionDefault {
