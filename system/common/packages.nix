@@ -5,7 +5,9 @@
     todoist-electron # To-do list manager
     age # Tool for encrypting files
     nh # Command-line note-taking tool
-    vlc
+    vlc # Open-source media player
+    grim # Screenshot utility
+    slurp # Screenshot utility
 
     # Archiving and Compression
     pigz # Parallel implementation of gzip for faster compression

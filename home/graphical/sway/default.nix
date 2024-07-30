@@ -165,7 +165,7 @@ in {
         "${modifier}+f" = "exec ${pkgs.firefox}/bin/firefox";
         "${modifier}+r" = "reload";
         "Ctrl+Alt+Delete" = "exit";
-        "Print" = "exec ${pkgs.grim}/bin/grim -g '$(${pkgs.slurp}/bin/slurp)' ${config.xdg.userDirs.pictures}/screenshots/$(date +'%Y-%m-%d_%H-%M-%S').png";
+        "Print" = "exec ${pkgs.grim}/bin/grim -g '${pkgs.slurp}/bin/slurp)' ${config.xdg.userDirs.pictures}/screenshots/$(date +'%Y-%m-%d_%H-%M-%S').png";
 
         # Floating toggle
         "${modifier}+Shift+v" = "floating toggle";
