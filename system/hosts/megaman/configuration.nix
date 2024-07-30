@@ -27,7 +27,7 @@
       secondaryInterface = {
         name = "enp10s0";
         ipv4 = "21.26.7.3";
-        dhcp = true;
+        dhcp = false;
       };
 
       vpn = {
