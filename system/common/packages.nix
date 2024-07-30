@@ -10,6 +10,8 @@
     slurp # Screenshot utility
     wl-clipboard # Clipboard manager for Wayland
     brightnessctl # Utility for controlling screen brightness
+    go # Go programming language
+    go-tools # Go programming language
 
     # Archiving and Compression
     pigz # Parallel implementation of gzip for faster compression
