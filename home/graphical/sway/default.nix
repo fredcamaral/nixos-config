@@ -171,8 +171,8 @@ in {
         "${modifier}+Shift+v" = "floating toggle";
 
         # Copy and paste
-        "Ctrl+c" = "exec ${pkgs.wl-clipboard}/bin/wl-copy";
-        "Ctrl+v" = "exec ${pkgs.wl-clipboard}/bin/wl-paste";
+        # "Ctrl+c" = "exec ${pkgs.wl-clipboard}/bin/wl-copy";
+        # "Ctrl+v" = "exec ${pkgs.wl-clipboard}/bin/wl-paste";
 
         # Switch to the specified workspace number.
         "${modifier}+1" = "workspace number 1";
