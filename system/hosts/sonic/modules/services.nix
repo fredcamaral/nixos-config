@@ -26,6 +26,10 @@
       authKeyFile = config.age.secrets.sonic-tailscale-auth.path;
     };
 
+    mbpfan = {
+      enable = true;
+    };
+
     mpd = {
       enable = true;
       musicDirectory = "/media/limbo/music";

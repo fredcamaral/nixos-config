@@ -221,12 +221,12 @@ in {
         "XF86AudioLowerVolume" = "exec ${pkgs.pulseaudio}/bin/pactl set-sink-volume @DEFAULT_SINK@ -5%";
         "XF86AudioRaiseVolume" = "exec ${pkgs.pulseaudio}/bin/pactl set-sink-volume @DEFAULT_SINK@ +5%";
         "XF86AudioMicMute" = "exec ${pkgs.pulseaudio}/bin/pactl set-source-mute @DEFAULT_SOURCE@ toggle";
-        "XF86MonBrightnessDown" = "exec ${pkgs.light}/bin/light -U 5";
-        "XF86MonBrightnessUp" = "exec ${pkgs.light}/bin/light -A 5";
+        "XF86MonBrightnessDown" = "exec ${pkgs.brightnessctl}/bin/brightnessctl set 5%-";
+        "XF86MonBrightnessUp" = "exec ${pkgs.brightnessctl}/bin/brightnessctl set +5%";
         "XF86LaunchA" = "exec ${pkgs.wofi}/bin/wofi --show drun";
         "XF86LaunchB" = "exec ${pkgs.firefox}/bin/firefox";
-        "XF86KbdBrightnessDown" = "exec ${pkgs.kbdlight}/bin/kbdlight down";
-        "XF86KbdBrightnessUp" = "exec ${pkgs.kbdlight}/bin/kbdlight up";
+        "XF86KbdBrightnessDown" = "exec ${pkgs.brightnessctl}/bin/brightnessctl --device='smc::kbd_backlight' set 5%-";
+        "XF86KbdBrightnessUp" = "exec ${pkgs.brightnessctl}/bin/brightnessctl --device='smc::kbd_backlight' set +5%";
         "XF86AudioPlay" = "exec ${pkgs.playerctl}/bin/playerctl play-pause";
         "XF86AudioNext" = "exec ${pkgs.playerctl}/bin/playerctl next";
         "XF86AudioPrev" = "exec ${pkgs.playerctl}/bin/playerctl previous";
