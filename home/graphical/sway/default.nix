@@ -60,10 +60,6 @@
         {command = "${pkgs.wl-clipboard}/bin/wl-paste -t text --watch ${pkgs.clipman}/bin/clipman store";}
         {command = "${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1";}
         {command = "${pkgs.networkmanagerapplet}/bin/nm-applet --indicator";}
-        # {command = "${pkgs.systemd}/bin/systemctl --user import-environment SWAYSOCK";}
-        # {command = "${pkgs.swayidle}/bin/swayidle -w before-sleep '${pkgs.swaylock-effects}/bin/swaylock' \
-        #     lock '${pkgs.swaylock-effects}/bin/swaylock' \
-        #     lid-switch 'systemctl hibernate'";}
         {command = "swaymsg workspace 1";}
       ];
     }
@@ -72,7 +68,7 @@ in {
   imports = [
     ./waybar
     ./mako
-    ./swayidle
+    # ./swayidle
     ./swaylock
     ./wlogout
     ./wofi
