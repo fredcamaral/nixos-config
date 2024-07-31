@@ -3,5 +3,7 @@
   environment.systemPackages = with pkgs; [
     # to-organize
     supersonic-wayland
+    cava
+    cavalier
   ];
 }

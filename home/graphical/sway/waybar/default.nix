@@ -30,6 +30,14 @@
       };
     };
 
+    idle_inhibitor = {
+      format = "{icon}";
+      format-icons = {
+        activated = "";
+        deactivated = "";
+      };
+    };
+
     "sway/window" = {
       format = "󰖯 {}";
       max-length = 100;
@@ -231,6 +239,7 @@ in {
           "pulseaudio#microphone"
           "custom/user-host-label"
           "clock"
+          "idle_inhibitor"
         ];
         inherit
           (commonModules)
@@ -253,6 +262,7 @@ in {
           "tray"
           "custom/user-host-label"
           "clock"
+          "idle_inhibitor"
           ;
       }
       {
@@ -267,6 +277,7 @@ in {
         modules-right = [
           "custom/user-host-label"
           "clock"
+          "idle_inhibitor"
         ];
         inherit
           (commonModules)
@@ -274,6 +285,7 @@ in {
           "sway/window"
           "custom/user-host-label"
           "clock"
+          "idle_inhibitor"
           ;
       }
       {
@@ -288,6 +300,7 @@ in {
         modules-right = [
           "custom/user-host-label"
           "clock"
+          "idle_inhibitor"
         ];
         inherit
           (commonModules)
@@ -295,6 +308,7 @@ in {
           "sway/window"
           "custom/user-host-label"
           "clock"
+          "idle_inhibitor"
           ;
       }
       {
@@ -320,6 +334,7 @@ in {
           "pulseaudio#microphone"
           "battery"
           "clock"
+          "idle_inhibitor"
         ];
         inherit
           (commonModules)
@@ -338,6 +353,7 @@ in {
           "pulseaudio#microphone"
           "tray"
           "clock#laptop"
+          "idle_inhibitor"
           ;
       }
     ];

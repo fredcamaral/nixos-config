@@ -68,11 +68,10 @@ in {
   imports = [
     ./waybar
     ./mako
-    # ./swayidle
+    ./swayidle
     ./swaylock
     ./wlogout
     ./wofi
-
     ./dotfiles.nix
   ];
 
