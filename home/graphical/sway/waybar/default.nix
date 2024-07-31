@@ -243,7 +243,7 @@ in {
           "sway/mode"
           "network#nic1"
           "network#nic2"
-          "cava"
+          # "cava"
         ];
         modules-center = ["sway/window"];
         modules-right = [
@@ -285,7 +285,8 @@ in {
           "custom/user-host-label"
           "clock"
           "idle_inhibitor"
-          "cava"
+          # "cava"
+          
           ;
       }
       {
