@@ -4,7 +4,7 @@
     map (module: ./${module}.nix) [
       "hardware"
       # "monitoring"
-      "netdata"
+      # "netdata"
       "services"
       "virtualisation"
       "packages"
