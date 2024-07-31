@@ -36,7 +36,6 @@
         "logind.service" = "yes";
       };
     };
-    pythonModules = ["psutil"];
   };
 
   # Open firewall ports for Prometheus and Grafana
