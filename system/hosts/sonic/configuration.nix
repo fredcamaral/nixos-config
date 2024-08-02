@@ -37,6 +37,9 @@
         "Fredflat_5G" = {
           psk = "FF1048654";
         };
+        "Farenet" = {
+          psk = config.age.secrets.sonic-wifi-farenet.path;
+        };
       };
     };
   };
