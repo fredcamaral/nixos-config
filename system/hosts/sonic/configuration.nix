@@ -33,11 +33,11 @@
       enable = true;
       userControlled.enable = true;
       interfaces = ["wlp3s0"];
-      # networks = {
-      #   "Farenet" = {
-      #     psk = config.age.secrets."${hostname}-wifi-farenet".path;
-      #   };
-      # };
+      networks = {
+        "Fredflat_5G" = {
+          psk = "FF1048654";
+        };
+      };
     };
   };
 
