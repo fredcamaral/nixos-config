@@ -9,6 +9,7 @@
       "virtualisation"
       "packages"
       "power-management"
+      "programs"
       "zfs"
     ]
     ++ [
