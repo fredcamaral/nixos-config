@@ -5,5 +5,6 @@
     supersonic-wayland
     cava
     cavalier
+    deckmaster
   ];
 }
