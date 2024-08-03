@@ -32,15 +32,9 @@
     wireless = {
       enable = true;
       userControlled.enable = true;
+      dbusControlled = true;
+      fallbackToWPA2 = true;
       interfaces = ["wlp3s0"];
-      networks = {
-        "Fredflat_5G" = {
-          psk = "FF1048654";
-        };
-        "Farenet" = {
-          psk = config.age.secrets.sonic-wifi-farenet.path;
-        };
-      };
     };
   };
 
