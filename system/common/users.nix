@@ -17,6 +17,7 @@ in {
         "libvirtd"
         "networkmanager"
         "docker"
+        "plugdev"
       ];
     };
   };
