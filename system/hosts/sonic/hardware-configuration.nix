@@ -30,12 +30,6 @@
     "brcmfmac.roamoff=1" # Disable brcmfmac WiFi power saving
     "noresume" # Disable suspend to RAM
     "acpi_osi=Darwin" # Enable ACPI OS support
-    "acpi_mask_gpe=0x06" # Disable GPE wakeup
-    "acpi.ec_no_wakeup=1" # Disable EC wakeup
-    "intel_lpss.force_probe=-INT34BA" # Disable Intel LPS (Power Limiting)
-    "debug_acpi=verbose" # Enable ACPI debug logging
-    "loglevel=7" # Set log level
-    # "resume_offset=47329280" # Set resume offset
   ];
 
   # Kernel sysctl parameters
