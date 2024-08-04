@@ -234,6 +234,8 @@ in {
         "XF86AudioPlay" = "exec ${pkgs.playerctl}/bin/playerctl play-pause";
         "XF86AudioNext" = "exec ${pkgs.playerctl}/bin/playerctl next";
         "XF86AudioPrev" = "exec ${pkgs.playerctl}/bin/playerctl previous";
+        "XF86Sleep" = "exec ${pkgs.systemd}/bin/systemctl suspend";
+        "XF86PowerOff" = "exec ${pkgs.systemd}/bin/systemctl suspend";
 
         # Clipboard manager
         "${modifier}+v" = "exec ${pkgs.clipman}/bin/clipman pick -t wofi";
@@ -307,7 +309,7 @@ in {
 
     # Sets the default floating border width to 2 pixels.
     extraConfig = ''
-      bindswitch --reload --locked lid:on exec '${pkgs.swaylock-effects}/bin/swaylock && ${pkgs.systemd}/bin/systemctl hibernate'
+      bindswitch --reload --locked lid:on exec '${pkgs.swaylock-effects}/bin/swaylock && ${pkgs.systemd}/bin/systemctl suspend'
       bindsym XF86PowerOff exec
     '';
 
