@@ -21,5 +21,13 @@
       group = "root";
       mode = "0400";
     };
+
+    secrets."${hostname}-wireless-networks" = {
+      file = "${config.users.users.fredamaral.home}/repos/.secrets/${hostname}-wireless-networks.age";
+
+      owner = "root";
+      group = "root";
+      mode = "0400";
+    };
   };
 }
