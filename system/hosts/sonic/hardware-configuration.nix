@@ -64,6 +64,7 @@
     {
       device = "/var/lib/swapfile";
       size = 8192; # Size in MB, adjust as needed
+      depends = ["/"];
     }
   ];
 
