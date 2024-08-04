@@ -155,6 +155,10 @@ in {
           output = "DP-3";
         }
       ];
+      bindswitch = {
+        "Lid:on" = "output eDP-1 enable";
+        "Lid:off" = "output eDP-1 disable";
+      };
       keybindings = lib.mkOptionDefault {
         "${modifier}+Return" = "exec ${pkgs.kitty}/bin/kitty";
         "${modifier}+q" = "kill";

@@ -20,6 +20,14 @@
     # Enable CUPS for printing
     printing.enable = true;
 
+    logind = {
+      lidSwitch = "suspend";
+      extraConfig = ''
+        HandleLidSwitch=suspend
+        HandleLidSwitchExternalPower=suspend
+      '';
+    };
+
     # Enable Tailscale VPN
     tailscale = {
       enable = true;
