@@ -27,8 +27,9 @@
 
   systemd.services.reload-problematic-modules = {
     description = "Reload problematic modules after resume";
-    before = ["sleep.target"];
-    wantedBy = ["sleep.target"];
+    before = ["hybrid-sleep.target" "suspend.target"];
+    after = ["hybrid-sleep.target" "suspend.target"];
+    wantedBy = ["hybrid-sleep.target" "suspend.target"];
     script = ''
       #modprobe -r brcmfmac
       #modprobe -r brcmfmac_wcc
