@@ -6,5 +6,6 @@
     gpu-switch
     dmg2img
     python3
+    tiny-dfr
   ];
 }

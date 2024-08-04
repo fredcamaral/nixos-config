@@ -27,11 +27,15 @@
 
   systemd.services.reload-problematic-modules = {
     description = "Reload problematic modules after resume";
-    after = ["suspend.target" "hibernate.target" "hybrid-sleep.target"];
-    wantedBy = ["suspend.target" "hibernate.target" "hybrid-sleep.target"];
+    before = ["sleep.target"];
+    wantedBy = ["sleep.target"];
     script = ''
-      modprobe -r brcmfmac
-      modprobe brcmfmac
+      #modprobe -r brcmfmac
+      #modprobe -r brcmfmac_wcc
+      rmmod -f apple-bce
+      #modprobe brcmfmac
+      #modprobe brcmfmac_wcc
+      modprobe apple-bce
     '';
     serviceConfig.Type = "oneshot";
   };
