@@ -29,6 +29,7 @@
     "iommu=pt" # Enable IOMMU in pass-through mode
     "intel_pstate=active" # Enable Intel P-State Coordination (C-State)
     "brcmfmac.roamoff=1" # Disable brcmfmac WiFi power saving
+    # "resume_offset=<offset>" # Set resume offset
   ];
 
   # Kernel sysctl parameters
@@ -59,8 +60,14 @@
     options = ["fmask=0022" "dmask=0022"];
   };
 
-  # No swap configuration (using zram or no swap)
-  swapDevices = [];
+  swapDevices = [
+    {
+      device = "/var/lib/swapfile";
+      size = 8192; # Size in MB, adjust as needed
+    }
+  ];
+
+  boot.resumeDevice = "/var/lib/swapfile";
 
   # Disable DHCP globally (we're using static IP configuration)
   networking.useDHCP = lib.mkDefault true;
