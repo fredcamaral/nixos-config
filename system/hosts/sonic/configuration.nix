@@ -36,8 +36,6 @@
       iwd.enable = true;
       environmentFile = wirelessNetworks;
       userControlled.enable = true;
-      dbusControlled = true;
-      fallbackToWPA2 = true;
       interfaces = ["wlan0"];
       networks = {
         Farenet.psk = "@Farenet_PSK";

@@ -159,7 +159,7 @@
     };
 
     "network#nic4" = {
-      interface = "wlp3s0";
+      interface = "wlan0";
       format-wifi = "󰈀 WiFi ({ipaddr}): 󰕒 {bandwidthUpBytes} 󰇚 {bandwidthDownBytes}";
       format-linked = "{ifname} (No IP)";
       format-disconnected = "WiFi ⚠";
