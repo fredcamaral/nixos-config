@@ -10,6 +10,24 @@
     ./modules
   ];
 
+  systemd.services.home-backup = {
+    description = "Backup home directory";
+    serviceConfig = {
+      Type = "oneshot";
+      ExecStart = "${pkgs.rsync}/bin/rsync -avz --delete /home/fredamaral /media/ness/backup/home";
+      User = "fredamaral";
+    };
+  };
+
+  systemd.timers.home-backup = {
+    wantedBy = ["timers.target"];
+    partOf = ["home-backup.service"];
+    timerConfig = {
+      OnCalendar = "hourly";
+      Persistent = true;
+    };
+  };
+
   ## ! CONFIG HERE: options for proprietary modules ##########################
   # Define the config for the module networking
   networking = {

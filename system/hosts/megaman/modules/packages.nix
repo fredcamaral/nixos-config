@@ -6,5 +6,6 @@
     cava
     cavalier
     deckmaster
+    rsync
   ];
 }
