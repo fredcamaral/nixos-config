@@ -27,14 +27,22 @@
 
   ## ! CONFIG HERE: options for proprietary modules ##########################
   # Define the config for the module networking
-  networking = {
+  networking = let
+    wirelessNetworks = config.age.secrets."${hostname}-wireless-networks".path;
+  in {
     hostName = hostname;
     wireless = {
       enable = true;
+      environmentFile = wirelessNetworks;
       userControlled.enable = true;
       dbusControlled = true;
       fallbackToWPA2 = true;
       interfaces = ["wlp3s0"];
+      networks = {
+        "@Farenet@" = {
+          psk = "@Farenet_PSK@";
+        };
+      };
     };
   };
 
