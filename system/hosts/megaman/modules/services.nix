@@ -31,22 +31,6 @@
       authKeyFile = config.age.secrets.megaman-tailscale-auth.path;
     };
 
-    rsync = {
-      enable = true;
-      extraOptions = ["-avz" "--delete"];
-      paths = [
-        {
-          src = "/home/fredamaral";
-          dest = "/media/ness/backup/home";
-          recursive = true;
-          delete = true;
-        }
-      ];
-      user = "fredamaral";
-      group = "users";
-      timer = "hourly";
-    };
-
     navidrome = {
       enable = true;
       openFirewall = true;

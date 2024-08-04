@@ -2,6 +2,7 @@
 {
   inputs,
   hostname,
+  pkgs,
   ...
 }: {
   # Import all necessary configuration modules
@@ -14,7 +15,9 @@
     description = "Backup home directory";
     serviceConfig = {
       Type = "oneshot";
-      ExecStart = "${pkgs.rsync}/bin/rsync -avz --delete /home/fredamaral /media/ness/backup/home";
+      ExecStart = ''
+        ${pkgs.rsync}/bin/rsync -avz --delete /home/fredamaral /media/ness/backup/home
+      '';
       User = "fredamaral";
     };
   };
