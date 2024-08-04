@@ -7,6 +7,10 @@
         command = "${pkgs.swaylock-effects}/bin/swaylock";
       }
       {
+        event = "after-resume";
+        command = "${pkgs.swaylock-effects}/bin/swaylock";
+      }
+      {
         event = "lock";
         command = "lock";
       }

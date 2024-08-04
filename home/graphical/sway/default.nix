@@ -307,7 +307,7 @@ in {
 
     # Sets the default floating border width to 2 pixels.
     extraConfig = ''
-      bindswitch --reload --locked lid:on exec ${pkgs.systemd}/bin/systemctl hibernate
+      bindswitch --reload --locked lid:on exec '${pkgs.swaylock-effects}/bin/swaylock && ${pkgs.systemd}/bin/systemctl hibernate'
       bindsym XF86PowerOff exec
     '';
 
