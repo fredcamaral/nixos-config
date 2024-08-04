@@ -51,6 +51,7 @@
   fileSystems."/" = {
     device = "/dev/disk/by-partlabel/root";
     fsType = "ext4";
+    options = ["noatime" "defaults"];
   };
 
   # Boot partition configuration
@@ -64,7 +65,6 @@
     {
       device = "/var/lib/swapfile";
       size = 8192; # Size in MB, adjust as needed
-      depends = ["/"];
     }
   ];
 
