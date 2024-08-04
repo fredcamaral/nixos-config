@@ -6,5 +6,6 @@
     wpa_supplicant_gui
     gpu-switch
     dmg2img
+    python3
   ];
 }
