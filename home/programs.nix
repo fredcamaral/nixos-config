@@ -14,8 +14,10 @@
   ];
 
   programs = {
-    # Enable and configure various CLI tools and applications
-
+    atuin = {
+      enable = true;
+      enableZshIntegration = true;
+    };
     # A cat clone with syntax highlighting and Git integration
     bat = {
       enable = true;
