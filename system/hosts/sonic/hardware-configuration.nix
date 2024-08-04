@@ -21,7 +21,7 @@
   # Any extra kernel packages to install
   boot.extraModulePackages = [];
 
-  boot.supportedFilesystems = ["hfsplus"];
+  boot.supportedFilesystems = ["hfs"];
 
   # Kernel parameters
   boot.kernelParams = [
