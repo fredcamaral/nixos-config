@@ -8,7 +8,6 @@
       "console"
       "nixsettings"
       "packages"
-      "power-management"
       "programs"
       "security"
       "stylix"

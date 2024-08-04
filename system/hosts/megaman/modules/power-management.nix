@@ -9,4 +9,6 @@
     enable = true;
     cpuFreqGovernor = lib.mkDefault "ondemand";
   };
+  services.acpid.enable = true;
+  services.thermald.enable = true;
 }
