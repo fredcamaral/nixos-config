@@ -7,8 +7,6 @@
   laptop,
   ...
 }: let
-  # The modifier key used for Sway window management commands.
-  # This is typically the "Super" or "Windows" key on most keyboards.
   modifier = "Mod4";
   outputConfig =
     if hostname == desktop
@@ -169,10 +167,6 @@ in {
 
         # Floating toggle
         "${modifier}+Shift+v" = "floating toggle";
-
-        # Copy and paste
-        # "Ctrl+c" = "exec ${pkgs.wl-clipboard}/bin/wl-copy";
-        # "Ctrl+v" = "exec ${pkgs.wl-clipboard}/bin/wl-paste";
 
         # Switch to the specified workspace number.
         "${modifier}+1" = "workspace number 1";
