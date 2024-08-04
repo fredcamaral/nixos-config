@@ -1,200 +1,39 @@
-Aug 04 01:44:06 sonic dockerd-rootless[1633]: time="2024-08-04T01:44:06.414692901-03:00" level=warning msg="WARNING: No cpuset support"
-Aug 04 01:44:06 sonic dockerd-rootless[1633]: time="2024-08-04T01:44:06.415268870-03:00" level=info msg="Docker daemon" commit=v27.1.1 containerd-snapshotter=false storage-driver=overlay2 version=27.1.1
-Aug 04 01:44:06 sonic dockerd-rootless[1633]: time="2024-08-04T01:44:06.415911581-03:00" level=info msg="Daemon has completed initialization"
-Aug 04 01:44:06 sonic dockerd[1720]: time="2024-08-04T01:44:06.484679477-03:00" level=info msg="API listen on /run/docker.sock"
-Aug 04 01:44:06 sonic dockerd[1720]: time="2024-08-04T01:44:06.484727204-03:00" level=info msg="API listen on /run/docker.sock"
-Aug 04 01:44:06 sonic systemd[1]: Started Docker Application Container Engine.
-Aug 04 01:44:06 sonic systemd[1]: Reached target Multi-User System.
-Aug 04 01:44:06 sonic systemd[1]: Reached target Graphical Interface.
-Aug 04 01:44:06 sonic dockerd-rootless[1633]: time="2024-08-04T01:44:06.486665111-03:00" level=info msg="API listen on /run/user/1000/docker.sock"
-Aug 04 01:44:06 sonic systemd[1569]: Started Docker Application Container Engine (Rootless).
-Aug 04 01:44:06 sonic systemd[1569]: Reached target Main User Target.
-Aug 04 01:44:06 sonic systemd[1569]: Startup finished in 3.144s.
-Aug 04 01:44:06 sonic systemd[1]: Starting Disable kernel module loading...
-Aug 04 01:44:06 sonic systemd[1]: Starting Powertop tunings...
-Aug 04 01:44:06 sonic powertop[2290]: modprobe cpufreq_stats failed
-Aug 04 01:44:06 sonic systemd[1]: Finished Disable kernel module loading.
-Aug 04 01:44:06 sonic powertop[2290]: Loaded 0 prior measurements
-Aug 04 01:44:06 sonic powertop[2290]: RAPL device for cpu 0
-Aug 04 01:44:06 sonic powertop[2290]: RAPL Using PowerCap Sysfs : Domain Mask f
-Aug 04 01:44:06 sonic powertop[2290]: RAPL device for cpu 0
-Aug 04 01:44:06 sonic powertop[2290]: RAPL Using PowerCap Sysfs : Domain Mask f
-Aug 04 01:44:06 sonic powertop[2290]: Devfreq not enabled
-Aug 04 01:44:06 sonic powertop[2290]: glob returned GLOB_ABORTED
-Aug 04 01:44:07 sonic dhcpcd[791]: enp2s0f1u1: using IPv4LL address 169.254.124.191
-Aug 04 01:44:07 sonic dhcpcd[791]: enp2s0f1u1: adding route to 169.254.0.0/16
-Aug 04 01:44:07 sonic tailscaled[859]: LinkChange: major, rebinding. New state: interfaces.State{defaultRoute=wlan0 ifs={docker0:[172.17.0.1/16] tailscale0:[100.121.172.65/32 fd7a:115c:a1e0::4401:ac41/128 llu6] wlan0:[21.26.7.184/24 llu6]} v4=true v6=false}
-Aug 04 01:44:07 sonic tailscaled[859]: dns: Set: {DefaultResolvers:[] Routes:{coyote-kelvin.ts.net.:[] ts.net.:[199.247.155.53 2620:111:8007::53]}+65arpa SearchDomains:[coyote-kelvin.ts.net.] Hosts:5}
-Aug 04 01:44:07 sonic tailscaled[859]: dns: Resolvercfg: {Routes:{.:[21.26.7.1] ts.net.:[199.247.155.53 2620:111:8007::53]} Hosts:5 LocalDomains:[coyote-kelvin.ts.net.]+65arpa}
-Aug 04 01:44:07 sonic tailscaled[859]: dns: OScfg: {Nameservers:[100.100.100.100] SearchDomains:[coyote-kelvin.ts.net. piresamaral.com.] }
-Aug 04 01:44:07 sonic tailscaled[859]: wgengine: set DNS config again after major link change
-Aug 04 01:44:07 sonic tailscaled[859]: [RATELIMIT] format("onPortUpdate(port=%v, network=%s)") (7 dropped)
-Aug 04 01:44:07 sonic tailscaled[859]: onPortUpdate(port=41641, network=udp6)
-Aug 04 01:44:07 sonic tailscaled[859]: onPortUpdate(port=41641, network=udp4)
-Aug 04 01:44:07 sonic tailscaled[859]: [RATELIMIT] format("onPortUpdate(port=%v, network=%s)")
-Aug 04 01:44:07 sonic tailscaled[859]: Rebind; defIf="wlan0", ips=[21.26.7.184/24 fe80::8a66:5aff:fe06:7380/64]
-Aug 04 01:44:07 sonic tailscaled[859]: magicsock: 1 active derp conns: derp-11=cr1s,wr1s
-Aug 04 01:44:07 sonic tailscaled[859]: [RATELIMIT] format("magicsock: %v active derp conns%s")
-Aug 04 01:44:07 sonic tailscaled[859]: post-rebind ping of DERP region 11 okay
+Aug 04 01:43:27 localhost kernel: x86/cpu: SGX disabled by BIOS.
+Aug 04 01:43:27 localhost kernel: ACPI BIOS Error (bug): AE_AML_BUFFER_LIMIT, Field [CDW3] at bit offset/length 64/32 exceeds size of target Buffer (64 bits) (20230628/dsopcode-198)
+Aug 04 01:43:27 localhost kernel: ACPI Error: Aborting method \_SB._OSC due to previous error (AE_AML_BUFFER_LIMIT) (20230628/psparse-529)
+Aug 04 01:43:27 localhost kernel: ACPI Error: AE_ALREADY_EXISTS, SSDT 0xFFFF9E44C25F7400 Table is already loaded (20230628/tbdata-548)
+Aug 04 01:43:27 localhost kernel: ACPI Error: Aborting method \_PR.CPU0.GCAP due to previous error (AE_ALREADY_EXISTS) (20230628/psparse-529)
+Aug 04 01:43:27 localhost kernel: ACPI Error: Aborting method \_PR.CPU0._OSC due to previous error (AE_ALREADY_EXISTS) (20230628/psparse-529)
+Aug 04 01:43:27 localhost kernel: ACPI Error: AE_ALREADY_EXISTS, SSDT 0xFFFF9E44C2468800 Table is already loaded (20230628/tbdata-548)
+Aug 04 01:43:27 localhost kernel: ACPI Error: Aborting method \_PR.CPU0.GCAP due to previous error (AE_ALREADY_EXISTS) (20230628/psparse-529)
+Aug 04 01:43:27 localhost kernel: ACPI Error: Aborting method \_PR.CPU0._PDC due to previous error (AE_ALREADY_EXISTS) (20230628/psparse-529)
+Aug 04 01:43:27 localhost kernel: ACPI Error: AE_ALREADY_EXISTS, SSDT 0xFFFF9E44C2468800 Table is already loaded (20230628/tbdata-548)
+Aug 04 01:43:27 localhost kernel: ACPI Error: Aborting method \_PR.CPU1.APPT due to previous error (AE_ALREADY_EXISTS) (20230628/psparse-529)
+Aug 04 01:43:27 localhost kernel: ACPI Error: Aborting method \_PR.CPU1.GCAP due to previous error (AE_ALREADY_EXISTS) (20230628/psparse-529)
+Aug 04 01:43:27 localhost kernel: ACPI Error: Aborting method \_PR.CPU1._PDC due to previous error (AE_ALREADY_EXISTS) (20230628/psparse-529)
+Aug 04 01:43:27 localhost kernel: ACPI Error: AE_ALREADY_EXISTS, SSDT 0xFFFF9E44C25F7400 Table is already loaded (20230628/tbdata-548)
+Aug 04 01:43:27 localhost kernel: ACPI Error: Aborting method \_PR.CPU1.APCT due to previous error (AE_ALREADY_EXISTS) (20230628/psparse-529)
+Aug 04 01:43:27 localhost kernel: ACPI Error: Aborting method \_PR.CPU2.GCAP due to previous error (AE_ALREADY_EXISTS) (20230628/psparse-529)
+Aug 04 01:43:27 localhost kernel: ACPI Error: Aborting method \_PR.CPU2._PDC due to previous error (AE_ALREADY_EXISTS) (20230628/psparse-529)
+Aug 04 01:43:27 localhost kernel: ERROR: Unable to locate IOAPIC for GSI 34
+Aug 04 01:43:28 localhost kernel: bce-vhci: Not implemented: wait for pending output requests
+Aug 04 01:43:28 localhost kernel: bce-vhci: Not implemented: wait for pending output requests
+Aug 04 01:43:29 localhost kernel: bce-vhci: Not implemented: wait for pending output requests
+Aug 04 01:43:29 localhost kernel: bce-vhci: Not implemented: wait for pending output requests
+Aug 04 01:43:29 localhost kernel: bce-vhci: Not implemented: wait for pending output requests
+Aug 04 01:43:29 localhost kernel: bce-vhci: Not implemented: wait for pending output requests
+Aug 04 01:43:30 localhost kernel: bce-vhci: Not implemented: wait for pending output requests
+Aug 04 01:43:32 sonic kernel: intel-lpss INT34BA:00: error -EINVAL: IRQ index 0 not found
+Aug 04 01:43:32 sonic kernel: intel-lpss INT34BA:00: probe with driver intel-lpss failed with error -22
+Aug 04 01:43:31 sonic systemd-modules-load[411]: Failed to find module 'intel_pstate'
+Aug 04 01:43:32 sonic kernel: spi-nor spi0.0: unrecognized JEDEC id bytes: f4 0c 58 12 03 00
+Aug 04 01:43:56 sonic kernel: Bluetooth: hci0: BCM: failed to write update baudrate (-16)
+Aug 04 01:43:56 sonic kernel: Bluetooth: hci0: Failed to set baudrate
+Aug 04 01:43:56 sonic kernel: Bluetooth: hci0: BCM: firmware Patch file not found, tried:
+Aug 04 01:43:56 sonic kernel: Bluetooth: hci0: BCM: 'brcm/BCM.hcd'
+Aug 04 01:43:58 sonic kernel: ieee80211 phy0: brcmf_p2p_send_action_frame: Unknown Frame: category 0x5, action 0x4
 Aug 04 01:44:07 sonic greetd[2248]: gkr-pam: unable to locate daemon control file
-Aug 04 01:44:07 sonic greetd[2248]: gkr-pam: stashed password to try later in open session
-Aug 04 01:44:07 sonic greetd[1565]: pam_unix(greetd:session): session closed for user fredamaral
-Aug 04 01:44:07 sonic greetd[1565]: pam_systemd(greetd:session): New sd-bus connection (system-bus-pam-systemd-1565) opened.
-Aug 04 01:44:07 sonic systemd-logind[811]: Session 1 logged out. Waiting for processes to exit.
-Aug 04 01:44:07 sonic greetd[2248]: pam_unix(greetd:session): session opened for user fredamaral(uid=1000) by (uid=0)
-Aug 04 01:44:07 sonic greetd[2248]: pam_systemd(greetd:session): New sd-bus connection (system-bus-pam-systemd-2248) opened.
-Aug 04 01:44:07 sonic systemd-logind[811]: New session 3 of user fredamaral.
-Aug 04 01:44:07 sonic systemd[1]: Started Session 3 of User fredamaral.
-Aug 04 01:44:07 sonic systemd[1]: session-1.scope: Deactivated successfully.
-Aug 04 01:44:07 sonic systemd-logind[811]: Removed session 1.
-Aug 04 01:44:07 sonic greetd[2248]: gkr-pam: gnome-keyring-daemon started properly and unlocked keyring
-Aug 04 01:44:07 sonic dbus-daemon[774]: [system] Activating via systemd: service name='org.freedesktop.PolicyKit1' unit='polkit.service' requested by ':1.4' (uid=0 pid=811 comm="/nix/store/0zmji8sw3jm1j4akllcwc6g7i8cilyza-system" label="kernel")
-Aug 04 01:44:07 sonic systemd[1]: Starting Authorization Manager...
-Aug 04 01:44:07 sonic systemd-timesyncd[754]: Network configuration changed, trying to establish connection.
-Aug 04 01:44:07 sonic systemd-timesyncd[754]: Network configuration changed, trying to establish connection.
-Aug 04 01:44:07 sonic systemd-timesyncd[754]: Network configuration changed, trying to establish connection.
-Aug 04 01:44:07 sonic polkitd[2345]: Started polkitd version 124
-Aug 04 01:44:07 sonic polkitd[2345]: Loading rules from directory /etc/polkit-1/rules.d
-Aug 04 01:44:07 sonic polkitd[2345]: Loading rules from directory /run/current-system/sw/share/polkit-1/rules.d
-Aug 04 01:44:07 sonic polkitd[2345]: Finished loading, compiling and executing 5 rules
-Aug 04 01:44:07 sonic dbus-daemon[774]: [system] Successfully activated service 'org.freedesktop.PolicyKit1'
-Aug 04 01:44:07 sonic polkitd[2345]: Acquired the name org.freedesktop.PolicyKit1 on the system bus
-Aug 04 01:44:07 sonic systemd[1]: Started Authorization Manager.
-Aug 04 01:44:32 sonic systemd-timesyncd[754]: Contacted time server 200.160.7.186:123 (0.nixos.pool.ntp.org).
-Aug 04 01:44:32 sonic systemd-timesyncd[754]: Initial clock synchronization to Sun 2024-08-04 01:44:32.967610 -03.
-Aug 04 01:44:33 sonic powertop[2290]: Leaving PowerTOP
-Aug 04 01:44:33 sonic powertop[2290]: Cannot load from file /var/cache/powertop/saved_parameters.powertop
-Aug 04 01:44:33 sonic powertop[2290]: File will be loaded after taking minimum number of measurement(s) with battery only
-Aug 04 01:44:33 sonic powertop[2290]: Cannot load from file /var/cache/powertop/saved_parameters.powertop
-Aug 04 01:44:33 sonic powertop[2290]: File will be loaded after taking minimum number of measurement(s) with battery only
-Aug 04 01:44:33 sonic systemd[1]: Finished Powertop tunings.
-Aug 04 01:44:33 sonic systemd[1]: Startup finished in 10.073s (firmware) + 1.283s (loader) + 443ms (kernel) + 2.661s (initrd) + 17.051s (userspace) = 31.513s.
-Aug 04 01:44:35 sonic systemd[1569]: Created slice User Core Session Slice.
-Aug 04 01:44:35 sonic systemd[1569]: Starting D-Bus User Message Bus...
-Aug 04 01:44:35 sonic systemd[1569]: Started D-Bus User Message Bus.
-Aug 04 01:44:35 sonic dbus-daemon[2404]: [session uid=1000 pid=2404] Successfully activated service 'org.freedesktop.systemd1'
-Aug 04 01:44:35 sonic systemd[1569]: Reached target Session services which should run early before the graphical session is brought up.
-Aug 04 01:44:35 sonic systemd[1569]: Started hyprpaper.
-Aug 04 01:44:35 sonic systemd[1569]: Starting NumLockX...
-Aug 04 01:44:35 sonic systemd[1569]: Started Idle manager for Wayland.
-Aug 04 01:44:35 sonic dhcpcd[791]: enp2s0f1u1: no IPv6 Routers available
-Aug 04 01:44:35 sonic polkitd[2345]: Registered Authentication Agent for unix-session:3 (system bus name :1.21 [/nix/store/190746d1p2k5y9md9d25fx25a980l9b9-polkit-gnome-0.105/libexec/polkit-gnome-authentication-agent-1], object path /org/gnome/PolicyKit1/AuthenticationAgent, locale en_US.UTF-8)
-Aug 04 01:44:35 sonic dhcpcd[791]: wlan0: no IPv6 Routers available
-Aug 04 01:44:35 sonic systemd[1569]: Finished NumLockX.
-Aug 04 01:44:35 sonic systemd[1569]: Reached target Current graphical user session.
-Aug 04 01:44:35 sonic systemd[1569]: Reached target sway compositor session.
-Aug 04 01:44:35 sonic systemd[1569]: Started polkit-gnome-authentication-agent-1.
-Aug 04 01:44:35 sonic dbus-daemon[2404]: [session uid=1000 pid=2404] Activating via systemd: service name='org.freedesktop.portal.Desktop' unit='xdg-desktop-portal.service' requested by ':1.5' (uid=1000 pid=2398 comm="waybar -b bar-0" label="kernel")
-Aug 04 01:44:35 sonic systemd[1569]: Starting Portal service...
-Aug 04 01:44:35 sonic dbus-daemon[2404]: [session uid=1000 pid=2404] Activating via systemd: service name='org.freedesktop.portal.Documents' unit='xdg-document-portal.service' requested by ':1.7' (uid=1000 pid=2456 comm="/nix/store/ln68fyjj5p5hzszqdvgym02wab20gx8k-xdg-de" label="kernel")
-Aug 04 01:44:35 sonic systemd[1569]: Starting flatpak document portal service...
-Aug 04 01:44:35 sonic polkit-gnome-authentication-agent-1[2455]: Cannot register authentication agent: GDBus.Error:org.freedesktop.PolicyKit1.Error.Failed: An authentication agent already exists for the given subject
-Aug 04 01:44:35 sonic systemd[1569]: polkit-gnome-authentication-agent-1.service: Main process exited, code=exited, status=1/FAILURE
-Aug 04 01:44:35 sonic systemd[1569]: polkit-gnome-authentication-agent-1.service: Failed with result 'exit-code'.
-Aug 04 01:44:35 sonic dbus-daemon[2404]: [session uid=1000 pid=2404] Activating via systemd: service name='org.freedesktop.impl.portal.PermissionStore' unit='xdg-permission-store.service' requested by ':1.8' (uid=1000 pid=2465 comm="/nix/store/ln68fyjj5p5hzszqdvgym02wab20gx8k-xdg-de" label="kernel")
-Aug 04 01:44:35 sonic systemd[1569]: Starting sandboxed app permission store...
-Aug 04 01:44:35 sonic dbus-daemon[2404]: [session uid=1000 pid=2404] Successfully activated service 'org.freedesktop.impl.portal.PermissionStore'
-Aug 04 01:44:35 sonic systemd[1569]: Started sandboxed app permission store.
-Aug 04 01:44:35 sonic dbus-daemon[2404]: [session uid=1000 pid=2404] Successfully activated service 'org.freedesktop.portal.Documents'
-Aug 04 01:44:35 sonic systemd[1569]: Started flatpak document portal service.
-Aug 04 01:44:35 sonic dbus-daemon[2404]: [session uid=1000 pid=2404] Activating via systemd: service name='org.freedesktop.impl.portal.desktop.gtk' unit='xdg-desktop-portal-gtk.service' requested by ':1.7' (uid=1000 pid=2456 comm="/nix/store/ln68fyjj5p5hzszqdvgym02wab20gx8k-xdg-de" label="kernel")
-Aug 04 01:44:35 sonic systemd[1569]: Starting Portal service (GTK/GNOME implementation)...
-Aug 04 01:44:35 sonic dbus-daemon[2404]: [session uid=1000 pid=2404] Successfully activated service 'org.freedesktop.impl.portal.desktop.gtk'
-Aug 04 01:44:35 sonic systemd[1569]: Started Portal service (GTK/GNOME implementation).
-Aug 04 01:44:35 sonic dbus-daemon[774]: [system] Activating via systemd: service name='org.freedesktop.RealtimeKit1' unit='rtkit-daemon.service' requested by ':1.25' (uid=1000 pid=2456 comm="/nix/store/ln68fyjj5p5hzszqdvgym02wab20gx8k-xdg-de" label="kernel")
-Aug 04 01:44:35 sonic systemd[1]: Starting RealtimeKit Scheduling Policy Service...
-Aug 04 01:44:35 sonic systemd-timesyncd[754]: Network configuration changed, trying to establish connection.
-Aug 04 01:44:35 sonic dbus-daemon[774]: [system] Successfully activated service 'org.freedesktop.RealtimeKit1'
-Aug 04 01:44:35 sonic systemd[1]: Started RealtimeKit Scheduling Policy Service.
-Aug 04 01:44:35 sonic systemd-timesyncd[754]: Contacted time server 200.160.7.186:123 (0.nixos.pool.ntp.org).
-Aug 04 01:44:35 sonic systemd[1569]: Started PipeWire Multimedia Service.
-Aug 04 01:44:35 sonic systemd[1569]: Started Multimedia Service Session Manager.
-Aug 04 01:44:35 sonic rtkit-daemon[2489]: Successfully made thread 2492 of process 2492 owned by '1000' high priority at nice level -11.
-Aug 04 01:44:35 sonic dbus-daemon[2404]: [session uid=1000 pid=2404] Activating via systemd: service name='org.freedesktop.impl.portal.desktop.wlr' unit='xdg-desktop-portal-wlr.service' requested by ':1.7' (uid=1000 pid=2456 comm="/nix/store/ln68fyjj5p5hzszqdvgym02wab20gx8k-xdg-de" label="kernel")
-Aug 04 01:44:35 sonic rtkit-daemon[2489]: Successfully made thread 2497 of process 2492 owned by '1000' RT at priority 20.
-Aug 04 01:44:35 sonic systemd[1569]: Starting Portal service (wlroots implementation)...
-Aug 04 01:44:35 sonic rtkit-daemon[2489]: Successfully made thread 2493 of process 2493 owned by '1000' high priority at nice level -11.
-Aug 04 01:44:35 sonic rtkit-daemon[2489]: Successfully made thread 2506 of process 2493 owned by '1000' RT at priority 20.
-Aug 04 01:44:35 sonic tailscaled[859]: monitor: time jumped (probably wake from sleep); synthesizing major change event
-Aug 04 01:44:35 sonic tailscaled[859]: LinkChange: major, rebinding. New state: interfaces.State{defaultRoute=wlan0 ifs={docker0:[172.17.0.1/16] tailscale0:[100.121.172.65/32 fd7a:115c:a1e0::4401:ac41/128 llu6] wlan0:[21.26.7.184/24 llu6]} v4=true v6=false}
-Aug 04 01:44:35 sonic tailscaled[859]: dns: Set: {DefaultResolvers:[] Routes:{coyote-kelvin.ts.net.:[] ts.net.:[199.247.155.53 2620:111:8007::53]}+65arpa SearchDomains:[coyote-kelvin.ts.net.] Hosts:5}
-Aug 04 01:44:35 sonic dbus-daemon[2404]: [session uid=1000 pid=2404] Successfully activated service 'org.freedesktop.impl.portal.desktop.wlr'
-Aug 04 01:44:35 sonic systemd[1569]: Started Portal service (wlroots implementation).
-Aug 04 01:44:35 sonic dbus-daemon[2404]: [session uid=1000 pid=2404] Successfully activated service 'org.freedesktop.portal.Desktop'
-Aug 04 01:44:35 sonic systemd[1569]: Started Portal service.
-Aug 04 01:44:35 sonic tailscaled[859]: dns: Resolvercfg: {Routes:{.:[21.26.7.1] ts.net.:[199.247.155.53 2620:111:8007::53]} Hosts:5 LocalDomains:[coyote-kelvin.ts.net.]+65arpa}
-Aug 04 01:44:35 sonic tailscaled[859]: dns: OScfg: {Nameservers:[100.100.100.100] SearchDomains:[coyote-kelvin.ts.net. piresamaral.com.] }
-Aug 04 01:44:35 sonic systemd[1569]: Started PipeWire PulseAudio.
-Aug 04 01:44:35 sonic tailscaled[859]: wgengine: set DNS config again after major link change
-Aug 04 01:44:35 sonic tailscaled[859]: Rebind; defIf="wlan0", ips=[21.26.7.184/24 fe80::8a66:5aff:fe06:7380/64]
-Aug 04 01:44:35 sonic tailscaled[859]: post-rebind ping of DERP region 11 okay
-Aug 04 01:44:35 sonic rtkit-daemon[2489]: Successfully made thread 2536 of process 2536 owned by '1000' high priority at nice level -11.
-Aug 04 01:44:35 sonic rtkit-daemon[2489]: Successfully made thread 2543 of process 2536 owned by '1000' RT at priority 20.
-Aug 04 01:44:36 sonic pipewire[2492]: ALSA lib seq_hw.c:528:(snd_seq_hw_open) open /dev/snd/seq failed: No such device
 Aug 04 01:44:36 sonic pipewire[2492]: spa.alsa: open failed: No such device
-Aug 04 01:44:36 sonic wireplumber[2493]: default: Failed to get percentage from UPower: org.freedesktop.DBus.Error.NameHasNoOwner
 Aug 04 01:44:36 sonic bluetoothd[772]: src/profile.c:ext_start_servers() RFCOMM server failed for Hands-Free Voice gateway: socket(STREAM, RFCOMM): Protocol not supported (93)
 Aug 04 01:44:36 sonic bluetoothd[772]: src/profile.c:ext_start_servers() RFCOMM server failed for Hands-Free unit: socket(STREAM, RFCOMM): Protocol not supported (93)
-Aug 04 01:44:36 sonic bluetoothd[772]: Endpoint registered: sender=:1.30 path=/MediaEndpoint/A2DPSource/ldac
-Aug 04 01:44:36 sonic bluetoothd[772]: Endpoint registered: sender=:1.30 path=/MediaEndpoint/A2DPSink/aptx_hd
-Aug 04 01:44:36 sonic bluetoothd[772]: Endpoint registered: sender=:1.30 path=/MediaEndpoint/A2DPSource/aptx_hd
-Aug 04 01:44:36 sonic bluetoothd[772]: Endpoint registered: sender=:1.30 path=/MediaEndpoint/A2DPSink/aptx
-Aug 04 01:44:36 sonic bluetoothd[772]: Endpoint registered: sender=:1.30 path=/MediaEndpoint/A2DPSource/aptx
-Aug 04 01:44:36 sonic bluetoothd[772]: Endpoint registered: sender=:1.30 path=/MediaEndpoint/A2DPSink/aac
-Aug 04 01:44:36 sonic bluetoothd[772]: Endpoint registered: sender=:1.30 path=/MediaEndpoint/A2DPSource/aac
-Aug 04 01:44:36 sonic bluetoothd[772]: Endpoint registered: sender=:1.30 path=/MediaEndpoint/A2DPSink/opus_g
-Aug 04 01:44:36 sonic bluetoothd[772]: Endpoint registered: sender=:1.30 path=/MediaEndpoint/A2DPSource/opus_g
-Aug 04 01:44:36 sonic bluetoothd[772]: Endpoint registered: sender=:1.30 path=/MediaEndpoint/A2DPSink/sbc
-Aug 04 01:44:36 sonic bluetoothd[772]: Endpoint registered: sender=:1.30 path=/MediaEndpoint/A2DPSource/sbc
-Aug 04 01:44:36 sonic bluetoothd[772]: Endpoint registered: sender=:1.30 path=/MediaEndpoint/A2DPSource/aptx_ll_1
-Aug 04 01:44:36 sonic bluetoothd[772]: Endpoint registered: sender=:1.30 path=/MediaEndpoint/A2DPSource/aptx_ll_0
-Aug 04 01:44:36 sonic bluetoothd[772]: Endpoint registered: sender=:1.30 path=/MediaEndpoint/A2DPSource/aptx_ll_duplex_1
-Aug 04 01:44:36 sonic bluetoothd[772]: Endpoint registered: sender=:1.30 path=/MediaEndpoint/A2DPSource/aptx_ll_duplex_0
-Aug 04 01:44:36 sonic bluetoothd[772]: Endpoint registered: sender=:1.30 path=/MediaEndpoint/A2DPSource/faststream
-Aug 04 01:44:36 sonic bluetoothd[772]: Endpoint registered: sender=:1.30 path=/MediaEndpoint/A2DPSource/faststream_duplex
-Aug 04 01:44:36 sonic bluetoothd[772]: Endpoint registered: sender=:1.30 path=/MediaEndpoint/A2DPSink/opus_05
-Aug 04 01:44:36 sonic bluetoothd[772]: Endpoint registered: sender=:1.30 path=/MediaEndpoint/A2DPSource/opus_05
-Aug 04 01:44:36 sonic bluetoothd[772]: Endpoint registered: sender=:1.30 path=/MediaEndpoint/A2DPSink/opus_05_duplex
-Aug 04 01:44:36 sonic bluetoothd[772]: Endpoint registered: sender=:1.30 path=/MediaEndpoint/A2DPSource/opus_05_duplex
-Aug 04 01:44:36 sonic wireplumber[2493]: [0:00:23.065602000] [2493]  INFO IPAManager ipa_manager.cpp:143 libcamera is not installed. Adding '/nix/store/src/ipa' to the IPA search path
-Aug 04 01:44:36 sonic wireplumber[2493]: [0:00:23.067100700] [2493]  INFO Camera camera_manager.cpp:313 libcamera v0.3.0
-Aug 04 01:44:36 sonic systemd[1569]: polkit-gnome-authentication-agent-1.service: Scheduled restart job, restart counter is at 1.
-Aug 04 01:44:36 sonic systemd[1569]: Started polkit-gnome-authentication-agent-1.
-Aug 04 01:44:36 sonic polkit-gnome-authentication-agent-1[2556]: Cannot register authentication agent: GDBus.Error:org.freedesktop.PolicyKit1.Error.Failed: An authentication agent already exists for the given subject
-Aug 04 01:44:36 sonic systemd[1569]: polkit-gnome-authentication-agent-1.service: Main process exited, code=exited, status=1/FAILURE
-Aug 04 01:44:36 sonic systemd[1569]: polkit-gnome-authentication-agent-1.service: Failed with result 'exit-code'.
-Aug 04 01:44:37 sonic systemd[1569]: polkit-gnome-authentication-agent-1.service: Scheduled restart job, restart counter is at 2.
-Aug 04 01:44:37 sonic systemd[1569]: Started polkit-gnome-authentication-agent-1.
-Aug 04 01:44:37 sonic polkit-gnome-authentication-agent-1[2569]: Cannot register authentication agent: GDBus.Error:org.freedesktop.PolicyKit1.Error.Failed: An authentication agent already exists for the given subject
-Aug 04 01:44:37 sonic systemd[1569]: polkit-gnome-authentication-agent-1.service: Main process exited, code=exited, status=1/FAILURE
-Aug 04 01:44:37 sonic systemd[1569]: polkit-gnome-authentication-agent-1.service: Failed with result 'exit-code'.
-Aug 04 01:44:38 sonic systemd[1569]: Started kitty child process: 2584 launched by: 2568.
-Aug 04 01:44:38 sonic systemd[1569]: polkit-gnome-authentication-agent-1.service: Scheduled restart job, restart counter is at 3.
-Aug 04 01:44:39 sonic systemd[1569]: Started polkit-gnome-authentication-agent-1.
-Aug 04 01:44:39 sonic polkit-gnome-authentication-agent-1[2643]: Cannot register authentication agent: GDBus.Error:org.freedesktop.PolicyKit1.Error.Failed: An authentication agent already exists for the given subject
-Aug 04 01:44:39 sonic systemd[1569]: polkit-gnome-authentication-agent-1.service: Main process exited, code=exited, status=1/FAILURE
-Aug 04 01:44:39 sonic systemd[1569]: polkit-gnome-authentication-agent-1.service: Failed with result 'exit-code'.
-Aug 04 01:44:40 sonic systemd[1569]: polkit-gnome-authentication-agent-1.service: Scheduled restart job, restart counter is at 4.
-Aug 04 01:44:40 sonic systemd[1569]: Started polkit-gnome-authentication-agent-1.
-Aug 04 01:44:40 sonic polkit-gnome-authentication-agent-1[2657]: Cannot register authentication agent: GDBus.Error:org.freedesktop.PolicyKit1.Error.Failed: An authentication agent already exists for the given subject
-Aug 04 01:44:40 sonic systemd[1569]: polkit-gnome-authentication-agent-1.service: Main process exited, code=exited, status=1/FAILURE
-Aug 04 01:44:40 sonic systemd[1569]: polkit-gnome-authentication-agent-1.service: Failed with result 'exit-code'.
-Aug 04 01:44:41 sonic systemd[1569]: polkit-gnome-authentication-agent-1.service: Scheduled restart job, restart counter is at 5.
-Aug 04 01:44:41 sonic systemd[1569]: polkit-gnome-authentication-agent-1.service: Start request repeated too quickly.
-Aug 04 01:44:41 sonic systemd[1569]: polkit-gnome-authentication-agent-1.service: Failed with result 'exit-code'.
 Aug 04 01:44:41 sonic systemd[1569]: Failed to start polkit-gnome-authentication-agent-1.
-Aug 04 01:44:50 sonic systemd[1]: systemd-hostnamed.service: Deactivated successfully.
-Aug 04 01:45:08 sonic tailscaled[859]: logtail: upload succeeded after 1 failures and 48s
-Aug 04 01:45:48 sonic polkitd[2345]: Registered Authentication Agent for unix-process:2936:9572 (system bus name :1.37 [/run/current-system/sw/bin/pkttyagent --notify-fd 6 --fallback], object path /org/freedesktop/PolicyKit1/AuthenticationAgent, locale en_US.UTF-8)
-Aug 04 01:45:48 sonic systemd-logind[811]: The system will suspend now!
-Aug 04 01:45:48 sonic polkitd[2345]: Unregistered Authentication Agent for unix-process:unknown (system bus name :1.37, object path /org/freedesktop/PolicyKit1/AuthenticationAgent, locale en_US.UTF-8) (disconnected from bus)
-Aug 04 01:45:48 sonic swayidle[2946]: 2024-08-04 01:45:48 - [background-image.c:345] Failed to load background image (Couldn’t recognize the image file format for file “/nix/store/b99vkp7qn7cl5mhqrnk2xlm263m4n7f0-wp7786806.webp”).
-Aug 04 01:45:53 sonic systemd-logind[811]: Delay lock is active (UID 1000/fredamaral, PID 2429/swayidle) but inhibitor timeout is reached.
-Aug 04 01:45:54 sonic systemd[1]: Starting Pre-Sleep Actions...
-Aug 04 01:45:54 sonic systemd[1]: pre-sleep.service: Deactivated successfully.
-Aug 04 01:45:54 sonic systemd[1]: Finished Pre-Sleep Actions.
-Aug 04 01:45:54 sonic systemd[1]: Reached target Sleep.
-Aug 04 01:45:54 sonic systemd[1]: Starting System Suspend...
-Aug 04 01:45:54 sonic systemd-sleep[2990]: Successfully froze unit 'user.slice'.
-Aug 04 01:45:54 sonic systemd-sleep[2990]: Performing sleep operation 'suspend'...
-Aug 04 01:45:54 sonic kernel: PM: suspend entry (deep)
