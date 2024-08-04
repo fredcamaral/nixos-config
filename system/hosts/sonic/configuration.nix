@@ -38,7 +38,7 @@
       userControlled.enable = true;
       dbusControlled = true;
       fallbackToWPA2 = true;
-      interfaces = ["wlp3s0"];
+      interfaces = ["wlan0"];
       networks = {
         Farenet.psk = "@Farenet_PSK";
         Fredflat_5G.psk = "@Fredflat_5G_PSK";
