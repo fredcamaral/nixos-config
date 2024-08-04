@@ -7,7 +7,10 @@
 }: {
   hardware = {
     # Enable Bluetooth support
-    bluetooth.enable = true;
+    bluetooth = {
+      enable = true;
+      powerOnBoot = false;
+    };
 
     # Disable PulseAudio (likely using PipeWire instead)
     pulseaudio.enable = false;

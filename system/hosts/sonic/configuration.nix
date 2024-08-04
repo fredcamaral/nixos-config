@@ -25,13 +25,13 @@
     ];
   };
 
-  systemd.services.force-reload-modules = {
-    description = "Force reload critical modules after resume";
+  systemd.services.reload-problematic-modules = {
+    description = "Reload problematic modules after resume";
     after = ["suspend.target" "hibernate.target" "hybrid-sleep.target"];
     wantedBy = ["suspend.target" "hibernate.target" "hybrid-sleep.target"];
     script = ''
-      modprobe -r apple_bce apple_ib_tb brcmfmac thunderbolt
-      modprobe apple_bce apple_ib_tb brcmfmac thunderbolt
+      modprobe -r brcmfmac
+      modprobe brcmfmac
     '';
     serviceConfig.Type = "oneshot";
   };
