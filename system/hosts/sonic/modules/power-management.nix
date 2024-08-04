@@ -7,7 +7,7 @@
   # Enable Power Management
   powerManagement = {
     enable = true;
-    # cpuFreqGovernor = lib.mkDefault "conservative";
+    cpuFreqGovernor = lib.mkDefault "conservative";
   };
 
   services.mbpfan = {
