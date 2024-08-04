@@ -310,7 +310,6 @@ in {
     # Sets the default floating border width to 2 pixels.
     extraConfig = ''
       bindswitch --reload --locked lid:on exec '${pkgs.swaylock-effects}/bin/swaylock && ${pkgs.systemd}/bin/systemctl suspend'
-      bindsym XF86PowerOff exec
     '';
 
     # This code sets up environment variables required for certain applications to work properly with the Wayland display server used by Sway, the i3-compatible Wayland compositor.
