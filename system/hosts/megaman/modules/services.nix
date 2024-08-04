@@ -31,6 +31,22 @@
       authKeyFile = config.age.secrets.megaman-tailscale-auth.path;
     };
 
+    rsync = {
+      enable = true;
+      extraOptions = ["-avz" "--delete"];
+      paths = [
+        {
+          src = "/home/fredamaral";
+          dest = "/media/ness/backup/home";
+          recursive = true;
+          delete = true;
+        }
+      ];
+      user = "fredamaral";
+      group = "users";
+      timer = "hourly";
+    };
+
     navidrome = {
       enable = true;
       openFirewall = true;
@@ -49,15 +65,5 @@
       alsa.support32Bit = true;
       pulse.enable = true;
     };
-
-    # Enable OllaMa for ROCm
-    #ollama = {
-    #  enable = true;
-    #  acceleration = "rocm";
-    #  environmentVariables = {
-    #    HCC_AMDGPU_TARGET = "gfx1102"; # used to be necessary, but doesn't seem to anymore
-    #  };
-    #  rocmOverrideGfx = "11.0.0";
-    #};
   };
 }
