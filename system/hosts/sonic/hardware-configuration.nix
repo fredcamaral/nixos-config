@@ -29,7 +29,7 @@
     "iommu=pt" # Enable IOMMU in pass-through mode
     "intel_pstate=active" # Enable Intel P-State Coordination (C-State)
     "brcmfmac.roamoff=1" # Disable brcmfmac WiFi power saving
-    # "resume_offset=<offset>" # Set resume offset
+    "resume_offset=47329280" # Set resume offset
   ];
 
   # Kernel sysctl parameters
