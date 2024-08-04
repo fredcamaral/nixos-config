@@ -13,13 +13,13 @@
   boot.initrd.availableKernelModules = ["xhci_pci" "ahci" "nvme" "usbhid" "usb_storage" "sd_mod" "sr_mod"];
 
   # Additional kernel modules to load during boot
-  boot.initrd.kernelModules = [""];
+  # boot.initrd.kernelModules = [""];
 
   # Kernel modules to load after boot
   boot.kernelModules = ["kvm-intel" "intel_pstate" "msr" "brcmfmac" "thunderbolt" "apple-bce" "apple-ib-tb"];
 
   # Any extra kernel packages to install
-  boot.extraModulePackages = [""];
+  # boot.extraModulePackages = [""];
 
   # boot.supportedFilesystems = [""];
 
