@@ -271,6 +271,7 @@ in {
         };
         layout = {
           "c" = "layout splith, focus left, resize set width 25ppt, focus right, resize set width 50ppt, focus right, resize set width 25ppt, focus left, focus left, resize set width 25ppt, focus right, resize set width 50ppt, focus right, resize set width 25ppt, focus left; mode default";
+          "x" = "layout splith, focus left, resize set width 25ppt, focus right, resize set width 75ppt, focus right; mode default";
           "s" = "layout stacking";
           "t" = "layout tabbed";
           "p" = "layout toggle split";
