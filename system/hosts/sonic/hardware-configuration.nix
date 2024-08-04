@@ -19,9 +19,9 @@
   boot.kernelModules = ["kvm-intel" "intel_pstate" "msr" "brcmfmac" "thunderbolt" "apple-bce" "apple-ib-tb"];
 
   # Any extra kernel packages to install
-  boot.extraModulePackages = [];
+  boot.extraModulePackages = [""];
 
-  boot.supportedFilesystems = ["hfs"];
+  # boot.supportedFilesystems = [""];
 
   # Kernel parameters
   boot.kernelParams = [
