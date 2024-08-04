@@ -29,6 +29,7 @@
     "iommu=pt" # Enable IOMMU in pass-through mode
     "intel_pstate=active" # Enable Intel P-State Coordination (C-State)
     "brcmfmac.roamoff=1" # Disable brcmfmac WiFi power saving
+    "noresume" # Disable suspend to RAM
     # "resume_offset=47329280" # Set resume offset
   ];
 
@@ -61,7 +62,7 @@
     options = ["fmask=0022" "dmask=0022"];
   };
 
-  swapDevices = [
+  swapDevices = lib.mkOverride 50 [
     {
       device = "/var/lib/swapfile";
       size = 8192; # Size in MB, adjust as needed
