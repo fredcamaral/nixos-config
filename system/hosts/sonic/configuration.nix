@@ -26,14 +26,28 @@
   };
 
   systemd.services.reload-modules-after-resume = {
-    description = "Reload keyboard and touchbar modules after resume";
+    description = "Reload Apple modules after resume";
     after = ["suspend.target" "hibernate.target" "hybrid-sleep.target"];
     wantedBy = ["suspend.target" "hibernate.target" "hybrid-sleep.target"];
     script = ''
-      modprobe -r apple-ib-tb
-      modprobe apple-ib-tb
-      modprobe -r apple-bce
-      modprobe apple-bce
+      modprobe -r apple_bl
+      modprobe -r apple_gmux
+      modprobe -r applespi
+      modprobe -r applesmc
+      modprobe -r hid_apple
+      modprobe -r apple_bce
+      modprobe -r apple_ib_tb
+      modprobe -r appletb_bl
+      modprobe -r appletb_kbd
+      modprobe apple_bl
+      modprobe apple_gmux
+      modprobe applespi
+      modprobe applesmc
+      modprobe hid_apple
+      modprobe apple_bce
+      modprobe apple_ib_tb
+      modprobe appletb_bl
+      modprobe appletb_kbd
     '';
     serviceConfig.Type = "oneshot";
   };
