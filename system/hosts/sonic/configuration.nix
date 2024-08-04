@@ -33,7 +33,6 @@
     hostName = hostname;
     networkmanager.wifi.backend = "iwd";
     wireless = {
-      enable = true;
       iwd.enable = true;
       environmentFile = wirelessNetworks;
       userControlled.enable = true;
