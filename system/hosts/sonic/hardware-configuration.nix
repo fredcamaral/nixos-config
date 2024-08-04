@@ -16,7 +16,7 @@
   boot.initrd.kernelModules = [""];
 
   # Kernel modules to load after boot
-  boot.kernelModules = ["kvm-intel" "intel_pstate" "msr"];
+  boot.kernelModules = ["kvm-intel" "intel_pstate" "msr" "brcmfmac" "thunderbolt" "apple-bce" "apple-ib-tb"];
 
   # Any extra kernel packages to install
   boot.extraModulePackages = [];
