@@ -21,6 +21,8 @@
   # Any extra kernel packages to install
   boot.extraModulePackages = [];
 
+  boot.supportedFilesystems = ["hfsplus"];
+
   # Kernel parameters
   boot.kernelParams = [
     "intel_iommu=on" # Enable Intel IOMMU (for VT-d)
