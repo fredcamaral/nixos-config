@@ -32,6 +32,8 @@
     "noresume" # Disable suspend to RAM
     "acpi_osi=Darwin" # Enable ACPI OS support
     "acpi_mask_gpe=0x06" # Disable GPE wakeup
+    "debug_acpi=verbose" # Enable ACPI debug logging
+    "loglevel=7" # Set log level
     # "resume_offset=47329280" # Set resume offset
   ];
 
