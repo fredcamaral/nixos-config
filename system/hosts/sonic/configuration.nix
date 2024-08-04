@@ -39,9 +39,9 @@
       fallbackToWPA2 = true;
       interfaces = ["wlp3s0"];
       networks = {
-        "@Farenet@" = {
-          psk = "@Farenet_PSK@";
-        };
+        Farenet.psk = "@Farenet_PSK";
+        Fredflat_5G.psk = "@Fredflat_5G_PSK";
+        Fredflat_2G.psk = "@Fredflat_2G_PSK";
       };
     };
   };
