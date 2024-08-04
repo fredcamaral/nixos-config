@@ -23,6 +23,7 @@
     logind = {
       lidSwitch = "suspend";
       extraConfig = ''
+        HandlePowerKey=suspend
         HandleLidSwitch=suspend
         HandleLidSwitchExternalPower=suspend
       '';
