@@ -21,11 +21,11 @@
     printing.enable = true;
 
     logind = {
-      lidSwitch = "hybrid-sleep";
+      lidSwitch = "nothing";
       extraConfig = ''
-        HandlePowerKey=hybrid-sleep
-        HandleLidSwitch=hybrid-sleep
-        HandleLidSwitchExternalPower=hybrid-sleep
+        HandlePowerKey=nothing
+        HandleLidSwitch=nothing
+        HandleLidSwitchExternalPower=nothing
       '';
     };
 

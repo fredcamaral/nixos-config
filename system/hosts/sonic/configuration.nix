@@ -25,21 +25,21 @@
     ];
   };
 
-  systemd.services.reload-problematic-modules = {
-    description = "Reload problematic modules after resume";
-    before = ["hybrid-sleep.target" "suspend.target"];
-    after = ["hybrid-sleep.target" "suspend.target"];
-    wantedBy = ["hybrid-sleep.target" "suspend.target"];
-    script = ''
-      #modprobe -r brcmfmac
-      #modprobe -r brcmfmac_wcc
-      rmmod -f apple-bce
-      #modprobe brcmfmac
-      #modprobe brcmfmac_wcc
-      modprobe apple-bce
-    '';
-    serviceConfig.Type = "oneshot";
-  };
+  # systemd.services.reload-problematic-modules = {
+  #   description = "Reload problematic modules after resume";
+  #   before = ["hybrid-sleep.target" "suspend.target"];
+  #   after = ["hybrid-sleep.target" "suspend.target"];
+  #   wantedBy = ["hybrid-sleep.target" "suspend.target"];
+  #   script = ''
+  #     #modprobe -r brcmfmac
+  #     #modprobe -r brcmfmac_wcc
+  #     rmmod -f apple-bce
+  #     #modprobe brcmfmac
+  #     #modprobe brcmfmac_wcc
+  #     modprobe apple-bce
+  #   '';
+  #   serviceConfig.Type = "oneshot";
+  # };
 
   ## ! CONFIG HERE: options for proprietary modules ##########################
   # Define the config for the module networking

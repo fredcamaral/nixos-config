@@ -234,8 +234,8 @@ in {
         "XF86AudioPlay" = "exec ${pkgs.playerctl}/bin/playerctl play-pause";
         "XF86AudioNext" = "exec ${pkgs.playerctl}/bin/playerctl next";
         "XF86AudioPrev" = "exec ${pkgs.playerctl}/bin/playerctl previous";
-        "XF86Sleep" = "exec ${pkgs.systemd}/bin/systemctl hybrid-sleep";
-        "XF86PowerOff" = "exec ${pkgs.systemd}/bin/systemctl hybrid-sleep";
+        "XF86Sleep" = "exec";
+        "XF86PowerOff" = "exec";
 
         # Clipboard manager
         "${modifier}+v" = "exec ${pkgs.clipman}/bin/clipman pick -t wofi";
@@ -309,7 +309,7 @@ in {
 
     # Sets the default floating border width to 2 pixels.
     extraConfig = ''
-      bindswitch --reload --locked lid:on exec '${pkgs.swaylock-effects}/bin/swaylock && ${pkgs.systemd}/bin/systemctl hybrid-sleep'
+      bindswitch --reload --locked lid:on exec '${pkgs.swaylock-effects}/bin/swaylock'
     '';
 
     # This code sets up environment variables required for certain applications to work properly with the Wayland display server used by Sway, the i3-compatible Wayland compositor.
