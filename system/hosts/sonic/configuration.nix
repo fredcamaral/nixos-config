@@ -25,6 +25,19 @@
     ];
   };
 
+  systemd.services.reload-modules-after-resume = {
+    description = "Reload keyboard and touchbar modules after resume";
+    after = ["suspend.target" "hibernate.target" "hybrid-sleep.target"];
+    wantedBy = ["suspend.target" "hibernate.target" "hybrid-sleep.target"];
+    script = ''
+      modprobe -r apple-ib-tb
+      modprobe apple-ib-tb
+      modprobe -r apple-bce
+      modprobe apple-bce
+    '';
+    serviceConfig.Type = "oneshot";
+  };
+
   ## ! CONFIG HERE: options for proprietary modules ##########################
   # Define the config for the module networking
   networking = let
