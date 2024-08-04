@@ -28,6 +28,7 @@
     "intel_iommu=on" # Enable Intel IOMMU (for VT-d)
     "iommu=pt" # Enable IOMMU in pass-through mode
     "intel_pstate=active" # Enable Intel P-State Coordination (C-State)
+    "brcmfmac.roamoff=1" # Disable brcmfmac WiFi power saving
   ];
 
   # Kernel sysctl parameters
