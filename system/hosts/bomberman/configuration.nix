@@ -13,7 +13,7 @@
   networking = {
     hostName = hostname;
     networkmanager.enable = true;
-    useDHCP = lib.mkDefault true;
+    useDHCP = true;
   };
 
   security.sudo.wheelNeedsPassword = false;
