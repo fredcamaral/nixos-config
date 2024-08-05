@@ -16,7 +16,12 @@
     useDHCP = false;
   };
 
-  security.sudo.wheelNeedsPassword = false;
+  graphical = {
+    xdefaults.enable = false; # Enable X-Server defaults (true by default)
+    managers = {
+      enable = false; # Enable graphical environment (false by default)
+    };
+  };
 
   # Specify the NixOS release version
   # This value determines the NixOS release from which the default
