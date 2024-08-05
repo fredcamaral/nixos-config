@@ -25,9 +25,6 @@
       # Enable graphics support
       enable = true;
 
-      # Enable 32-bit graphics libraries
-      enable32Bit = true;
-
       # Add extra graphics packages (AMD specific)
       extraPackages = with pkgs; [
       ];
