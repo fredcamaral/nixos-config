@@ -41,13 +41,12 @@
     ...
   } @ inputs: let
     user = "fredamaral";
-    system = "x86_64-linux";
+    supportedSystems = ["x86_64-linux" "aarch64-linux"];
     machines = {
       desktop = "megaman";
-      laptop = "sonic";
+      laptop-nixos = "bomberman";
+      laptop-macos = "sonic";
       homelab = "zelda";
-      raspi = "dk";
-      cloudserver = "bomberman";
     };
     domain = "fredamaral.com";
 
@@ -60,10 +59,10 @@
       config.allowUnfree = true;
     };
 
-    mkSystem = hostname: extraModules:
+    mkSystem = hostname: system: extraModules:
       nixpkgs.lib.nixosSystem {
         inherit system;
-        specialArgs = {inherit inputs user hostname domain;} // machines;
+        specialArgs = {inherit inputs user hostname domain system;} // machines;
         modules =
           [
             ./system/hosts/${hostname}/configuration.nix
@@ -98,8 +97,9 @@
     formatter = pkgs.alejandra;
 
     nixosConfigurations = {
-      ${machines.desktop} = mkSystem machines.desktop [nixos-hardware.nixosModules.common-gpu-amd];
-      ${machines.laptop} = mkSystem machines.laptop [nixos-hardware.nixosModules.apple-t2];
+      ${machines.desktop} = mkSystem machines.desktop "x86_64-linux" [nixos-hardware.nixosModules.common-gpu-amd];
+      ${machines.laptop-nixos} = mkSystem machines.laptop-nixos "aarch64-linux" [];
+      ${machines.laptop-macos} = mkSystem machines.laptop-macos "aarch64-linux" [];
     };
   };
 }
