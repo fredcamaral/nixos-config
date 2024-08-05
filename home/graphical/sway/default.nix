@@ -4,7 +4,7 @@
   pkgs,
   hostname,
   desktop,
-  laptop,
+  laptop-nixos,
   ...
 }: let
   modifier = "Mod4";
@@ -27,7 +27,7 @@
         scale = "1.0";
       };
     }
-    else if hostname == laptop
+    else if hostname == laptop-nixos
     then {
       "eDP-1" = {
         mode = "2880x1800@60Hz";
@@ -50,7 +50,7 @@
         {command = "swaymsg workspace 1";}
       ];
     }
-    else if hostname == laptop
+    else if hostname == laptop-nixos
     then {
       commands = [
         {command = "${pkgs.dbus}/bin/dbus-update-activation-environment --systemd --all";}
