@@ -19,13 +19,6 @@
     unzip # Extraction utility for ZIP archives
     zip # Compressor/archiver for creating and modifying ZIP files
 
-    # Communication and Collaboration
-    slack # Team communication and collaboration software
-    teams-for-linux # Microsoft Teams client for Linux
-    telegram-desktop # Fast and secure messaging app
-    whatsapp-for-linux # WhatsApp client for Linux
-    zoom-us # Video conferencing and online meeting platform
-
     # Development and Programming
     devenv # Development environment management tool for Nix
     electron # Framework for building cross-platform desktop applications with web technologies
