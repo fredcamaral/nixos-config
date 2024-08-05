@@ -67,7 +67,6 @@ in {
     ./mako
     ./swayidle
     ./swaylock
-    ./wlogout
     ./wofi
     ./dotfiles.nix
   ];
@@ -88,8 +87,8 @@ in {
         mouseWarping = true;
       };
       gaps = {
-        inner = 8;
-        outer = 3;
+        inner = 3;
+        outer = 2;
       };
       bars = [
         {
@@ -110,52 +109,9 @@ in {
         };
       };
       workspaceAutoBackAndForth = true;
-      workspaceOutputAssign = [
-        {
-          workspace = "1";
-          output = "DP-1";
-        }
-        {
-          workspace = "2";
-          output = "DP-1";
-        }
-        {
-          workspace = "3";
-          output = "DP-1";
-        }
-        {
-          workspace = "4";
-          output = "DP-1";
-        }
-        {
-          workspace = "5";
-          output = "DP-1";
-        }
-        {
-          workspace = "6";
-          output = "DP-2";
-        }
-        {
-          workspace = "7";
-          output = "DP-2";
-        }
-        {
-          workspace = "8";
-          output = "DP-3";
-        }
-        {
-          workspace = "9";
-          output = "DP-3";
-        }
-        {
-          workspace = "10";
-          output = "DP-3";
-        }
-      ];
       keybindings = lib.mkOptionDefault {
         "${modifier}+Return" = "exec ${pkgs.kitty}/bin/kitty";
         "${modifier}+q" = "kill";
-        "${modifier}+m" = "exec ${pkgs.wlogout}/bin/wlogout --protocol layer-shell";
         "${modifier}+e" = "exec ${pkgs.xfce.thunar}/bin/thunar";
         "${modifier}+space" = "exec ${pkgs.wofi}/bin/wofi --show drun";
         "${modifier}+b" = "exec ${pkgs.wofi}/bin/wofi --show drun";
@@ -164,9 +120,6 @@ in {
         "${modifier}+r" = "reload";
         "Ctrl+Alt+Delete" = "exit";
         "Print" = "exec ${pkgs.grim}/bin/grim -g \"$(${pkgs.slurp}/bin/slurp)\" - | tee ${config.xdg.userDirs.pictures}/screenshots/$(date +'%Y-%m-%d_%H-%M-%S').png | ${pkgs.wl-clipboard}/bin/wl-copy";
-
-        # Floating toggle
-        "${modifier}+Shift+v" = "floating toggle";
 
         # Switch to the specified workspace number.
         "${modifier}+1" = "workspace number 1";
@@ -214,85 +167,8 @@ in {
         "${modifier}+Shift+Up" = "move up";
         "${modifier}+Shift+Down" = "move down";
 
-        # Media controls
-        "XF86AudioMute" = "exec ${pkgs.pulseaudio}/bin/pactl set-sink-mute @DEFAULT_SINK@ toggle";
-        "XF86AudioLowerVolume" = "exec ${pkgs.pulseaudio}/bin/pactl set-sink-volume @DEFAULT_SINK@ -5%";
-        "XF86AudioRaiseVolume" = "exec ${pkgs.pulseaudio}/bin/pactl set-sink-volume @DEFAULT_SINK@ +5%";
-        "XF86AudioMicMute" = "exec ${pkgs.pulseaudio}/bin/pactl set-source-mute @DEFAULT_SOURCE@ toggle";
-        "XF86MonBrightnessDown" = "exec ${pkgs.brightnessctl}/bin/brightnessctl set 5%-";
-        "XF86MonBrightnessUp" = "exec ${pkgs.brightnessctl}/bin/brightnessctl set +5%";
-        "XF86LaunchA" = "exec ${pkgs.wofi}/bin/wofi --show drun";
-        "XF86LaunchB" = "exec ${pkgs.firefox}/bin/firefox";
-        "XF86KbdBrightnessDown" = "exec ${pkgs.brightnessctl}/bin/brightnessctl --device='smc::kbd_backlight' set 5%-";
-        "XF86KbdBrightnessUp" = "exec ${pkgs.brightnessctl}/bin/brightnessctl --device='smc::kbd_backlight' set +5%";
-        "XF86AudioPlay" = "exec ${pkgs.playerctl}/bin/playerctl play-pause";
-        "XF86AudioNext" = "exec ${pkgs.playerctl}/bin/playerctl next";
-        "XF86AudioPrev" = "exec ${pkgs.playerctl}/bin/playerctl previous";
-        "XF86Sleep" = "exec";
-        "XF86PowerOff" = "exec";
-
         # Clipboard manager
         "${modifier}+v" = "exec ${pkgs.clipman}/bin/clipman pick -t wofi";
-
-        # Modes Setting
-        "${modifier}+Alt+r" = "mode resize";
-        "${modifier}+Alt+l" = "mode launcher";
-        "${modifier}+Alt+s" = "mode system";
-        "${modifier}+Alt+t" = "mode layout";
-      };
-      modes = {
-        resize = {
-          "Left" = "resize shrink width 10px";
-          "Down" = "resize grow height 10px";
-          "Up" = "resize shrink height 10px";
-          "Right" = "resize grow width 10px";
-          "Escape" = "mode default";
-          "Return" = "mode default";
-        };
-        launcher = {
-          "f" = "exec firefox; mode default";
-          "c" = "exec code; mode default";
-          "t" = "exec telegram-desktop; mode default";
-          "s" = "exec slack; mode default";
-          "Escape" = "mode default";
-        };
-        system = {
-          "l" = "exec swaylock; mode default";
-          "e" = "exec swaymsg exit";
-          "s" = "exec systemctl poweroff";
-          "r" = "exec systemctl reboot";
-          "Escape" = "mode default";
-        };
-        layout = {
-          "c" = "layout splith, focus left, resize set width 25ppt, focus right, resize set width 50ppt, focus right, resize set width 25ppt, focus left, focus left, resize set width 25ppt, focus right, resize set width 50ppt, focus right, resize set width 25ppt, focus left; mode default";
-          "x" = "layout splith, focus left, resize set width 25ppt, focus right, resize set width 75ppt, focus right; mode default";
-          "s" = "layout stacking";
-          "t" = "layout tabbed";
-          "p" = "layout toggle split";
-          "Escape" = "mode default";
-        };
-      };
-      floating = {
-        border = 4;
-        titlebar = false;
-        criteria = [
-          {app_id = "pavucontrol";}
-          {app_id = "blueman-manager";}
-          {title = "File Operation Progress";}
-          {title = "Confirm to replace files";}
-          {title = "^Open File$";}
-        ];
-      };
-      window = {
-        border = 4;
-        titlebar = false;
-
-        commands = [
-          # {
-          #   command = "floating enable";
-          #   criteria = {app_id = "pavucontrol";};
-          # }
-        ];
       };
       startup = startupConfig.commands;
     };
@@ -302,22 +178,7 @@ in {
       enable = true;
     };
 
-    # Sets the default floating border width to 2 pixels.
-    extraConfig = ''
-      bindswitch --reload --locked lid:on exec '${pkgs.swaylock-effects}/bin/swaylock'
-    '';
-
-    # This code sets up environment variables required for certain applications to work properly with the Wayland display server used by Sway, the i3-compatible Wayland compositor.
-    # The `SDL_VIDEODRIVER=wayland` variable ensures that SDL (Simple DirectMedia Layer) applications use the Wayland backend.
-    # The `QT_QPA_PLATFORM=wayland` and `QT_WAYLAND_DISABLE_WINDOWDECORATION="1"` variables configure Qt applications to use the Wayland display server and disable window decorations, respectively. Needs qt5.qtwayland in systemPackages.
-    # The `_JAVA_AWT_WM_NONREPARENTING=1` variable is a fix for some Java AWT (Abstract Window Toolkit) applications, such as Android Studio, to ensure they are displayed properly.
-    # The `QT_WAYLAND_DISABLE_WINDOWDECORATION="1"` variable is a fix for some Qt applications, such as Android Studio, to ensure they are displayed properly.
-    # These environment variables are set in the `extraSessionCommands` section of the Sway configuration, which runs when the Sway session starts.
     extraSessionCommands = ''
-      export SDL_VIDEODRIVER=wayland
-      export QT_QPA_PLATFORM=wayland
-      export QT_WAYLAND_DISABLE_WINDOWDECORATION="1"
-      export _JAVA_AWT_WM_NONREPARENTING=1
     '';
   };
 }
