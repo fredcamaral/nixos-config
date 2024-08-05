@@ -6,7 +6,6 @@
     "services"
     "virtualisation"
     "packages"
-    "power-management"
-    "programs"
+    "vmware-guest"
   ];
 }

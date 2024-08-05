@@ -87,6 +87,7 @@
                   imports = [./home];
                   _module.args.nixosConfig = config;
                   _module.args.hostname = hostname;
+                  _module.args.user = user;
                 };
               };
             }

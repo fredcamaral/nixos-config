@@ -4,10 +4,9 @@
   pkgs,
   lib,
   nixosConfig,
+  user,
   ...
 }: let
-  user = "fredamaral";
-
   hyprlandConfigPath = ./graphical/hyprland;
   swayConfigPath = ./graphical/sway;
   lightSwayConfigPath = ./graphical/lightSway;
