@@ -89,7 +89,7 @@ in {
         '';
       };
     })
-    (mkIf (cfg.managers.enable || (!cfg.managers.gnome.enable && !cfg.managers.hyprland.enable && !cfg.managers.sway.enable && !cfg.managers.lightSway.enable && !cfg.managers.i3.enable)) (mkMerge [
+    (mkIf cfg.managers.enable (mkMerge [
       (mkIf (cfg.managers.gnome.enable || (!cfg.managers.hyprland.enable && !cfg.managers.sway.enable && !cfg.managers.lightSway.enable && !cfg.managers.i3.enable)) (safeImport waylandGnomePath {inherit config pkgs lib;}))
       (mkIf cfg.managers.hyprland.enable (safeImport waylandHyprlandPath {inherit config pkgs lib;}))
       (mkIf cfg.managers.sway.enable (safeImport waylandSwayPath {inherit config pkgs lib;}))
