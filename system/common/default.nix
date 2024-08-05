@@ -5,7 +5,6 @@
       "boot"
       "fonts"
       "internationalisation"
-      "console"
       "nixsettings"
       "packages"
       "programs"
