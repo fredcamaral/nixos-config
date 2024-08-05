@@ -159,6 +159,7 @@ in {
         "${modifier}+m" = "exec ${pkgs.wlogout}/bin/wlogout --protocol layer-shell";
         "${modifier}+e" = "exec ${pkgs.xfce.thunar}/bin/thunar";
         "${modifier}+space" = "exec ${pkgs.wofi}/bin/wofi --show drun";
+        "${modifier}+b" = "exec ${pkgs.wofi}/bin/wofi --show drun";
         "${modifier}+l" = "exec ${pkgs.swaylock-effects}/bin/swaylock";
         "${modifier}+f" = "exec ${pkgs.firefox}/bin/firefox";
         "${modifier}+r" = "reload";

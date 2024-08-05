@@ -6,5 +6,6 @@
     rsync
     thunderbird
     blueman
+    alacritty
   ];
 }
