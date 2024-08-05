@@ -2,7 +2,7 @@
 {pkgs, ...}: {
   console = {
     # This uses the Terminus font, which is good for high-resolution displays
-    font = "${pkgs.terminus_font}/share/consolefonts/ter-v18n.psf.gz";
+    font = "${pkgs.nerdfonts}/share/fonts/truetype/NerdFonts/DejaVuSansMono Nerd Font Complete Mono-18.ttf";
 
     # Use the X keyboard configuration for the console as well
     useXkbConfig = true;
