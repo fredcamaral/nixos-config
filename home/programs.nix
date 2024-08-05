@@ -71,11 +71,11 @@
 
     # A versatile streaming software and video recording application
     obs-studio = {
-      enable = true;
+      enable = false;
       plugins = with pkgs; [
         # List of OBS plugins
-        obs-studio-plugins.obs-gstreamer
-        obs-studio-plugins.obs-vkcapture
+        # obs-studio-plugins.obs-gstreamer
+        # obs-studio-plugins.obs-vkcapture
         # obs-studio-plugins.obs-pipewire-audio-capture
         # obs-studio-plugins.obs-multi-rtmp
         # obs-studio-plugins.obs-move-transition
