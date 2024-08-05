@@ -5,6 +5,7 @@
       "hardware"
       # "monitoring"
       # "netdata"
+      "nixsettings"
       "services"
       "virtualisation"
       "packages"
