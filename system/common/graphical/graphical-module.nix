@@ -24,7 +24,7 @@ in {
   options.graphical = {
     xdefaults.enable = mkOption {
       type = types.bool;
-      default = true;
+      default = false;
       description = "Enable X-Server default options (xkb, xterm, etc.)";
     };
     managers.enable = mkOption {
