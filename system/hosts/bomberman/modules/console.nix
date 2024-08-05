@@ -1,5 +1,9 @@
 # system/modules/console.nix
-{pkgs, ...}: {
+{
+  pkgs,
+  lib,
+  ...
+}: {
   console = {
     # This uses the Terminus font, which is good for high-resolution displays
     font = lib.mkDefault "${pkgs.terminus_font}/share/consolefonts/ter-v22n.psf.gz";
