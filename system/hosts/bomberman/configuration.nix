@@ -38,12 +38,13 @@
 
   # Graphical environment configuration
   graphical = {
-    xdefaults.enable = false; # Enable X-Server defaults (true by default)
+    xdefaults.enable = true; # Enable X-Server defaults (true by default)
     managers = {
-      enable = false; # Enable graphical environment (false by default)
+      enable = true; # Enable graphical environment (false by default)
       # gnome.enable = true;
       # hyprland.enable = true;
       # sway.enable = true;
+      lightSway.enable = true;
       # i3.enable = true;
     };
   };

@@ -1,0 +1,71 @@
+* {
+    font-family: "Inter Nerd Font", sans-serif;
+    font-size: 16px;
+}
+
+window#waybar {
+    background-color: rgba(0, 0, 0, 0);
+    /* Fully transparent background */
+    color: #000000;
+    font-weight: bold;
+}
+
+#workspaces,
+#mode,
+#clock,
+#battery,
+#cpu,
+#memory,
+#temperature,
+#network,
+#pulseaudio,
+#custom-media,
+#tray,
+#idle_inhibitor {
+    background-color: rgba(54, 58, 79, 1);
+    color: #FFFFFF;
+    padding: 0 10px;
+    margin: 0 4px;
+    border-radius: 5px;
+    /* Optional: adds rounded corners to modules */
+}
+
+#workspaces button {
+    padding: 0 5px;
+    background-color: transparent;
+    color: #FFFFFF;
+    border: none;
+}
+
+#workspaces button:hover {
+    box-shadow: inherit;
+    text-shadow: inherit;
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
+#workspaces button.focused {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Remove specific background colors for individual modules */
+#clock,
+#network,
+#cpu,
+#temperature,
+#pulseaudio,
+#tray {
+    background-color: rgba(54, 58, 79, 1);
+}
+
+/* Keep the critical temperature styling */
+#temperature.critical {
+    background-color: rgba(235, 77, 75, 0.5);
+    /* Red with 50% opacity */
+}
+
+/* Keep the muted pulseaudio styling */
+#pulseaudio.muted {
+    background-color: rgba(144, 177, 177, 0.5);
+    /* Muted color with 50% opacity */
+    color: #ffffff;
+}
