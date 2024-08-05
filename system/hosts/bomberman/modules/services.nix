@@ -17,7 +17,7 @@
     # Enable Tailscale VPN
     tailscale = {
       enable = true;
-      authKeyFile = config.age.secrets.bomberman-tailscale-auth.path;
+      # authKeyFile = config.age.secrets.bomberman-tailscale-auth.path;
     };
 
     # Configure PipeWire for audio

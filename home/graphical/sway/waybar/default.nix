@@ -312,7 +312,7 @@ in {
           ;
       }
       {
-        output = "eDP-1";
+        output = "Virtual-1";
         layer = "top";
         position = "top";
         height = 36;
