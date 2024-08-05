@@ -6,6 +6,5 @@
     "services"
     "virtualisation"
     "packages"
-    "vmware-guest"
   ];
 }

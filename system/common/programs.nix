@@ -6,7 +6,6 @@
   programs = {
     zsh.enable = true;
     dconf.enable = true;
-    xwayland.enable = true;
 
     thunar = {
       enable = true;
