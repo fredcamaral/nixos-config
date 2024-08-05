@@ -17,17 +17,16 @@
 
     desktopManager = {
       xterm.enable = false;
-      wallpaper.mode = "fill";
+      # wallpaper.mode = "fill";
     };
 
     displayManager = {
       defaultSession = "none+i3";
       lightdm.enable = true;
 
-      # AARCH64: For now, on Apple Silicon, we must manually set the
-      # display resolution. This is a known issue with VMware Fusion.
       sessionCommands = ''
         ${pkgs.xorg.xset}/bin/xset r rate 200 40
+        ${pkgs.xorg.xrandr}/bin/xrandr --output Virtual-1 --mode 2880x1800 --rate 120
       '';
     };
 
