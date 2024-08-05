@@ -41,7 +41,7 @@
     ...
   } @ inputs: let
     user = "fredamaral";
-    supportedSystems = ["x86_64-linux" "aarch64-linux"];
+    system = ["x86_64-linux" "aarch64-linux"];
     machines = {
       desktop = "megaman";
       laptop-nixos = "bomberman";
