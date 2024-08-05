@@ -2,7 +2,6 @@
 {pkgs, ...}: {
   environment.systemPackages = with pkgs; [
     # to-organize
-    todoist-electron # To-do list manager
     age # Tool for encrypting files
     nh # Command-line note-taking tool
     vlc # Open-source media player
@@ -96,7 +95,6 @@
     tree # Display directories as trees
 
     # System Monitoring and Diagnostics
-    amdgpu_top # AMD GPU utilization monitor
     iotop # I/O monitoring tool
     lm_sensors # Tools for reading hardware sensors
     lshw # Hardware lister to provide detailed information on the hardware configuration
