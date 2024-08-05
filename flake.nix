@@ -5,10 +5,6 @@
     nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-24.05";
     nixos-hardware.url = "github:nixos/nixos-hardware";
     systems.url = "github:nix-systems/default-linux";
-    nix-index-database = {
-      url = "github:nix-community/nix-index-database";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
     agenix = {
       url = "github:ryantm/agenix";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -34,7 +30,6 @@
     nixos-hardware,
     systems,
     home-manager,
-    nix-index-database,
     agenix,
     stylix,
     hyprland,
@@ -69,29 +64,32 @@
             ./system/common/default.nix
             stylix.nixosModules.stylix
             agenix.nixosModules.default
-            nix-index-database.nixosModules.nix-index
-            {programs.nix-index-database.comma.enable = true;}
-            home-manager.nixosModules.home-manager
-            {
-              environment.systemPackages = [agenix.packages.${system}.default];
-              home-manager = {
-                useGlobalPkgs = true;
-                useUserPackages = true;
-                backupFileExtension = "bkp3";
-                extraSpecialArgs = {inherit inputs;} // machines;
-                users.${user} = {
-                  pkgs,
-                  config,
-                  ...
-                }: {
-                  imports = [./home];
-                  _module.args.nixosConfig = config;
-                  _module.args.hostname = hostname;
-                  _module.args.user = user;
-                };
-              };
-            }
           ]
+          ++ (
+            if hostname == machines.desktop
+            then [
+              home-manager.nixosModules.home-manager
+              {
+                home-manager = {
+                  useGlobalPkgs = true;
+                  useUserPackages = true;
+                  backupFileExtension = "bkp3";
+                  extraSpecialArgs = {inherit inputs;} // machines;
+                  users.${user} = {
+                    pkgs,
+                    config,
+                    ...
+                  }: {
+                    imports = [./home];
+                    _module.args.nixosConfig = config;
+                    _module.args.hostname = hostname;
+                    _module.args.user = user;
+                  };
+                };
+              }
+            ]
+            else []
+          )
           ++ extraModules;
       };
   in {

@@ -6,5 +6,6 @@
     "services"
     "virtualisation"
     "packages"
+    "xserver"
   ];
 }
