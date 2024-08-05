@@ -17,7 +17,7 @@
   };
 
   graphical = {
-    xdefaults.enable = false; # Enable X-Server defaults (true by default)
+    xdefaults.enable = true; # Enable X-Server defaults (true by default)
     managers = {
       enable = false; # Enable graphical environment (false by default)
     };
