@@ -9,33 +9,14 @@
     (modulesPath + "/installer/scan/not-detected.nix")
   ];
 
-  # Kernel modules to load during boot
   boot.initrd.availableKernelModules = ["xhci_pci" "nvme" "sr_mod"];
-
-  # Additional kernel modules to load during boot
   boot.initrd.kernelModules = [];
-
-  # Kernel modules to load after boot
   boot.kernelModules = [];
-
-  # Any extra kernel packages to install
-  boot.extraModulePackages = [];
-
-  # # Kernel parameters
-  # boot.kernelParams = [
-  #   "intel_iommu=on" # Enable Intel IOMMU (for VT-d)
-  #   "amd_iommu=on" # Enable AMD IOMMU (for AMD-Vi)
-  #   "iommu=pt" # Enable IOMMU in pass-through mode
-  #   "amdgpu.si_support=1" # Enable AMD C-State Coordination (C-State)
-  #   "amdgpu.cik_support=1" # Enable AMD C-State Coordination (C-State)
-  #   "amdgpu.ppfeaturemask=0xffffffff" # Enable all features for the amdgpu kernel module
-  #   "intel_pstate=active" # Enable Intel P-State Coordination (C-State)
-  #   # "mitigations=off" # Disable CPU mitigations
-  # ];
+  boot.kernelPackages = pkgs.linuxPackages_latest;
+  boot.extraModulePackages = with config.boot.kernelPackages; [];
 
   # # Kernel sysctl parameters
   # boot.kernel.sysctl = {
-  #   # "vm.swappiness" = 10; # Reduce swap usage
   #   "vm.vfs_cache_pressure" = 50; # Reduce inode/dentry cache pressure
   #   "net.core.netdev_max_backlog" = 16384; # Increase network backlog
   #   "net.ipv4.tcp_fastopen" = 3; # Enable TCP Fast Open
