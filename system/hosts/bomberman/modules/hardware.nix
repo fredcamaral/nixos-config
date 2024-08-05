@@ -12,9 +12,6 @@
     # Disable PulseAudio (likely using PipeWire instead)
     pulseaudio.enable = false;
 
-    # Enable CPU microcode updates if the system supports it
-    cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
-
     # Enable all firmware updates
     enableAllFirmware = true;
 
