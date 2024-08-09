@@ -32,6 +32,8 @@
   # Always show bookmarks toolbar
   "browser.toolbars.bookmarks.visibility" = "always";
 
+  # "media.navigator.mediadataencoder_vpx_enabled" = true;
+
   # Fully disable Pocket
   "extensions.pocket.enabled" = false;
   "extensions.pocket.api" = "0.0.0.0";

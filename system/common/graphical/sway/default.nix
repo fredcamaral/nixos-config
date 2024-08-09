@@ -13,15 +13,9 @@
     dbus.enable = true;
     xserver = {
       enable = true;
-    };
-    greetd = {
-      enable = true;
-      restart = true;
-      settings = {
-        default_session = {
-          command = "${pkgs.greetd.greetd}/bin/agreety --cmd sway";
-          user = "fredamaral";
-        };
+      displayManager.sddm = {
+        enable = true;
+        enableHidpi = true;
       };
     };
     gnome.gnome-keyring.enable = true;

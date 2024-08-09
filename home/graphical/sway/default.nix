@@ -42,19 +42,16 @@
     if hostname == desktop
     then {
       commands = [
-        {command = "${pkgs.dbus}/bin/dbus-update-activation-environment --systemd --all";}
-        {command = "${pkgs.systemd}/bin/systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP";}
+        {command = "${pkgs.dbus}/bin/dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway";}
         {command = "${pkgs.wl-clipboard}/bin/wl-paste -t text --watch ${pkgs.clipman}/bin/clipman store";}
         {command = "${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1";}
-        {command = "${pkgs.networkmanagerapplet}/bin/nm-applet --indicator";}
         {command = "swaymsg workspace 1";}
       ];
     }
     else if hostname == laptop-nixos
     then {
       commands = [
-        {command = "${pkgs.dbus}/bin/dbus-update-activation-environment --systemd --all";}
-        {command = "${pkgs.systemd}/bin/systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP";}
+        {command = "${pkgs.dbus}/bin/dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway";}
         {command = "${pkgs.wl-clipboard}/bin/wl-paste -t text --watch ${pkgs.clipman}/bin/clipman store";}
         {command = "${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1";}
         {command = "${pkgs.networkmanagerapplet}/bin/nm-applet --indicator";}
