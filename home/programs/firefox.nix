@@ -28,22 +28,7 @@ in {
         isDefault = true;
 
         id = 0;
-        name = "space-main";
-        inherit settings search extraConfig userChrome userContent;
-      };
-      dev = {
-        id = 1;
-        name = "space-dev";
-        inherit settings search extraConfig userChrome userContent;
-      };
-      qbit = {
-        id = 2;
-        name = "space-qbit";
-        inherit settings search extraConfig userChrome userContent;
-      };
-      notes = {
-        id = 3;
-        name = "space-notes";
+        name = "main";
         inherit settings search extraConfig userChrome userContent;
       };
     };
