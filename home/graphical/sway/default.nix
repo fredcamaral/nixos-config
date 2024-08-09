@@ -313,7 +313,7 @@ in {
     # These environment variables are set in the `extraSessionCommands` section of the Sway configuration, which runs when the Sway session starts.
     extraSessionCommands = ''
       export XDG_CURRENT_DESKTOP=sway
-      export XDG_SESSION_DESKTOP=sway
+      export XDG_SESSION_TYPE=wayland
       export MOZ_ENABLE_WAYLAND=1
       export SDL_VIDEODRIVER=wayland
       export QT_QPA_PLATFORM=wayland
