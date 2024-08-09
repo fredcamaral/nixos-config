@@ -314,19 +314,19 @@ in {
     # The `_JAVA_AWT_WM_NONREPARENTING=1` variable is a fix for some Java AWT (Abstract Window Toolkit) applications, such as Android Studio, to ensure they are displayed properly.
     # The `QT_WAYLAND_DISABLE_WINDOWDECORATION="1"` variable is a fix for some Qt applications, such as Android Studio, to ensure they are displayed properly.
     # These environment variables are set in the `extraSessionCommands` section of the Sway configuration, which runs when the Sway session starts.
+    #       export MOZ_USE_XINPUT2=1
+    #      export GDK_BACKEND=wayland
+    # export GDK_SCALE=1
+    # export GDK_DPI_SCALE=1
+    # export __GL_GSYNC_ALLOWED=0
+    # export __GL_VRR_ALLOWED=0
+    # export ELECTRON_OZONE_PLATFORM_HINT=wayland
     extraSessionCommands = ''
       export XDG_CURRENT_DESKTOP=sway
       export XDG_SESSION_DESKTOP=sway
-      export MOZ_USE_XINPUT2=1
       export MOZ_ENABLE_WAYLAND=1
       export SDL_VIDEODRIVER=wayland
       export QT_QPA_PLATFORM=wayland
-      export GDK_BACKEND=wayland
-      export GDK_SCALE=1
-      export GDK_DPI_SCALE=1
-      export __GL_GSYNC_ALLOWED=0
-      export __GL_VRR_ALLOWED=0
-      export ELECTRON_OZONE_PLATFORM_HINT=wayland
       export QT_WAYLAND_DISABLE_WINDOWDECORATION="1"
       export _JAVA_AWT_WM_NONREPARENTING=1
     '';
