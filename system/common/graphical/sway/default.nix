@@ -13,10 +13,6 @@
     dbus.enable = true;
     xserver = {
       enable = true;
-      displayManager.sddm = {
-        enable = true;
-        enableHidpi = true;
-      };
     };
     gnome.gnome-keyring.enable = true;
   };
@@ -29,7 +25,6 @@
 
   environment.systemPackages = with pkgs; [
     libnotify # for notifications
-    polkit # for permission management
     polkit_gnome # for permission management
     qt5.qtwayland # for Qt applications
     qt6.qtwayland # for Qt applications
