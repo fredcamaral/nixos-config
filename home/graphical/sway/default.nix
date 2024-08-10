@@ -32,7 +32,7 @@
     if hostname == desktop
     then {
       commands = [
-        {command = "${pkgs.dbus}/bin/dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway";}
+        #{command = "${pkgs.dbus}/bin/dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway";}
         {command = "${pkgs.wl-clipboard}/bin/wl-paste -t text --watch ${pkgs.clipman}/bin/clipman store";}
         {command = "${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1";}
         {command = "swaymsg workspace 1";}
@@ -274,14 +274,6 @@ in {
     #   bindswitch --reload --locked lid:on exec '${pkgs.swaylock-effects}/bin/swaylock'
     # '';
 
-    # This code sets up various environment variables required for certain applications to work properly with the Wayland display server used by Sway, the i3-compatible Wayland compositor.
-    # The `XDG_CURRENT_DESKTOP=sway` and `XDG_SESSION_TYPE=wayland` variables ensure that the system recognizes the Sway session as a Wayland session.
-    # The `MOZ_ENABLE_WAYLAND=1` variable enables Wayland support for Mozilla-based applications, such as Firefox.
-    # The `SDL_VIDEODRIVER=wayland`, `QT_QPA_PLATFORM=wayland`, and `QT_WAYLAND_DISABLE_WINDOWDECORATION="1"` variables configure SDL (Simple DirectMedia Layer) and Qt applications to use the Wayland display server and disable window decorations, respectively.
-    # The `_JAVA_AWT_WM_NONREPARENTING=1` variable is a fix for some Java AWT (Abstract Window Toolkit) applications, such as Android Studio, to ensure they are displayed properly.
-    # The `MOZ_USE_XINPUT2=1`, `GDK_BACKEND=wayland`, `GDK_SCALE=1`, and `GDK_DPI_SCALE=1` variables configure various GNOME and GTK-based applications to work with the Wayland display server.
-    # The `__GL_GSYNC_ALLOWED=0` and `__GL_VRR_ALLOWED=0` variables disable G-Sync and Variable Refresh Rate (VRR) features, which can cause issues with some applications.
-    # The `ELECTRON_OZONE_PLATFORM_HINT=wayland` variable ensures that Electron-based applications use the Wayland backend.
     extraSessionCommands = ''
       export XDG_SESSION_TYPE=wayland
       export MOZ_ENABLE_WAYLAND=1
@@ -289,7 +281,6 @@ in {
       export QT_WAYLAND_DISABLE_WINDOWDECORATION="1"
       export MOZ_USE_XINPUT2=1
       export GDK_BACKEND=wayland
-      export WLR_PRIMARY_SELECTION="clipboard"
       export ELECTRON_OZONE_PLATFORM_HINT=wayland
     '';
   };
