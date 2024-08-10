@@ -11,7 +11,7 @@
     if hostname == desktop
     then {
       "DP-1" = {
-        mode = "5120x1440@60Hz";
+        mode = "5120x1440@240Hz";
         position = "0,0";
         scale = "1.0";
       };
@@ -283,20 +283,13 @@ in {
     # The `__GL_GSYNC_ALLOWED=0` and `__GL_VRR_ALLOWED=0` variables disable G-Sync and Variable Refresh Rate (VRR) features, which can cause issues with some applications.
     # The `ELECTRON_OZONE_PLATFORM_HINT=wayland` variable ensures that Electron-based applications use the Wayland backend.
     extraSessionCommands = ''
-      export XDG_CURRENT_DESKTOP=sway
       export XDG_SESSION_TYPE=wayland
       export MOZ_ENABLE_WAYLAND=1
-      export SDL_VIDEODRIVER=wayland
       export QT_QPA_PLATFORM=wayland
       export QT_WAYLAND_DISABLE_WINDOWDECORATION="1"
-      export _JAVA_AWT_WM_NONREPARENTING=1
       export MOZ_USE_XINPUT2=1
       export GDK_BACKEND=wayland
-      export GDK_SCALE=1
-      export GDK_DPI_SCALE=1
       export WLR_PRIMARY_SELECTION="clipboard"
-      export __GL_GSYNC_ALLOWED=0
-      export __GL_VRR_ALLOWED=0
       export ELECTRON_OZONE_PLATFORM_HINT=wayland
     '';
   };
