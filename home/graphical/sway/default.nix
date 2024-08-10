@@ -294,6 +294,7 @@ in {
       export GDK_BACKEND=wayland
       export GDK_SCALE=1
       export GDK_DPI_SCALE=1
+      export WLR_PRIMARY_SELECTION="clipboard"
       export __GL_GSYNC_ALLOWED=0
       export __GL_VRR_ALLOWED=0
       export ELECTRON_OZONE_PLATFORM_HINT=wayland
