@@ -9,7 +9,6 @@
 }: let
   hyprlandConfigPath = ./graphical/hyprland;
   swayConfigPath = ./graphical/sway;
-  lightSwayConfigPath = ./graphical/lightSway;
 in {
   home = {
     username = "${user}";
@@ -49,8 +48,7 @@ in {
       ./stylix.nix
     ]
     ++ lib.optional nixosConfig.graphical.managers.hyprland.enable hyprlandConfigPath
-    ++ lib.optional nixosConfig.graphical.managers.sway.enable swayConfigPath
-    ++ lib.optional nixosConfig.graphical.managers.lightSway.enable lightSwayConfigPath;
+    ++ lib.optional nixosConfig.graphical.managers.sway.enable swayConfigPath;
 
   # Garbage Collection
   nix.gc = {
