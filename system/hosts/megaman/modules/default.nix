@@ -1,4 +1,8 @@
-{hostname, ...}: {
+{
+  hostname,
+  lib,
+  ...
+}: {
   # Import the modules
   imports =
     map (module: ./${module}.nix) [
@@ -18,6 +22,6 @@
   networking = {
     hostName = hostname;
     networkmanager.enable = true;
-    useDHCP = true;
+    useDHCP = lib.mkDefault true;
   };
 }
