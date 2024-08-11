@@ -1,10 +1,8 @@
-{...}: {
+{hostname, ...}: {
   # Import the modules
   imports =
     map (module: ./${module}.nix) [
       "hardware"
-      # "monitoring"
-      # "netdata"
       "console"
       "nixsettings"
       "services"
@@ -17,5 +15,9 @@
     ++ [
       ./sway
     ];
-  networking.hostName = "megaman";
+  networking = {
+    hostName = hostname;
+    networkmanager.enable = true;
+    useDHCP = true;
+  };
 }

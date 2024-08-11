@@ -75,9 +75,6 @@
     fsType = "ext4";
   };
 
-  # Disable DHCP globally (we're using static IP configuration)
-  networking.useDHCP = lib.mkDefault true;
-
   # Set the system's architecture
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
 }

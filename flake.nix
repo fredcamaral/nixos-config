@@ -2,6 +2,7 @@
   description = "Paradise NixOS (fredamaral config)";
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-24.05";
     #nixpkgs.url = "github:nixos/nixpkgs/nixos-24.05";
     agenix = {
       url = "github:ryantm/agenix";
@@ -15,19 +16,15 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    hyprland = {
-      url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
   };
 
   outputs = {
     self,
     nixpkgs,
+    nixpkgs-stable,
     home-manager,
     agenix,
     stylix,
-    hyprland,
     ...
   } @ inputs: let
     user = "fredamaral";
