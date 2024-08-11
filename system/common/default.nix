@@ -1,4 +1,4 @@
-{ hostname, domain, ...}: {
+{...}: {
   # Import the modules
   imports =
     map (common: ./${common}.nix) [
@@ -18,8 +18,8 @@
       ./secrets
     ];
 
-  networking = {
-    hostName = hostname;
-    domain = domain;
-  };
+  #networking = {
+  #  hostName = hostname;
+  #  domain = domain;
+  #};
 }
