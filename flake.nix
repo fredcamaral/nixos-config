@@ -87,7 +87,7 @@
     formatter = pkgs.alejandra;
 
     nixosConfigurations = {
-      ${machines.desktop} = mkSystem machines.desktop "x86_64-linux";
+      ${machines.desktop} = mkSystem machines.desktop "x86_64-linux" [];
       ${machines.laptop-nixos} = mkSystem machines.laptop-nixos "aarch64-linux" [];
       ${machines.laptop-macos} = mkSystem machines.laptop-macos "aarch64-linux" [];
     };
