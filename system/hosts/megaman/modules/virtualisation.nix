@@ -70,5 +70,4 @@
       win-virtio # Windows guest drivers for QEMU virtual machines
       OVMF # UEFI firmware for QEMU
     ];
-  };
 }

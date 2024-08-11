@@ -6,10 +6,7 @@
   nixosConfig,
   user,
   ...
-}: let
-  hyprlandConfigPath = ./graphical/hyprland;
-  swayConfigPath = ./graphical/sway;
-in {
+}:{
   home = {
     username = "${user}";
     homeDirectory = "/home/${user}";
@@ -46,16 +43,8 @@ in {
       ./aliases.nix
       ./direnv.nix
       ./stylix.nix
-    ]
-    ++ lib.optional nixosConfig.graphical.managers.hyprland.enable hyprlandConfigPath
-    ++ lib.optional nixosConfig.graphical.managers.sway.enable swayConfigPath;
-
-  # Garbage Collection
-  nix.gc = {
-    automatic = true;
-    frequency = "weekly";
-    options = "--delete-older-than 7d";
-  };
+      ./sway
+    ];
 
   # Enable Home Manager
   programs.home-manager.enable = true;

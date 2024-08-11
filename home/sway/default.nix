@@ -32,9 +32,8 @@
     if hostname == desktop
     then {
       commands = [
-        {command = "${pkgs.dbus}/bin/dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway";}
-        {command = "${pkgs.wl-clipboard}/bin/wl-paste -t text --watch ${pkgs.clipman}/bin/clipman store";}
-        {command = "${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1";}
+        {command = "nm-applet --indicator";}
+        {command = "blueman-applet";}
         {command = "swaymsg workspace 1";}
       ];
     }
@@ -269,21 +268,9 @@ in {
       enable = true;
     };
 
-    # Sets the default floating border width to 2 pixels.
-    # extraConfig = ''
-    #   bindswitch --reload --locked lid:on exec '${pkgs.swaylock-effects}/bin/swaylock'
-    # '';
-
-    extraSessionCommands = ''
-      export WAYLAND_DISPLAY
-      export XDG_CURRENT_DESKTOP=sway
-      export XDG_SESSION_TYPE=wayland
-      export MOZ_ENABLE_WAYLAND=1
-      export QT_QPA_PLATFORM=wayland
-      export QT_WAYLAND_DISABLE_WINDOWDECORATION="1"
-      export MOZ_USE_XINPUT2=1
-      export GDK_BACKEND=wayland
-      export ELECTRON_OZONE_PLATFORM_HINT=wayland
+    extraConfig = ''
+      exec dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK
+      exec systemctl --user import-environment DISPLAY WAYLAND_DISPLAY SWAYSOCK
     '';
   };
 }
