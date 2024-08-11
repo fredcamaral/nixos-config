@@ -17,4 +17,5 @@
     ++ [
       ./sway
     ];
+  networking.hostName = "megaman";
 }
