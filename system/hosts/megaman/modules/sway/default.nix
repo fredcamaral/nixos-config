@@ -21,8 +21,7 @@
     "WLR_DRM_NO_ATOMIC" = "1";
   };
 
-  services.xserver.enable = true;
-  services.xserver.displayManager.enable = false;
+  services.xserver.enable = false;
 
   #xdg.portal = {
   #  enable = true;
