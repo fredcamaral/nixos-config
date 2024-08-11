@@ -2,9 +2,7 @@
   description = "Paradise NixOS (fredamaral config)";
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-24.05";
-    nixos-hardware.url = "github:nixos/nixos-hardware";
-    systems.url = "github:nix-systems/default-linux";
+    #nixpkgs.url = "github:nixos/nixpkgs/nixos-24.05";
     agenix = {
       url = "github:ryantm/agenix";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -26,9 +24,6 @@
   outputs = {
     self,
     nixpkgs,
-    nixpkgs-stable,
-    nixos-hardware,
-    systems,
     home-manager,
     agenix,
     stylix,
@@ -46,10 +41,6 @@
     domain = "fredamaral.com";
 
     pkgs = import nixpkgs {
-      inherit system;
-      config.allowUnfree = true;
-    };
-    pkgs-stable = import nixpkgs-stable {
       inherit system;
       config.allowUnfree = true;
     };
@@ -96,7 +87,7 @@
     formatter = pkgs.alejandra;
 
     nixosConfigurations = {
-      ${machines.desktop} = mkSystem machines.desktop "x86_64-linux" [nixos-hardware.nixosModules.common-gpu-amd];
+      ${machines.desktop} = mkSystem machines.desktop "x86_64-linux";
       ${machines.laptop-nixos} = mkSystem machines.laptop-nixos "aarch64-linux" [];
       ${machines.laptop-macos} = mkSystem machines.laptop-macos "aarch64-linux" [];
     };

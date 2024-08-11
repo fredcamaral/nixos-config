@@ -21,10 +21,6 @@
           then [pkgs.OVMFFull.fd]
           else [pkgs.OVMF.fd];
 
-        # Enable swtpm for TPM emulation
-        swtpm.enable = true;
-        swtpm.package = pkgs.swtpm;
-
         # Enable VirtIO-FS for better shared folder performance
         verbatimConfig = ''
           user = "${config.users.users.fredamaral.name}"
@@ -41,12 +37,6 @@
 
     # Enable SPICE USB redirection
     spiceUSBRedirection.enable = true;
-
-    # # Enable Podman as an alternative to Docker
-    # podman = {
-    #   enable = true;
-    #   dockerCompat = true; # Enable Docker compatibility
-    # };
 
     # Enable Docker with rootless support
     docker = {
@@ -68,12 +58,7 @@
     "vm.hugetlb_shm_group" = 301; # Adjust this to match your libvirt group ID
   };
 
-  environment = {
-    # Set the default libvirt URI
-    sessionVariables.LIBVIRT_DEFAULT_URI = ["qemu:///system"];
-
-    # Install additional virtualization tools
-    systemPackages = with pkgs; [
+  environment.systemPackages = with pkgs; [
       virglrenderer # For 3D acceleration in VMs
       qemu # Machine emulator and virtualizer
       spice # Remote computing solution

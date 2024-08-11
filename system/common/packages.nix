@@ -113,7 +113,7 @@
     # Utilities
     bandwhich # Terminal bandwidth utilization tool
     busybox # Tiny utilities for small and embedded systems
-    code2prompt # Generate command descriptions for AI assistants
+    #code2prompt # Generate command descriptions for AI assistants
     eva # Simple calculator REPL
     fio # Flexible I/O Tester for benchmarking and stress-testing
     ibus-engines.typing-booster # Predictive text input method for IBus

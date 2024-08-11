@@ -2,13 +2,8 @@
 {
   config,
   lib,
-  modulesPath,
   ...
 }: {
-  imports = [
-    (modulesPath + "/installer/scan/not-detected.nix")
-  ];
-
   # Kernel modules to load during boot
   boot.initrd.availableKernelModules = ["xhci_pci" "ahci" "nvme" "usbhid" "usb_storage" "sd_mod" "sr_mod"];
 
@@ -30,12 +25,10 @@
     "amdgpu.cik_support=1" # Enable AMD C-State Coordination (C-State)
     "amdgpu.ppfeaturemask=0xffffffff" # Enable all features for the amdgpu kernel module
     "intel_pstate=active" # Enable Intel P-State Coordination (C-State)
-    # "mitigations=off" # Disable CPU mitigations
   ];
 
   # Kernel sysctl parameters
   boot.kernel.sysctl = {
-    # "vm.swappiness" = 10; # Reduce swap usage
     "vm.vfs_cache_pressure" = 50; # Reduce inode/dentry cache pressure
     "net.core.netdev_max_backlog" = 16384; # Increase network backlog
     "net.ipv4.tcp_fastopen" = 3; # Enable TCP Fast Open
@@ -83,7 +76,7 @@
   };
 
   # Disable DHCP globally (we're using static IP configuration)
-  networking.useDHCP = lib.mkDefault false;
+  networking.useDHCP = lib.mkDefault true;
 
   # Set the system's architecture
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";

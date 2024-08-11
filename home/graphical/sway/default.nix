@@ -32,7 +32,7 @@
     if hostname == desktop
     then {
       commands = [
-        #{command = "${pkgs.dbus}/bin/dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway";}
+        {command = "${pkgs.dbus}/bin/dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway";}
         {command = "${pkgs.wl-clipboard}/bin/wl-paste -t text --watch ${pkgs.clipman}/bin/clipman store";}
         {command = "${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1";}
         {command = "swaymsg workspace 1";}
@@ -275,6 +275,8 @@ in {
     # '';
 
     extraSessionCommands = ''
+      export WAYLAND_DISPLAY
+      export XDG_CURRENT_DESKTOP=sway
       export XDG_SESSION_TYPE=wayland
       export MOZ_ENABLE_WAYLAND=1
       export QT_QPA_PLATFORM=wayland

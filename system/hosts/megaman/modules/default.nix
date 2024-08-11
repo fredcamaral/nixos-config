@@ -15,7 +15,6 @@
       "zfs"
     ]
     ++ [
-      # Networking and VPN
-      ./networking
+      ./sway
     ];
 }

@@ -1,4 +1,4 @@
-{...}: {
+{ hostname, domain, ...}: {
   # Import the modules
   imports =
     map (common: ./${common}.nix) [
@@ -14,9 +14,12 @@
       "users"
     ]
     ++ [
-      # Graphical environment
-      ./graphical
       # Secrets Setup
       ./secrets
     ];
+
+  networking = {
+    hostName = hostname;
+    domain = domain;
+  };
 }

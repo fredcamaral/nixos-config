@@ -9,19 +9,25 @@
     wrapperFeatures.gtk = true;
   };
 
-  services = {
-    dbus.enable = true;
-    xserver = {
-      enable = true;
-    };
-    gnome.gnome-keyring.enable = true;
+  environment.sessionVariables = {
+  	"XDG_CURRENT_DESKTOP" = "sway";
+  	"XDG_SESSION_TYPE" = "wayland";
+  	"QT_QPA_PLATFORM" = "wayland";
+  	"QT_WAYLAND_DISABLE_WINDOWDECORATION" = "1";
+  	"GDK_BACKEND" = "wayland";
+  	"MOZ_ENABLE_WAYLAND" = "1";
+  	"CLUTTER_BACKEND" = "wayland";
+  	"SDL_VIDEODRIVER" = "wayland";
+  	"WLR_DRM_NO_ATOMIC" = "1";  	
   };
+  
+  services.xserver.enable = true;
 
-  xdg.portal = {
-    enable = true;
-    wlr.enable = true;
-    extraPortals = [pkgs.xdg-desktop-portal-gtk];
-  };
+  #xdg.portal = {
+  #  enable = true;
+  #  wlr.enable = true;
+  #  extraPortals = [pkgs.xdg-desktop-portal-gtk];
+  #};
 
   environment.systemPackages = with pkgs; [
     libnotify # for notifications
@@ -33,7 +39,7 @@
     gtk4 # for GTK applications
     glib # for GTK applications
     gsettings-desktop-schemas # for GTK applications
-    seahorse # for GNOME applications
+    #seahorse # for GNOME applications
     xdg-utils # for XDG applications
   ];
 }
