@@ -109,7 +109,7 @@
     };
 
     "network#nic1" = {
-      interface = "enp11s0";
+      interface = "enp117s0";
       format-ethernet = "󰈀 {ipaddr} 󰕒 {bandwidthUpBytes} 󰇚 {bandwidthDownBytes}";
       format-linked = "{ifname} (No IP)";
       format-disconnected = "Disconnected ⚠";
@@ -119,7 +119,7 @@
     };
 
     "network#nic2" = {
-      interface = "enp10s0";
+      interface = "enp116s0";
       format-ethernet = "󰈀 {ipaddr} 󰕒 {bandwidthUpBytes} 󰇚 {bandwidthDownBytes}";
       format-linked = "{ifname} (No IP)";
       format-disconnected = "Disconnected ⚠";
