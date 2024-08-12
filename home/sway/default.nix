@@ -215,7 +215,7 @@ in {
         "${modifier}+Alt+r" = "mode resize";
         "${modifier}+Alt+l" = "mode launcher";
         "${modifier}+Alt+s" = "mode system";
-        "${modifier}+Alt+t" = "mode layout";
+        "${modifier}+t" = "mode layout";
       };
       modes = {
         resize = {
