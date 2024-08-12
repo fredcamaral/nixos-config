@@ -5,9 +5,11 @@
     supersonic-wayland
     rsync
     blueman
-    todoist-electron # To-do list manager
-    amdgpu_top # AMD GPU utilization monitor
-    teams-for-linux # Microsoft Teams client for Linux
-    zoom-us # Video conferencing and online meeting platform
+    todoist-electron
+    amdgpu_top
+    teams-for-linux
+    zoom-us
+    wlsunset
+    wshowkeys
   ];
 }

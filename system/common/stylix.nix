@@ -5,7 +5,7 @@
     enable = true;
 
     # Set the wallpaper image
-    image = ../../home/assets/wallpapers/wp7786806.webp;
+    image = ../../home/assets/wallpapers/2700193-1927176567.jpg;
 
     # Set the theme polarity (dark or light)
     polarity = "dark";
