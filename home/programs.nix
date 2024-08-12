@@ -9,15 +9,14 @@
     "firefox"
     "vscode"
     "kitty"
-    "zellij"
-    "dconf"
   ];
 
   programs = {
     atuin = {
       enable = true;
-      enableZshIntegration = true;
+      enableZshIntegration = false;
     };
+
     # A cat clone with syntax highlighting and Git integration
     bat = {
       enable = true;
@@ -70,17 +69,17 @@
     };
 
     # # A versatile streaming software and video recording application
-    # obs-studio = {
-    #   enable = false;
-    #   plugins = with pkgs; [
-    #     # List of OBS plugins
-    #     # obs-studio-plugins.obs-gstreamer
-    #     # obs-studio-plugins.obs-vkcapture
-    #     # obs-studio-plugins.obs-pipewire-audio-capture
-    #     # obs-studio-plugins.obs-multi-rtmp
-    #     # obs-studio-plugins.obs-move-transition
-    #   ];
-    # };
+    obs-studio = {
+      enable = true;
+      plugins = with pkgs; [
+        obs-studio-plugins.obs-gstreamer
+        obs-studio-plugins.obs-vkcapture
+        obs-studio-plugins.obs-pipewire-audio-capture
+        obs-studio-plugins.obs-multi-rtmp
+        obs-studio-plugins.obs-move-transition
+        obs-studio-plugins.wlrobs
+      ];
+    };
 
     # A fast, feature-rich alternative to grep
     ripgrep.enable = true;
