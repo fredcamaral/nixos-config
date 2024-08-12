@@ -3,15 +3,12 @@
   environment.systemPackages = with pkgs; [
     # to-organize
     age # Tool for encrypting files
-    nh # Command-line note-taking tool
     vlc # Open-source media player
     grim # Screenshot utility
     slurp # Screenshot utility
     wl-clipboard # Clipboard manager for Wayland
-    brightnessctl # Utility for controlling screen brightness
     go # Go programming language
     go-tools # Go programming language
-    d2
 
     # Archiving and Compression
     pigz # Parallel implementation of gzip for faster compression
@@ -40,21 +37,14 @@
 
     # Graphics and Design
     drawio # Diagram drawing application
-    gimp # GNU Image Manipulation Program for image editing
-    inkscape # Vector graphics editor
 
     # Hardware Management
     logitech-udev-rules # Udev rules for Logitech devices
     solaar # Device manager for Logitech peripherals
 
-    # Media Creation and Editing
-    asciinema # Terminal session recorder
-    peek # Simple animated GIF screen recorder
-
     # Multimedia Tools
     feh # Lightweight and fast image viewer
     ffmpeg # Complete solution to record, convert and stream audio and video
-    imagemagick # Software suite for creating, editing, and manipulating images
 
     # Networking Tools
     curl # Command-line tool for transferring data using various protocols
@@ -84,8 +74,6 @@
     fd # Simple, fast alternative to 'find'
     file # Utility to determine file types
     gparted # Graphical disk partitioning tool
-    mc # Midnight Commander, a visual file manager
-    tree # Display directories as trees
 
     # System Monitoring and Diagnostics
     iotop # I/O monitoring tool
@@ -93,7 +81,6 @@
     lshw # Hardware lister to provide detailed information on the hardware configuration
     neofetch # Fast, highly customizable system info script
     pciutils # Set of programs for inspecting and manipulating configuration of PCI devices
-    powertop # Power consumption and power management diagnosis tool
     smartmontools # Tools for monitoring and controlling S.M.A.R.T. enabled hard drives
     usbutils # USB utilities (such as lsusb)
 
@@ -107,32 +94,23 @@
     xfce.thunar # File manager for Xfce
 
     # Text Processing and Documentation
-    pandoc # Universal markup converter
     tldr # Simplified and community-driven man pages
 
     # Utilities
     bandwhich # Terminal bandwidth utilization tool
     busybox # Tiny utilities for small and embedded systems
-    #code2prompt # Generate command descriptions for AI assistants
+    code2prompt # Generate command descriptions for AI assistants
     eva # Simple calculator REPL
     fio # Flexible I/O Tester for benchmarking and stress-testing
-    ibus-engines.typing-booster # Predictive text input method for IBus
-    ibus-with-plugins # Intelligent Input Bus for Linux and Unix-like operating systems
     lazydocker # The lazier way to manage everything docker
     moreutils # Growing collection of the unix tools that nobody thought to write long ago
     parallel-full # Shell tool for executing jobs in parallel
-    qpdf # Command-line tool for structural, content-preserving transformations of PDF files
     sd # Intuitive find & replace CLI tool
-    zola # Fast static site generator in a single binary
 
     # Virtualization and Containerization
     docker_27 # Platform for developing, shipping, and running applications in containers
     kubectl # Command-line tool for controlling Kubernetes clusters
     kubernetes-helm # Package manager for Kubernetes
     minikube # Tool that makes it easy to run Kubernetes locally
-
-    # Music and Audio
-    cantata # Qt5 Graphical MPD Client
-    mpd # Music Player Daemon
   ];
 }
