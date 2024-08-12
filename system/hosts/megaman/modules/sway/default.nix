@@ -23,23 +23,24 @@
 
   services.xserver.enable = false;
 
-  #xdg.portal = {
-  #  enable = true;
-  #  wlr.enable = true;
-  #  extraPortals = [pkgs.xdg-desktop-portal-gtk];
-  #};
+  xdg.portal = {
+    enable = true;
+    wlr.enable = true;
+  };
 
   environment.systemPackages = with pkgs; [
-    libnotify # for notifications
-    polkit_gnome # for permission management
-    qt5.qtwayland # for Qt applications
-    qt6.qtwayland # for Qt applications
-    wlogout # for logout notifications
-    gtk3 # for GTK applications
-    gtk4 # for GTK applications
-    glib # for GTK applications
-    gsettings-desktop-schemas # for GTK applications
-    seahorse # for GNOME applications
-    xdg-utils # for XDG applications
+    libnotify
+    polkit_gnome
+    qt5.qtwayland
+    qt6.qtwayland
+    wlogout
+    gtk3
+    gtk4
+    glib
+    gsettings-desktop-schemas
+    seahorse
+    xdg-utils
+    xdg-desktop-portal
+    xdg-desktop-portal-wlr
   ];
 }
