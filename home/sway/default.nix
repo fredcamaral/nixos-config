@@ -106,7 +106,7 @@ in {
         }
         {
           workspace = "5";
-          output = "DP-1";
+          output = "DP-2";
         }
         {
           workspace = "6";
