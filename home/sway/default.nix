@@ -65,8 +65,8 @@ in {
         mouseWarping = true;
       };
       gaps = {
-        inner = 8;
-        outer = 3;
+        inner = 4;
+        outer = 2;
       };
       bars = [
         {
