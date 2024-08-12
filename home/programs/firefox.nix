@@ -13,7 +13,6 @@
   # Extra configuration for Firefox
   extraConfig = ''
     user_pref("update_notifications.enabled", false);
-    user_pref("toolkit.legacyUserProfileCustomizations.stylesheets", true);
   '';
 
   # Load custom CSS for Firefox UI

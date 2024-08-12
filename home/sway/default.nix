@@ -269,8 +269,8 @@ in {
     };
 
     extraConfig = ''
-      exec dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK
-      exec systemctl --user import-environment DISPLAY WAYLAND_DISPLAY SWAYSOCK
+      exec dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK XDG_SESSION_TYPE XDG_CURRENT_DESKTOP
+      exec systemctl --user import-environment DISPLAY WAYLAND_DISPLAY SWAYSOCK XDG_SESSION_TYPE XDG_CURRENT_DESKTOP
     '';
   };
 }

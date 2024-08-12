@@ -1,6 +1,6 @@
 {pkgs, ...}: {
   force = true;
-  default = "DuckDuckGo";
+  default = "Google";
   engines = {
     # Search for NixOS Packages
     "Nix Packages" = {
@@ -59,7 +59,8 @@
     };
 
     # Hide default search engines
-    "Google".metaData.hidden = true;
+    "DuckDuckGo".metaData.hidden = false;
+    "Google".metaData.hidden = false;
     "Amazon.com".metaData.hidden = true;
     "Bing".metaData.hidden = true;
     "eBay".metaData.hidden = true;
