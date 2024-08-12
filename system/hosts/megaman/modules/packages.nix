@@ -9,7 +9,6 @@
     amdgpu_top
     teams-for-linux
     zoom-us
-    wlsunset
-    wshowkeys
+    neovim
   ];
 }
