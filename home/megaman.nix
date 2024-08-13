@@ -37,11 +37,11 @@
 
   # Import additional configuration files
   imports = [
-    ./others/xdg.nix
-    ./others/programs.nix
-    ./others/aliases.nix
-    ./others/direnv.nix
-    ./others/stylix.nix
+    ./common/xdg.nix
+    ./common/programs.nix
+    ./common/aliases.nix
+    ./common/direnv.nix
+    ./common/stylix.nix
     ./sway
   ];
 
