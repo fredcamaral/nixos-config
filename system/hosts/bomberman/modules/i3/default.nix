@@ -2,7 +2,11 @@
   pkgs,
   lib,
   ...
-}: {
+}: let
+  modifier = "Mod4";
+  terminal = "${pkgs.kitty}/bin/kitty";
+  menu = "${pkgs.wofi}/bin/wofi --show drun";
+in {
   services = {
     displayManager.sddm = {
       enable = true;
@@ -12,9 +16,9 @@
         enable = true;
         package = pkgs.i3-gaps;
         config = {
-          modifier = "Mod4";
-          terminal = "${pkgs.kitty}/bin/kitty";
-          menu = "${pkgs.wofi}/bin/wofi --show drun";
+          modifier = "${modifier}";
+          terminal = "${terminal}";
+          menu = "${menu}";
           fonts = {
             names = ["monospace"];
             size = 8.0;
