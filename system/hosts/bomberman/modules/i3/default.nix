@@ -131,21 +131,20 @@ in {
         '';
       };
     };
-    # Additional system-wide configurations
-    environment.systemPackages = with pkgs; [
-      kitty
-      wofi
-      firefox
-      xfce.thunar
-      wlogout
-      scrot
-      pulseaudio
-      brightnessctl
-      playerctl
-      clipman
-    ];
-
     # Enable GNOME Keyring
     gnome.gnome-keyring.enable = true;
   };
+  # Additional system-wide configurations
+  environment.systemPackages = with pkgs; [
+    kitty
+    wofi
+    firefox
+    xfce.thunar
+    wlogout
+    scrot
+    pulseaudio
+    brightnessctl
+    playerctl
+    clipman
+  ];
 }
