@@ -1,7 +1,6 @@
 # configuration.nix
 {
   inputs,
-  hostname,
   pkgs,
   ...
 }: {
@@ -9,19 +8,6 @@
     ./hardware-configuration.nix
     ./modules
   ];
-
-  networking = {
-    hostName = hostname;
-    networkmanager.enable = true;
-    useDHCP = false;
-  };
-
-  graphical = {
-    xdefaults.enable = true; # Enable X-Server defaults (true by default)
-    managers = {
-      enable = false; # Enable graphical environment (false by default)
-    };
-  };
 
   # Specify the NixOS release version
   # This value determines the NixOS release from which the default

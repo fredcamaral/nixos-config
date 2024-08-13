@@ -10,5 +10,11 @@
       enable = true;
       # authKeyFile = config.age.secrets.bomberman-tailscale-auth.path;
     };
+
+    # Enable CUPS to print documents
+    printing.enable = true;
   };
+
+  # Enable touchpad support
+  xserver.libinput.enable = true;
 }

@@ -9,4 +9,6 @@
     enableAllFirmware = true;
     enableRedistributableFirmware = true;
   };
+  sound.enable = true;
+  hardware.pulseaudio.enable = true;
 }

@@ -37,9 +37,19 @@ in {
       }
     ];
 
+    # The `mptspi` kernel module is loaded in the initrd to provide support for the
+    # SCSI controller used by VMware. This is necessary for the virtual machine to
+    # be able to access its virtual disks.
+    #
+    # The `vmw_pvscsi` kernel module is commented out, as it may not be necessary
+    # for all VMware guest configurations. It provides support for the VMware
+    # paravirtual SCSI controller, which can improve disk performance in some
+    # cases.
     boot.initrd.availableKernelModules = ["mptspi"];
     # boot.initrd.kernelModules = [ "vmw_pvscsi" ];
 
+    # The `open-vm-tools` package provides a set of utilities for VMware virtual machines, including tools for managing the virtual machine,
+    # sharing files between the host and guest, and more. This package is required for the VMware guest support functionality provided by this module.
     environment.systemPackages = [open-vm-tools];
 
     systemd.services.vmware = {
@@ -91,6 +101,7 @@ in {
       '';
     };
 
+    # Installs the open-vm-tools package, which provides utilities for VMware guests. This ensures the necessary VMware guest utilities are available on the system.
     services.udev.packages = [open-vm-tools];
   };
 }

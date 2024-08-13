@@ -9,9 +9,8 @@
     vmware/vmware-guest.nix
   ];
 
-  boot.binfmt.emulatedSystems = ["x86_64-linux"];
+  # custom module for vmware on ./vmware
   disabledModules = ["virtualisation/vmware-guest.nix"];
-  networking.interfaces.ens160.useDHCP = true;
   virtualisation.vmware.guest.enable = true;
 
   # Share our host filesystem
@@ -30,8 +29,6 @@
 
   virtualisation.docker = {
     enable = true;
-    storageDriver = "overlay2";
     rootless.enable = true;
-    autoPrune.enable = true;
   };
 }
