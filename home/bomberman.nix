@@ -42,7 +42,6 @@
     ./others/aliases.nix
     ./others/direnv.nix
     ./others/stylix.nix
-    ./sway
   ];
 
   # Enable Home Manager
