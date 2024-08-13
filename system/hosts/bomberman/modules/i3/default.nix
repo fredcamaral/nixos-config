@@ -10,11 +10,14 @@ in {
   services = {
     displayManager = {
       sddm.enable = true;
+    };
+    gnome.gnome-keyring.enable = true;
+
+    xserver.displayManager = {
       sessionCommands = ''
         ${pkgs.xorg.xrandr}/bin/xrandr --output Virtual-1 --mode 1920x1440 -rate 60
       '';
     };
-    gnome.gnome-keyring.enable = true;
 
     xserver.windowManager.i3 = {
       enable = true;
