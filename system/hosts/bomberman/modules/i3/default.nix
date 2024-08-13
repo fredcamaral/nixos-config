@@ -8,7 +8,12 @@
   menu = "${pkgs.wofi}/bin/wofi --show drun";
 in {
   services = {
-    displayManager.sddm.enable = true;
+    displayManager = {
+      sddm.enable = true;
+      setupCommands = ''
+        ${pkgs.xorg.xrandr}/bin/xrandr --output Virtual-1 --mode 1920x1440 -rate 60
+      '';
+    };
     gnome.gnome-keyring.enable = true;
 
     xserver.windowManager.i3 = {
