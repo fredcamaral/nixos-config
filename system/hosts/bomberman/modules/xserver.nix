@@ -4,6 +4,10 @@
   lib,
   ...
 }: {
+  imports = [
+    ./i3
+  ];
+
   nixpkgs.config.permittedInsecurePackages = [
     # Needed for k2pdfopt 2.53.
     "mupdf-1.17.0"
@@ -17,19 +21,6 @@
 
     desktopManager = {
       xterm.enable = false;
-      # wallpaper.mode = "fill";
     };
-
-    displayManager = {
-      defaultSession = "none+i3";
-      lightdm.enable = true;
-
-      sessionCommands = ''
-      '';
-    };
-
-    imports = [
-      ./i3
-    ];
   };
 }

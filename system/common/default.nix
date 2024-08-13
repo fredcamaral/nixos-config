@@ -17,9 +17,4 @@
       # Secrets Setup
       ./secrets
     ];
-
-  #networking = {
-  #  hostName = hostname;
-  #  domain = domain;
-  #};
 }
