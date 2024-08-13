@@ -25,7 +25,10 @@
     rebuild-home = "home-manager switch --flake ~/repos/nixos-config/";
 
     # Rebuild both NixOS and Home Manager
-    rebuild-all = "rebuild-nixos && rebuild-home";
+    rebuild-all = ''
+      rebuild-nixos
+      rebuild-home
+    '';
 
     # NixOS rebuild for boot
     rebuild-for-boot = "sudo nixos-rebuild boot --flake ~/repos/nixos-config/";
@@ -47,7 +50,10 @@
     '';
 
     # Upgrade both NixOS and Home Manager
-    upgrade-all = "upgrade-nixos && upgrade-home";
+    upgrade-all = ''
+      upgrade-nixos
+      upgrade-home
+    '';
 
     # Shortcut for importing all ZFS pools
     import-pools = "sudo zpool import -a";

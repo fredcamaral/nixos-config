@@ -77,9 +77,9 @@
     };
 
     homeConfigurations = {
-      ${machines.desktop} = mkHome machines.desktop "x86_64-linux";
-      ${machines.laptop-nixos} = mkHome machines.laptop-nixos "aarch64-linux";
-      ${machines.laptop-macos} = mkHome machines.laptop-macos "aarch64-linux";
+      "${user}@${machines.desktop}" = mkHome machines.desktop "x86_64-linux";
+      "${user}@${machines.laptop-nixos}" = mkHome machines.laptop-nixos "aarch64-linux";
+      "${user}@${machines.laptop-macos}" = mkHome machines.laptop-macos "aarch64-linux";
     };
   };
 }
