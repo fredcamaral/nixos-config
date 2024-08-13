@@ -7,6 +7,22 @@
   user,
   ...
 }: {
+  # Import additional configuration files
+  imports = [
+    ./common/xdg.nix
+    ./common/programs.nix
+    ./common/aliases.nix
+    ./common/direnv.nix
+    ./common/stylix.nix
+
+    ./hosts/bomberman/polybar.nix
+    ./hosts/bomberman/rofi.nix
+    ./hosts/bomberman/dunst.nix
+  ];
+
+  # Enable Home Manager
+  programs.home-manager.enable = true;
+
   home = {
     username = "${user}";
     homeDirectory = "/home/${user}";
@@ -34,18 +50,6 @@
     iconTheme.name = "Vimix-White";
     iconTheme.package = pkgs.vimix-icon-theme;
   };
-
-  # Import additional configuration files
-  imports = [
-    ./common/xdg.nix
-    ./common/programs.nix
-    ./common/aliases.nix
-    ./common/direnv.nix
-    ./common/stylix.nix
-  ];
-
-  # Enable Home Manager
-  programs.home-manager.enable = true;
 
   # Set the state version for Home Manager
   home.stateVersion = "24.05";
