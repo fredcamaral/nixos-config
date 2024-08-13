@@ -45,14 +45,18 @@
     upgrade-home = ''
       cd ~/repos/nixos-config
       nix flake update
-      home-manager switch --flake ~/repos/nixos-config/ --upgrade
+      home-manager switch --flake ~/repos/nixos-config/
       echo "Home Manager upgrade complete!"
     '';
 
     # Upgrade both NixOS and Home Manager
     upgrade-all = ''
-      upgrade-nixos
-      upgrade-home
+      cd ~/repos/nixos-config
+      sudo nix flake update
+      sudo nixos-rebuild boot --flake ~/repos/nixos-config/ --upgrade
+      echo "NixOS upgrade complete! Reboot your computer..."
+      home-manager switch --flake ~/repos/nixos-config/
+      echo "Home Manager upgrade complete!"
     '';
 
     # Shortcut for importing all ZFS pools
