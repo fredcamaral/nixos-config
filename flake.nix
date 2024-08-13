@@ -44,13 +44,14 @@
     mkSystem = hostname: system: extraModules:
       nixpkgs.lib.nixosSystem {
         inherit system;
-        specialArgs = {inherit inputs user hostname domain system;} // machines;
+        specialArgs = {inherit inputs hostname user domain system;} // machines;
         modules =
           [
-            ./system/hosts/${hostname}/configuration.nix
-            ./system/common/default.nix
             stylix.nixosModules.stylix
             agenix.nixosModules.default
+            ./system/hosts/${hostname}/configuration.nix
+            ./system/common/default.nix
+            {nixpkgs.config.allowUnfree = true;}
           ]
           ++ extraModules;
       };
@@ -60,7 +61,10 @@
         pkgs = nixpkgs.legacyPackages.${system};
         extraSpecialArgs = {inherit inputs hostname user;} // machines;
         modules = [
+          stylix.homeManagerModules.stylix
+          agenix.homeManagerModules.default
           ./home/${hostname}.nix
+          {nixpkgs.config.allowUnfree = true;}
         ];
       };
   in {

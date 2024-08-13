@@ -9,6 +9,7 @@
     wl-clipboard # Clipboard manager for Wayland
     go # Go programming language
     go-tools # Go programming language
+    home-manager # Home Manager
 
     # Archiving and Compression
     pigz # Parallel implementation of gzip for faster compression
