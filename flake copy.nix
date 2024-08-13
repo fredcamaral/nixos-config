@@ -3,6 +3,7 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-24.05";
+    #nixpkgs.url = "github:nixos/nixpkgs/nixos-24.05";
     agenix = {
       url = "github:ryantm/agenix";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -52,16 +53,32 @@
             stylix.nixosModules.stylix
             agenix.nixosModules.default
           ]
+          ++ (
+            if hostname == machines.desktop
+            then [
+              home-manager.nixosModules.home-manager
+              {
+                home-manager = {
+                  useGlobalPkgs = true;
+                  useUserPackages = true;
+                  backupFileExtension = "bkp3";
+                  extraSpecialArgs = {inherit inputs;} // machines;
+                  users.${user} = {
+                    pkgs,
+                    config,
+                    ...
+                  }: {
+                    imports = [./home];
+                    _module.args.nixosConfig = config;
+                    _module.args.hostname = hostname;
+                    _module.args.user = user;
+                  };
+                };
+              }
+            ]
+            else []
+          )
           ++ extraModules;
-      };
-
-    mkHome = hostname: system:
-      home-manager.lib.homeManagerConfiguration {
-        pkgs = nixpkgs.legacyPackages.${system};
-        extraSpecialArgs = {inherit inputs hostname user;} // machines;
-        modules = [
-          ./home/${hostname}.nix
-        ];
       };
   in {
     formatter = pkgs.alejandra;
@@ -70,12 +87,6 @@
       ${machines.desktop} = mkSystem machines.desktop "x86_64-linux" [];
       ${machines.laptop-nixos} = mkSystem machines.laptop-nixos "aarch64-linux" [];
       ${machines.laptop-macos} = mkSystem machines.laptop-macos "aarch64-linux" [];
-    };
-
-    homeConfigurations = {
-      ${machines.desktop} = mkHome machines.desktop "x86_64-linux";
-      ${machines.laptop-nixos} = mkHome machines.laptop-nixos "aarch64-linux";
-      ${machines.laptop-macos} = mkHome machines.laptop-macos "aarch64-linux";
     };
   };
 }
