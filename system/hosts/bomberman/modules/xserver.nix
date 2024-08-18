@@ -14,13 +14,5 @@
   ];
   # boot.loader.systemd-boot.consoleMode = "0";
 
-  services.xserver = {
-    enable = true;
-    xkb.layout = "us";
-    dpi = 220;
-
-    desktopManager = {
-      xterm.enable = false;
-    };
-  };
+  services.xserver.enable = true;
 }
