@@ -98,7 +98,7 @@
     tldr # Simplified and community-driven man pages
 
     # Utilities
-    bandwhich # Terminal bandwidth utilization tool
+    # bandwhich # Terminal bandwidth utilization tool
     busybox # Tiny utilities for small and embedded systems
     code2prompt # Generate command descriptions for AI assistants
     eva # Simple calculator REPL
