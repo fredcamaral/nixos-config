@@ -49,7 +49,7 @@
     gtk4
     glib
     gsettings-desktop-schemas
-    seahorse
+    # seahorse
     xdg-utils
     xdg-desktop-portal
     xdg-desktop-portal-wlr

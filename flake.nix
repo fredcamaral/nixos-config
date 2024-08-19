@@ -1,8 +1,8 @@
 {
   description = "Paradise NixOS (fredamaral config)";
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-24.05";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-24.05";
+    nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
     agenix = {
       url = "github:ryantm/agenix";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -12,7 +12,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     home-manager = {
-      url = "github:nix-community/home-manager";
+      url = "github:nix-community/home-manager/release-24.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
@@ -20,7 +20,7 @@
   outputs = {
     self,
     nixpkgs,
-    nixpkgs-stable,
+    nixpkgs-unstable,
     home-manager,
     agenix,
     stylix,
@@ -37,6 +37,11 @@
     domain = "fredamaral.com";
 
     pkgs = import nixpkgs {
+      inherit system;
+      config.allowUnfree = true;
+    };
+
+    pkgs-unstable = import nixpkgs-unstable {
       inherit system;
       config.allowUnfree = true;
     };

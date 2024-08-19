@@ -29,25 +29,25 @@
     # Firmware configuration
     enableRedistributableFirmware = true;
 
-    graphics = {
-      # Enable graphics support
-      enable = true;
+    # graphics = {
+    #   # Enable graphics support
+    #   enable = true;
 
-      # Enable 32-bit graphics libraries
-      enable32Bit = true;
+    #   # Enable 32-bit graphics libraries
+    #   enable32Bit = true;
 
-      # Add extra graphics packages (AMD specific)
-      extraPackages = with pkgs; [
-        amdvlk
-        rocmPackages.clr
-        rocmPackages.rpp
-        rocmPackages.rccl
-        rocmPackages.half
-      ];
+    #   # Add extra graphics packages (AMD specific)
+    #   extraPackages = with pkgs; [
+    #     amdvlk
+    #     rocmPackages.clr
+    #     rocmPackages.rpp
+    #     rocmPackages.rccl
+    #     rocmPackages.half
+    #   ];
 
-      extraPackages32 = with pkgs; [
-        driversi686Linux.amdvlk
-      ];
-    };
+    #   extraPackages32 = with pkgs; [
+    #     driversi686Linux.amdvlk
+    #   ];
+    # };
   };
 }

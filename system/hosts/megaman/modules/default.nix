@@ -10,7 +10,7 @@
       "console"
       "nixsettings"
       "services"
-      # "virtualisation"
+      "virtualisation"
       "packages"
       "power-management"
       "programs"
