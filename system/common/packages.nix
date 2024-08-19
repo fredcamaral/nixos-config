@@ -102,9 +102,9 @@
     pkgs.tldr # Simplified and community-driven man pages
 
     # Utilities
-    pkgs-unstable.bandwhich # Terminal bandwidth utilization tool
+    # pkgs-unstable.bandwhich # Terminal bandwidth utilization tool
     pkgs.busybox # Tiny utilities for small and embedded systems
-    pkgs-unstable.code2prompt # Generate command descriptions for AI assistants
+    # pkgs-unstable.code2prompt # Generate command descriptions for AI assistants
     pkgs.eva # Simple calculator REPL
     pkgs.fio # Flexible I/O Tester for benchmarking and stress-testing
     pkgs.lazydocker # The lazier way to manage everything docker
