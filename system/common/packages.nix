@@ -14,6 +14,8 @@
     pkgs.go # Go programming language
     pkgs.go-tools # Go programming language
     pkgs.home-manager # Home Manager
+    pkgs.gnome-calculator # GNOME calculator
+    pkgs.sublime # Text editor
 
     # Archiving and Compression
     pkgs.pigz # Parallel implementation of gzip for faster compression
