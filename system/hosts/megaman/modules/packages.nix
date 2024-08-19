@@ -10,5 +10,7 @@
     teams-for-linux
     zoom-us
     neovim
+    wayland
+    libinput
   ];
 }

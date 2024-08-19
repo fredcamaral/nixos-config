@@ -24,7 +24,9 @@
     "amdgpu.si_support=1" # Enable AMD C-State Coordination (C-State)
     "amdgpu.cik_support=1" # Enable AMD C-State Coordination (C-State)
     "amdgpu.ppfeaturemask=0xffffffff" # Enable all features for the amdgpu kernel module
+    "amdgpu.dcfeaturemask=0xffffffff" # Enable all features for the amdgpu kernel module
     "intel_pstate=active" # Enable Intel P-State Coordination (C-State)
+    "amd_pstate=active" # Enable AMD P-State Coordination (C-State)
   ];
 
   # Kernel sysctl parameters
