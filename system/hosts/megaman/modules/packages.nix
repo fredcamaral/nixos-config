@@ -12,5 +12,6 @@
     neovim
     wayland
     libinput
+    google-chrome
   ];
 }
