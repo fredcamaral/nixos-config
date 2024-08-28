@@ -18,6 +18,10 @@
       createScreenshotsDir = config.lib.dag.entryAfter ["writeBoundary"] ''
         mkdir -p "${config.xdg.userDirs.pictures}/screenshots"
       '';
+      linkHomeManagerConfig = lib.hm.dag.entryAfter ["writeBoundary"] ''
+        mkdir -p ~/.config/home-manager
+        ln -sfn ~/repos/nixos-config/home/$(hostname).nix ~/.config/home-manager/home.nix
+      '';
     };
 
     # Set session variables
