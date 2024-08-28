@@ -5,6 +5,7 @@
   lib,
   nixosConfig,
   user,
+  hostname,
   ...
 }: {
   home = {
