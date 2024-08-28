@@ -49,10 +49,20 @@
     gtk4
     glib
     gsettings-desktop-schemas
-    # seahorse
+    seahorse
     xdg-utils
     xdg-desktop-portal
     xdg-desktop-portal-wlr
     wlr-protocols
+    waybar
+    dunst
+    rofi-wayland
+    libva
+    libva-utils
+    vulkan-tools
+    glxinfo
+    wayland
+    wayland-utils
+    wlr-randr
   ];
 }

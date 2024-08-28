@@ -48,8 +48,8 @@
     ./common/aliases.nix
     ./common/direnv.nix
     ./common/stylix.nix
-    # ./sway
-    ./hyprland
+    ./sway
+    # ./hyprland
   ];
 
   # Enable Home Manager
