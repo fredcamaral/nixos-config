@@ -20,7 +20,7 @@
       '';
       linkHomeManagerConfig = lib.hm.dag.entryAfter ["writeBoundary"] ''
         mkdir -p ~/.config/home-manager
-        ln -sfn ~/repos/nixos-config/home/$(hostname).nix ~/.config/home-manager/home.nix
+        ln -sfn ~/repos/nixos-config/home/${hostname}.nix ~/.config/home-manager/home.nix
       '';
     };
 
