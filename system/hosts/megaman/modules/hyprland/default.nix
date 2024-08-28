@@ -44,5 +44,12 @@
     waybar
     dunst
     rofi-wayland
+    libva
+    libva-utils
+    vulkan-tools
+    glxinfo
+    wayland
+    wayland-utils
+    wlr-randr
   ];
 }

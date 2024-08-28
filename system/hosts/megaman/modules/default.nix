@@ -17,7 +17,8 @@
       "zfs"
     ]
     ++ [
-      ./sway
+      # ./sway
+      ./hyprland
     ];
   networking = {
     hostName = hostname;
