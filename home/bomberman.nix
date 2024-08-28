@@ -24,6 +24,7 @@
   programs.home-manager.enable = true;
 
   home = {
+    enableNixpkgsReleaseCheck = false;
     username = "${user}";
     homeDirectory = "/home/${user}";
     sessionPath = ["$HOME/.local/bin"];
@@ -52,5 +53,5 @@
   };
 
   # Set the state version for Home Manager
-  home.stateVersion = "24.11";
+  home.stateVersion = "24.05";
 }
