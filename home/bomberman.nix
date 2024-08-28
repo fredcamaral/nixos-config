@@ -52,5 +52,5 @@
   };
 
   # Set the state version for Home Manager
-  home.stateVersion = "24.05";
+  home.stateVersion = "24.11";
 }

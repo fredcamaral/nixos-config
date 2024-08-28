@@ -28,6 +28,8 @@
         MusicFolder = "/media/limbo/music";
         DataFolder = "/media/limbo/navidrome/data";
         CacheFolder = "/media/limbo/navidrome/cache";
+        EnableExternalServices = true;
+        Lyrics.Providers = ["chartlyrics" "genius"];
       };
     };
 
