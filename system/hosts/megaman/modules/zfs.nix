@@ -6,7 +6,8 @@
 }: {
   boot = {
     # Use the latest Linux kernel compatible with ZFS
-    kernelPackages = config.boot.zfs.package.latestCompatibleLinuxPackages;
+    # kernelPackages = config.boot.zfs.package.latestCompatibleLinuxPackages;
+    kernelPackages = pkgs.linuxPackages;
 
     # Enable ZFS support
     supportedFilesystems = ["zfs" "exfat"];
