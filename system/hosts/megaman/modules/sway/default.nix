@@ -26,17 +26,6 @@
   xdg.portal = {
     enable = true;
     wlr.enable = true;
-    wlr.settings = {
-      screencast = {
-        output_name = "DP-1";
-        max_fps = 30;
-        # exec_before = "disable_notifications.sh";
-        # exec_after = "enable_notifications.sh";
-        chooser_type = "simple";
-        chooser_cmd = "${pkgs.slurp}/bin/slurp -f %o -or";
-      };
-    };
-    extraPortals = [pkgs.xdg-desktop-portal-gtk];
   };
 
   environment.systemPackages = with pkgs; [
@@ -54,15 +43,5 @@
     xdg-desktop-portal
     xdg-desktop-portal-wlr
     wlr-protocols
-    waybar
-    dunst
-    rofi-wayland
-    libva
-    libva-utils
-    vulkan-tools
-    glxinfo
-    wayland
-    wayland-utils
-    wlr-randr
   ];
 }

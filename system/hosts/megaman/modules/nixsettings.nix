@@ -5,6 +5,7 @@
     rocmSupport = true;
     permittedInsecurePackages = [
       "olm-3.2.16"
+      "electron-29.4.6"
     ];
   };
 }
