@@ -7,7 +7,6 @@
     blueman
     todoist-electron
     amdgpu_top
-    teams-for-linux
     zoom-us
     neovim
     wayland
