@@ -11,5 +11,6 @@
     wayland
     libinput
     bzip3
+    bzip2
   ];
 }
