@@ -2,7 +2,6 @@
 {pkgs, ...}: {
   environment.systemPackages = with pkgs; [
     # to-organize
-    supersonic-wayland
     rsync
     blueman
     todoist-electron
@@ -11,6 +10,6 @@
     neovim
     wayland
     libinput
-    google-chrome
+    bzip3
   ];
 }

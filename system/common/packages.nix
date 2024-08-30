@@ -1,9 +1,5 @@
 # system/modules/packages.nix
-{
-  pkgs,
-  pkgs-unstable,
-  ...
-}: {
+{pkgs, ...}: {
   environment.systemPackages = [
     # to-organize
     pkgs.age # Tool for encrypting files
@@ -15,7 +11,6 @@
     pkgs.go-tools # Go programming language
     pkgs.home-manager # Home Manager
     pkgs.gnome-calculator # GNOME calculator
-    pkgs.sublime # Text editor
     pkgs.kdePackages.kate # KDE text editor
 
     # Archiving and Compression
@@ -42,9 +37,6 @@
     pkgs.zfs # OpenZFS implementation for Linux
     pkgs.zfsnap # Automatic snapshot manager for ZFS
     pkgs.zfstools # Additional utilities for OpenZFS administration
-
-    # Graphics and Design
-    pkgs.drawio # Diagram drawing application
 
     # Hardware Management
     pkgs.logitech-udev-rules # Udev rules for Logitech devices
@@ -99,15 +91,14 @@
     pkgs.pulseaudioFull # Sound server for POSIX and Win32 systems
     pkgs.vimix-icon-theme # Icon theme for Linux
     pkgs.wirelesstools # Tools for setting up wireless networking
-    pkgs.xfce.thunar # File manager for Xfce
 
     # Text Processing and Documentation
     pkgs.tldr # Simplified and community-driven man pages
 
     # Utilities
-    # pkgs-unstable.bandwhich # Terminal bandwidth utilization tool
+    pkgs.bandwhich # Terminal bandwidth utilization tool
     pkgs.busybox # Tiny utilities for small and embedded systems
-    # pkgs-unstable.code2prompt # Generate command descriptions for AI assistants
+    pkgs.code2prompt # Generate command descriptions for AI assistants
     pkgs.eva # Simple calculator REPL
     pkgs.fio # Flexible I/O Tester for benchmarking and stress-testing
     pkgs.lazydocker # The lazier way to manage everything docker
