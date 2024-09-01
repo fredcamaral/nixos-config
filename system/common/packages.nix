@@ -1,5 +1,10 @@
 # system/modules/packages.nix
-{pkgs, ...}: {
+{
+  pkgs,
+  pkgs-unstable,
+  pkgs-stable,
+  ...
+}: {
   environment.systemPackages = [
     # to-organize
     pkgs.age # Tool for encrypting files
@@ -10,7 +15,7 @@
     pkgs.go # Go programming language
     pkgs.go-tools # Go programming language
     pkgs.home-manager # Home Manager
-    pkgs.gnome-calculator # GNOME calculator
+    pkgs-unstable.gnome-calculator # GNOME calculator
     pkgs.kdePackages.kate # KDE text editor
     pkgs.cmake # Cross-platform make
 
@@ -97,9 +102,9 @@
     pkgs.tldr # Simplified and community-driven man pages
 
     # Utilities
-    pkgs.bandwhich # Terminal bandwidth utilization tool
+    pkgs-unstable.bandwhich # Terminal bandwidth utilization tool
     pkgs.busybox # Tiny utilities for small and embedded systems
-    pkgs.code2prompt # Generate command descriptions for AI assistants
+    pkgs-unstable.code2prompt # Generate command descriptions for AI assistants
     pkgs.eva # Simple calculator REPL
     pkgs.fio # Flexible I/O Tester for benchmarking and stress-testing
     pkgs.lazydocker # The lazier way to manage everything docker

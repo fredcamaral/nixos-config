@@ -29,26 +29,25 @@
     # Firmware configuration
     enableRedistributableFirmware = true;
 
-    graphics = {
-      # Enable graphics support
+    opengl = {
       enable = true;
-      enable32Bit = true;
+      driSupport = true;
+      driSupport32Bit = true;
 
-      # Add extra graphics packages (AMD specific)
       extraPackages = with pkgs; [
         amdvlk
         vulkan-loader
-        rocmPackages.rocm-runtime
-        rocmPackages.rpp
-        rocmPackages.rccl
-        rocmPackages.clr
-        rocmPackages.rocm-smi
-        rocmPackages.rocminfo
+        rocm-opencl-icd
+        rocm-opencl-runtime
       ];
 
-      extraPackages32 = with pkgs; [
-        driversi686Linux.amdvlk
+      extraPackages32 = with pkgs.pkgsi686Linux; [
+        amdvlk
       ];
     };
   };
+  environment.systemPackages = with pkgs; [
+    rocmPackages.rocm-smi
+    rocmPackages.rocminfo
+  ];
 }
