@@ -61,7 +61,7 @@
     mkSystem = hostname: system: extraModules:
       nixpkgs.lib.nixosSystem {
         inherit system;
-        specialArgs = {inherit inputs hostname user domain system;} // machines;
+        specialArgs = {inherit inputs hostname user domain system pkgs-stable pkgs-unstable;} // machines;
         modules =
           [
             stylix.nixosModules.stylix
@@ -76,7 +76,7 @@
     mkHome = hostname: system:
       home-manager.lib.homeManagerConfiguration {
         pkgs = nixpkgs.legacyPackages.${system};
-        extraSpecialArgs = {inherit inputs hostname user;} // machines;
+        extraSpecialArgs = {inherit inputs hostname user pkgs-stable pkgs-unstable;} // machines;
         modules = [
           stylix.homeManagerModules.stylix
           agenix.homeManagerModules.default

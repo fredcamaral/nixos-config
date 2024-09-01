@@ -2,6 +2,8 @@
 {
   config,
   pkgs,
+  pkgs-stable,
+  pkgs-unstable,
   lib,
   nixosConfig,
   user,
