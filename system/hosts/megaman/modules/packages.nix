@@ -3,7 +3,7 @@
   environment.systemPackages = with pkgs; [
     # to-organize
     rsync
-    blueman
+    # blueman
     todoist-electron
     amdgpu_top
     zoom-us

@@ -44,24 +44,28 @@
     domain = "fredamaral.com";
 
     pkgs = import nixpkgs {
-      inherit system;
+      system = "x86_64-linux";
       config.allowUnfree = true;
     };
 
     pkgs-stable = import nixpkgs-stable {
-      inherit system;
+      system = "x86_64-linux";
       config.allowUnfree = true;
     };
 
     pkgs-unstable = import nixpkgs-unstable {
-      inherit system;
+      system = "x86_64-linux";
       config.allowUnfree = true;
     };
 
     mkSystem = hostname: system: extraModules:
       nixpkgs.lib.nixosSystem {
         inherit system;
-        specialArgs = {inherit inputs hostname user domain system pkgs-stable pkgs-unstable;} // machines;
+        specialArgs =
+          {
+            inherit inputs hostname user domain system pkgs-stable pkgs-unstable;
+          }
+          // machines;
         modules =
           [
             stylix.nixosModules.stylix
@@ -76,7 +80,11 @@
     mkHome = hostname: system:
       home-manager.lib.homeManagerConfiguration {
         pkgs = nixpkgs.legacyPackages.${system};
-        extraSpecialArgs = {inherit inputs hostname user pkgs-stable pkgs-unstable;} // machines;
+        extraSpecialArgs =
+          {
+            inherit inputs hostname user pkgs-stable pkgs-unstable;
+          }
+          // machines;
         modules = [
           stylix.homeManagerModules.stylix
           agenix.homeManagerModules.default
