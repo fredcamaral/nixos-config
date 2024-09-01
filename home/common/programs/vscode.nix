@@ -1,6 +1,8 @@
 # home/programs/vscode.nix
 {
   pkgs,
+  pkgs-unstable,
+  pkgs-stable,
   lib,
   ...
 }: {
@@ -9,7 +11,7 @@
   # It also installs a set of recommended extensions for various programming languages and tools.
   programs.vscode = {
     enable = true; # Enable Visual Studio Code
-    package = pkgs.vscode; # Specify the package to use for VS Code
+    package = pkgs-unstable.vscode; # Specify the package to use for VS Code
     mutableExtensionsDir = false; # Prevent extensions from being modified
 
     # User settings for VS Code
@@ -30,7 +32,7 @@
     };
 
     # Extensions to be installed
-    extensions = with pkgs.vscode-extensions;
+    extensions = with pkgs-unstable.vscode-extensions;
       [
         # Remote development
         ms-vscode-remote.remote-ssh
@@ -70,7 +72,7 @@
         tailscale.vscode-tailscale
       ]
       # Additional marketplace extensions
-      ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
+      ++ pkgs-unstable.vscode-utils.extensionsFromVscodeMarketplace [
         {
           name = "todo-tree";
           publisher = "Gruntfuggly";
@@ -98,9 +100,9 @@
       ]
       # Architecture-specific extensions
       ++ (
-        if pkgs.stdenv.isx86_64
+        if pkgs-unstable.stdenv.isx86_64
         then
-          with pkgs.vscode-extensions; [
+          with pkgs-unstable.vscode-extensions; [
             ms-python.python
             ms-vscode.cpptools
           ]

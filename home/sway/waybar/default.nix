@@ -220,7 +220,6 @@ in {
           "tray"
           "sway/workspaces"
           "sway/mode"
-          "network#nic1"
           "network#nic2"
         ];
         modules-center = ["sway/window"];
