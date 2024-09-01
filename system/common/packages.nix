@@ -12,6 +12,7 @@
     pkgs.home-manager # Home Manager
     pkgs.gnome-calculator # GNOME calculator
     pkgs.kdePackages.kate # KDE text editor
+    pkgs.cmake # Cross-platform make
 
     # Archiving and Compression
     pkgs.pigz # Parallel implementation of gzip for faster compression

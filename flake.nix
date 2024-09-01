@@ -2,6 +2,7 @@
   description = "Paradise NixOS (fredamaral config)";
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    # nixpkgs.url = "github:nixos/nixpkgs/nixos-24.05";
 
     nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-24.05";
 
