@@ -1,9 +1,13 @@
 # system/modules/packages.nix
-{pkgs, ...}: {
-  environment.systemPackages = with pkgs; [
+{
+  pkgs,
+  pkgs-unstable,
+  ...
+}: {
+  environment.systemPackages = with pkgs-unstable; [
     # to-organize
     rsync
-    # blueman
+    blueman
     todoist-electron
     amdgpu_top
     zoom-us
