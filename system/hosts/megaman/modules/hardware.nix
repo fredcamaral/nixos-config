@@ -36,18 +36,7 @@
 
       extraPackages = with pkgs; [
         amdvlk
-        vulkan-loader
-        rocm-opencl-icd
-        rocm-opencl-runtime
-      ];
-
-      extraPackages32 = with pkgs.pkgsi686Linux; [
-        amdvlk
       ];
     };
   };
-  environment.systemPackages = with pkgs; [
-    rocmPackages.rocm-smi
-    rocmPackages.rocminfo
-  ];
 }

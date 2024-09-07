@@ -4,8 +4,7 @@
   pkgs-unstable,
   ...
 }: {
-  environment.systemPackages = with pkgs-unstable; [
-    # to-organize
+  environment.systemPackages = with pkgs; [
     rsync
     blueman
     todoist-electron

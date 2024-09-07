@@ -5,7 +5,7 @@
   pkgs-stable,
   ...
 }: {
-  environment.systemPackages = with pkgs-unstable; [
+  environment.systemPackages = with pkgs; [
     # to-organize
     age # Tool for encrypting files
     vlc # Open-source media player
@@ -102,9 +102,9 @@
     tldr # Simplified and community-driven man pages
 
     # Utilities
-    bandwhich # Terminal bandwidth utilization tool
+    # bandwhich # Terminal bandwidth utilization tool
     busybox # Tiny utilities for small and embedded systems
-    code2prompt # Generate command descriptions for AI assistants
+    # code2prompt # Generate command descriptions for AI assistants
     eva # Simple calculator REPL
     fio # Flexible I/O Tester for benchmarking and stress-testing
     lazydocker # The lazier way to manage everything docker

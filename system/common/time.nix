@@ -1,4 +1,4 @@
 {...}: {
   time.timeZone = "America/Sao_Paulo";
-  location.provider = "geoclue2";
+  # location.provider = "geoclue2";
 }
