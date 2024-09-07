@@ -29,14 +29,11 @@
     # Firmware configuration
     enableRedistributableFirmware = true;
 
-    opengl = {
-      enable = true;
-      driSupport = true;
-      driSupport32Bit = true;
-
-      extraPackages = with pkgs; [
-        amdvlk
-      ];
-    };
+    # opengl = {
+    #   enable = true;
+    #   extraPackages = with pkgs; [
+    #     amdvlk
+    #   ];
+    # };
   };
 }
