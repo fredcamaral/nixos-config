@@ -28,12 +28,5 @@
 
     # Firmware configuration
     enableRedistributableFirmware = true;
-
-    # opengl = {
-    #   enable = true;
-    #   extraPackages = with pkgs; [
-    #     amdvlk
-    #   ];
-    # };
   };
 }

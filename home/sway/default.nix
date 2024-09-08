@@ -44,7 +44,6 @@ in {
     ./mako
     ./swayidle
     ./swaylock
-    ./wlogout
     ./wofi
     ./dotfiles.nix
   ];

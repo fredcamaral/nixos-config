@@ -15,7 +15,7 @@
     go # Go programming language
     go-tools # Go programming language
     home-manager # Home Manager
-    pkgs-unstable.gnome-calculator # GNOME calculator
+    gnome-calculator # GNOME calculator
     kdePackages.kate # KDE text editor
     cmake # Cross-platform make
 
@@ -102,9 +102,9 @@
     tldr # Simplified and community-driven man pages
 
     # Utilities
-    # bandwhich # Terminal bandwidth utilization tool
+    bandwhich # Terminal bandwidth utilization tool
     busybox # Tiny utilities for small and embedded systems
-    # code2prompt # Generate command descriptions for AI assistants
+    code2prompt # Generate command descriptions for AI assistants
     eva # Simple calculator REPL
     fio # Flexible I/O Tester for benchmarking and stress-testing
     lazydocker # The lazier way to manage everything docker
