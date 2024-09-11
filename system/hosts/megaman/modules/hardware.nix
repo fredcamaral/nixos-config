@@ -26,6 +26,17 @@
     amdgpu.initrd.enable = true;
     amdgpu.opencl.enable = true;
 
+    graphics = {
+      enable = true;
+      extraPackages = with pkgs; [
+        amdvlk
+        rocm-opencl-icd
+        rocm-opencl-runtime
+        vulkan-loader
+        vulkan-validation-layers
+      ];
+    };
+
     # Firmware configuration
     enableRedistributableFirmware = true;
   };
