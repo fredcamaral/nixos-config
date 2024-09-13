@@ -41,33 +41,21 @@
     # Enable Docker with rootless support
     docker = {
       enable = true;
-      storageDriver = "overlay2";
       rootless.enable = true;
       autoPrune.enable = true;
     };
   };
 
-  # Enable BBR TCP congestion control for better network performance
-  boot.kernelModules = ["tcp_bbr"];
-  boot.kernel.sysctl."net.ipv4.tcp_congestion_control" = "bbr";
-  boot.kernel.sysctl."net.core.default_qdisc" = "fq";
-
-  # Enable huge pages for better VM performance
-  boot.kernel.sysctl = {
-    "vm.nr_hugepages" = 1024; # Adjust this to your needs
-    "vm.hugetlb_shm_group" = 301; # Adjust this to match your libvirt group ID
-  };
-
   environment.systemPackages = with pkgs; [
-      virglrenderer # For 3D acceleration in VMs
-      qemu # Machine emulator and virtualizer
-      spice # Remote computing solution
-      spice-gtk # GTK client and libraries for SPICE remote desktop servers
-      spice-protocol # SPICE protocol headers
-      virt-manager # Desktop user interface for managing virtual machines
-      virt-viewer # Graphical viewer for the guest OS display
-      win-spice # Windows guest agent for SPICE protocol
-      win-virtio # Windows guest drivers for QEMU virtual machines
-      OVMF # UEFI firmware for QEMU
-    ];
+    virglrenderer # For 3D acceleration in VMs
+    qemu # Machine emulator and virtualizer
+    spice # Remote computing solution
+    spice-gtk # GTK client and libraries for SPICE remote desktop servers
+    spice-protocol # SPICE protocol headers
+    virt-manager # Desktop user interface for managing virtual machines
+    virt-viewer # Graphical viewer for the guest OS display
+    win-spice # Windows guest agent for SPICE protocol
+    win-virtio # Windows guest drivers for QEMU virtual machines
+    OVMF # UEFI firmware for QEMU
+  ];
 }

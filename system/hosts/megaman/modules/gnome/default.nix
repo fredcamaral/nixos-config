@@ -27,9 +27,9 @@
   programs.gnome-terminal.enable = true;
 
   environment.systemPackages = with pkgs; [
-    gnome.gnome-tweaks
-    gnome.dconf-editor
-    gnome.adwaita-icon-theme
+    gnome-tweaks
+    dconf-editor
+    adwaita-icon-theme
     gnomeExtensions.appindicator
     gnomeExtensions.dash-to-dock
     libnotify

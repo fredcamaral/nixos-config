@@ -97,16 +97,6 @@
           version = "0.3.0";
           sha256 = "sha256-k6aUXuFMzALampcFVTWrW3xp0E+LgN4Jtv4qHbYuVws=";
         }
-      ]
-      # Architecture-specific extensions
-      ++ (
-        if pkgs.stdenv.isx86_64
-        then
-          with pkgs.vscode-extensions; [
-            ms-python.python
-            ms-vscode.cpptools
-          ]
-        else []
-      );
+      ];
   };
 }

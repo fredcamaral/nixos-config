@@ -10,9 +10,9 @@
       "console"
       "nixsettings"
       "services"
-      #"virtualisation"
+      "virtualisation"
       "packages"
-      # "power-management"
+      "power-management"
       "programs"
       "zfs"
     ]

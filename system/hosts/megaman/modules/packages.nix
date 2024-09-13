@@ -15,6 +15,6 @@
     pkgs.libinput
     pkgs.bzip3
     pkgs.bzip2
-    pkgs-stable.google-chrome
+    pkgs.google-chrome
   ];
 }
