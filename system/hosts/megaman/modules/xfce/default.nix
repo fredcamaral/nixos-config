@@ -8,17 +8,17 @@
     enable = true;
     displayManager = {
       lightdm.enable = true;
-      defaultSession = "xfce+i3";
+    #  defaultSession = "xfce+i3";
     };
     desktopManager.xfce = {
       enable = true;
-      enableXfwm = false;
+    #  enableXfwm = false;
       enableScreensaver = false;
     };
-    windowManager.i3 = {
-      enable = true;
-      package = pkgs.i3;
-    };
+    #windowManager.i3 = {
+    #  enable = true;
+    #  package = pkgs.i3;
+    #};
   };
 
   environment.sessionVariables = {
