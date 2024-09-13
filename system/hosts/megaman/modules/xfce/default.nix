@@ -16,12 +16,12 @@
     "QT_QPA_PLATFORMTHEME" = "qt5ct";
   };
 
-  services.xfce = {
-    thunar.plugins = with pkgs.xfce; [
-      thunar-archive-plugin
-      thunar-volman
-    ];
-  };
+  # services.xfce = {
+  #   thunar.plugins = with pkgs.xfce; [
+  #     thunar-archive-plugin
+  #     thunar-volman
+  #   ];
+  # };
 
   programs.thunar.enable = true;
 
