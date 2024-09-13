@@ -17,7 +17,8 @@
       "zfs"
     ]
     ++ [
-      ./sway
+      ./gnome
+      # ./sway
       # ./hyprland
     ];
   networking = {

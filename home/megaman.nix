@@ -50,7 +50,7 @@
     ./common/aliases.nix
     ./common/direnv.nix
     ./common/stylix.nix
-    ./sway
+    # ./sway
     # ./hyprland
   ];
 
