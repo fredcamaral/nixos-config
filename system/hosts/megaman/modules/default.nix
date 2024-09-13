@@ -17,7 +17,8 @@
       "zfs"
     ]
     ++ [
-      ./gnome
+      # ./gnome
+      ./xfce
       # ./sway
       # ./hyprland
     ];
