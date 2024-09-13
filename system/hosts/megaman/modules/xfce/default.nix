@@ -6,8 +6,26 @@
 }: {
   services.xserver = {
     enable = true;
-    displayManager.lightdm.enable = true;
+    displayManager = {
+      lightdm.enable = true;
+      defaultSession = "xfce+i3";
+      session = [
+        {
+          name = "xfce+i3";
+          manage = "desktop";
+          start = ''
+            ${pkgs.xfce.xfdesktop}/bin/xfdesktop &
+            ${pkgs.xfce.xfce4-panel}/bin/xfce4-panel &
+            ${pkgs.i3}/bin/i3
+          '';
+        }
+      ];
+    };
     desktopManager.xfce.enable = true;
+    windowManager.i3 = {
+      enable = true;
+      package = pkgs.i3;
+    };
   };
 
   environment.sessionVariables = {

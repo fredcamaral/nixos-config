@@ -49,7 +49,7 @@
     ./common/programs.nix
     ./common/aliases.nix
     ./common/direnv.nix
-    ./common/stylix.nix
+    # ./common/stylix.nix
     # ./sway
     # ./hyprland
   ];
