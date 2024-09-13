@@ -9,14 +9,9 @@
     # to-organize
     age # Tool for encrypting files
     vlc # Open-source media player
-    grim # Screenshot utility
-    slurp # Screenshot utility
-    wl-clipboard # Clipboard manager for Wayland
     go # Go programming language
     go-tools # Go programming language
     home-manager # Home Manager
-    gnome-calculator # GNOME calculator
-    kdePackages.kate # KDE text editor
     cmake # Cross-platform make
 
     # Archiving and Compression
@@ -67,7 +62,6 @@
     # Productivity and Office
     calibre # E-book management application
     libreoffice # Comprehensive, professional-quality productivity suite
-    obsidian # Knowledge base that works on top of local Markdown files
 
     # System Administration
     bash # GNU Bourne-Again Shell
@@ -91,7 +85,6 @@
     usbutils # USB utilities (such as lsusb)
 
     # System Utilities
-    clipman # Clipboard manager for Xfce
     gvfs # Virtual filesystem implementation for GIO
     kio-fuse # FUSE support for KIO
     pulseaudioFull # Sound server for POSIX and Win32 systems

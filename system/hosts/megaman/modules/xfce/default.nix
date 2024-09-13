@@ -16,8 +16,6 @@
     "QT_QPA_PLATFORMTHEME" = "qt5ct";
   };
 
-  programs.thunar.enable = true;
-
   environment.systemPackages = with pkgs; [
     xfce.xfce4-whiskermenu-plugin
     xfce.xfce4-pulseaudio-plugin
@@ -37,8 +35,8 @@
   ];
 
   # Enable some XFCE-related services
-  services.upower.enable = true;
-  services.accounts-daemon.enable = true;
-  services.gvfs.enable = true;
-  services.tumbler.enable = true;
+  services.upower.enable = true; # Power management
+  services.accounts-daemon.enable = true; # User accounts
+  services.gvfs.enable = true; # File sharing
+  services.tumbler.enable = true; # Screenshots
 }
