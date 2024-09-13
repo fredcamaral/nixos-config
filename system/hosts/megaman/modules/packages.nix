@@ -1,19 +1,20 @@
 # system/modules/packages.nix
 {
   pkgs,
-  pkgs-unstable,
+  pkgs-stable,
   ...
 }: {
-  environment.systemPackages = with pkgs; [
-    rsync
-    blueman
-    todoist-electron
-    amdgpu_top
-    zoom-us
-    neovim
-    wayland
-    libinput
-    bzip3
-    bzip2
+  environment.systemPackages = [
+    pkgs.rsync
+    pkgs.blueman
+    pkgs.todoist-electron
+    pkgs.amdgpu_top
+    pkgs.zoom-us
+    pkgs.neovim
+    pkgs.wayland
+    pkgs.libinput
+    pkgs.bzip3
+    pkgs.bzip2
+    pkgs-stable.google-chrome
   ];
 }

@@ -12,7 +12,7 @@
       "services"
       #"virtualisation"
       "packages"
-      "power-management"
+      # "power-management"
       "programs"
       "zfs"
     ]

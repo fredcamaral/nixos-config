@@ -1,7 +1,7 @@
 # home/programs/firefox.nix
 {
   pkgs,
-  pkgs-unstable,
+  pkgs-stable,
   lib,
   ...
 }: let
@@ -22,7 +22,7 @@
 in {
   programs.firefox = {
     enable = true;
-    package = pkgs-unstable.firefox;
+    package = pkgs-stable.firefox;
     profiles = {
       main = {
         isDefault = true;
