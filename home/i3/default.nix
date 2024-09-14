@@ -85,17 +85,17 @@ in {
       };
 
       keybindings = lib.mkOptionDefault {
-        "${modifier}+Return" = "exec ${pkgs.kitty}/bin/kitty";
-        "${modifier}+q" = "kill";
-        "${modifier}+m" = "exec ${pkgs.i3-wm}/bin/i3-nagbar -t warning -m 'Log out?' -B 'Yes' 'i3-msg exit'";
-        "${modifier}+e" = "exec ${pkgs.xfce.thunar}/bin/thunar";
-        "${modifier}+space" = "exec ${pkgs.rofi}/bin/rofi -show drun";
-        "${modifier}+b" = "exec ${pkgs.rofi}/bin/rofi -show drun";
-        "${modifier}+l" = "exec ${pkgs.i3lock-fancy}/bin/i3lock-fancy";
-        "${modifier}+f" = "exec ${pkgs.firefox}/bin/firefox";
-        "${modifier}+r" = "reload";
-        "Ctrl+Alt+Delete" = "exit";
-        "Print" = "exec ${pkgs.maim}/bin/maim -s | ${pkgs.xclip}/bin/xclip -selection clipboard -t image/png";
+        #"${modifier}+Return" = "exec ${pkgs.kitty}/bin/kitty";
+        #"${modifier}+q" = "kill";
+        # "${modifier}+m" = "exec ${pkgs.i3-wm}/bin/i3-nagbar -t warning -m 'Log out?' -B 'Yes' 'i3-msg exit'";
+        #"${modifier}+e" = "exec ${pkgs.xfce.thunar}/bin/thunar";
+        #"${modifier}+space" = "exec ${pkgs.rofi}/bin/rofi -show drun";
+        #"${modifier}+b" = "exec ${pkgs.rofi}/bin/rofi -show drun";
+        #"${modifier}+l" = "exec ${pkgs.i3lock-fancy}/bin/i3lock-fancy";
+        #"${modifier}+f" = "exec ${pkgs.firefox}/bin/firefox";
+        #"${modifier}+r" = "reload";
+        #"Ctrl+Alt+Delete" = "exit";
+        #"Print" = "exec ${pkgs.maim}/bin/maim -s | ${pkgs.xclip}/bin/xclip -selection clipboard -t image/png";
 
         "${modifier}+Shift+v" = "floating toggle";
 
@@ -139,71 +139,7 @@ in {
         "${modifier}+Shift+Up" = "move up";
         "${modifier}+Shift+Down" = "move down";
 
-        "XF86AudioMute" = "exec ${pkgs.pulseaudio}/bin/pactl set-sink-mute @DEFAULT_SINK@ toggle";
-        "XF86AudioLowerVolume" = "exec ${pkgs.pulseaudio}/bin/pactl set-sink-volume @DEFAULT_SINK@ -5%";
-        "XF86AudioRaiseVolume" = "exec ${pkgs.pulseaudio}/bin/pactl set-sink-volume @DEFAULT_SINK@ +5%";
-        "XF86AudioMicMute" = "exec ${pkgs.pulseaudio}/bin/pactl set-source-mute @DEFAULT_SOURCE@ toggle";
-        "XF86MonBrightnessDown" = "exec ${pkgs.brightnessctl}/bin/brightnessctl set 5%-";
-        "XF86MonBrightnessUp" = "exec ${pkgs.brightnessctl}/bin/brightnessctl set +5%";
-        "XF86LaunchA" = "exec ${pkgs.rofi}/bin/rofi -show drun";
-        "XF86LaunchB" = "exec ${pkgs.firefox}/bin/firefox";
-        "XF86KbdBrightnessDown" = "exec ${pkgs.brightnessctl}/bin/brightnessctl --device='smc::kbd_backlight' set 5%-";
-        "XF86KbdBrightnessUp" = "exec ${pkgs.brightnessctl}/bin/brightnessctl --device='smc::kbd_backlight' set +5%";
-        "XF86AudioPlay" = "exec ${pkgs.playerctl}/bin/playerctl play-pause";
-        "XF86AudioNext" = "exec ${pkgs.playerctl}/bin/playerctl next";
-        "XF86AudioPrev" = "exec ${pkgs.playerctl}/bin/playerctl previous";
-
         "${modifier}+v" = "exec ${pkgs.clipmenu}/bin/clipmenu";
-
-        "${modifier}+Alt+r" = "mode resize";
-        "${modifier}+Alt+l" = "mode launcher";
-        "${modifier}+Alt+s" = "mode system";
-        "${modifier}+t" = "mode layout";
-      };
-
-      modes = {
-        resize = {
-          "Left" = "resize shrink width 10px";
-          "Down" = "resize grow height 10px";
-          "Up" = "resize shrink height 10px";
-          "Right" = "resize grow width 10px";
-          "Escape" = "mode default";
-          "Return" = "mode default";
-        };
-        launcher = {
-          "f" = "exec firefox; mode default";
-          "c" = "exec code; mode default";
-          "t" = "exec telegram-desktop; mode default";
-          "s" = "exec slack; mode default";
-          "Escape" = "mode default";
-        };
-        system = {
-          "l" = "exec ${pkgs.i3lock-fancy}/bin/i3lock-fancy; mode default";
-          "e" = "exec i3-msg exit";
-          "s" = "exec systemctl poweroff";
-          "r" = "exec systemctl reboot";
-          "Escape" = "mode default";
-        };
-        layout = {
-          "c" = "layout splith, focus left, resize set width 25ppt, focus right, resize set width 50ppt, focus right, resize set width 25ppt, focus left, focus left, resize set width 25ppt, focus right, resize set width 50ppt, focus right, resize set width 25ppt, focus left; mode default";
-          "x" = "layout splith, focus left, resize set width 25ppt, focus right, resize set width 75ppt, focus right; mode default";
-          "s" = "layout stacking";
-          "t" = "layout tabbed";
-          "p" = "layout toggle split";
-          "Escape" = "mode default";
-        };
-      };
-
-      floating = {
-        border = 4;
-        titlebar = false;
-        criteria = [
-          {class = "Pavucontrol";}
-          {class = "Blueman-manager";}
-          {title = "File Operation Progress";}
-          {title = "Confirm to replace files";}
-          {title = "^Open File$";}
-        ];
       };
 
       startup = startupConfig;
