@@ -211,7 +211,7 @@ in {
 
     extraConfig = ''
       exec_always --no-startup-id ${pkgs.polybar}/bin/polybar
-      exec_always --no-startup-id ${pkgs.feh}/bin/feh --bg-scale ${config.xdg.configHome}/wallpaper.jpg
+      # exec_always --no-startup-id ${pkgs.feh}/bin/feh --bg-scale ${config.xdg.configHome}/wallpaper.jpg
       exec_always --no-startup-id ${pkgs.picom}/bin/picom -b
       exec_always --no-startup-id ${pkgs.xorg.xset}/bin/xset r rate 200 40
       exec_always --no-startup-id ${pkgs.dex}/bin/dex -a -s /etc/xdg/autostart/:~/.config/autostart/
