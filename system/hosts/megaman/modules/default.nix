@@ -18,7 +18,8 @@
     ]
     ++ [
       # ./gnome
-      ./xfce
+      # ./xfce
+      ./i3
       # ./sway
       # ./hyprland
     ];
