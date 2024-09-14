@@ -52,6 +52,7 @@
     # ./common/stylix.nix
     # ./sway
     # ./hyprland
+    ./i3
   ];
 
   # Enable Home Manager

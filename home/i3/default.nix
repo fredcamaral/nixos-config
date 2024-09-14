@@ -250,5 +250,14 @@ in {
     brightnessctl
     playerctl
     clipmenu
+    xfce.thunar
+    libnotify
+    qt5ct
+    gtk3
+    gtk4
+    glib
+    xdg-utils
+    xdg-desktop-portal
+    xdg-desktop-portal-gtk
   ];
 }
