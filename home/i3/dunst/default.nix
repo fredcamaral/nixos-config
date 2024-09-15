@@ -3,7 +3,6 @@
     enable = true;
     settings = {
       global = {
-        font = "DejaVu Sans 11";
         markup = "full";
         format = "<b>%s</b>\\n%b";
         sort = "yes";
@@ -23,29 +22,8 @@
         separator_height = 2;
         padding = 8;
         horizontal_padding = 8;
-        separator_color = "frame";
         startup_notification = false;
         frame_width = 3;
-        frame_color = "#aaaaaa";
-      };
-
-      urgency_low = {
-        background = "#222222";
-        foreground = "#888888";
-        timeout = 10;
-      };
-
-      urgency_normal = {
-        background = "#285577";
-        foreground = "#ffffff";
-        timeout = 10;
-      };
-
-      urgency_critical = {
-        background = "#900000";
-        foreground = "#ffffff";
-        frame_color = "#ff0000";
-        timeout = 0;
       };
     };
   };

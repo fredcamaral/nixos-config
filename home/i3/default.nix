@@ -71,31 +71,31 @@ in {
         mouseWarping = true;
       };
 
-      assigns = {
-        "1" = [{output = "DP-1";}];
-        "2" = [{output = "DP-1";}];
-        "3" = [{output = "DP-1";}];
-        "4" = [{output = "DP-1";}];
-        "5" = [{output = "DP-2";}];
-        "6" = [{output = "DP-2";}];
-        "7" = [{output = "DP-2";}];
-        "8" = [{output = "DP-3";}];
-        "9" = [{output = "DP-3";}];
-        "10" = [{output = "DP-3";}];
-      };
+      # assigns = {
+      #   "1" = [{criteria = {output = "DP-1";};}];
+      #   "2" = [{criteria = {output = "DP-1";};}];
+      #   "3" = [{criteria = {output = "DP-1";};}];
+      #   "4" = [{criteria = {output = "DP-1";};}];
+      #   "5" = [{criteria = {output = "DP-2";};}];
+      #   "6" = [{criteria = {output = "DP-2";};}];
+      #   "7" = [{criteria = {output = "DP-2";};}];
+      #   "8" = [{criteria = {output = "DP-3";};}];
+      #   "9" = [{criteria = {output = "DP-3";};}];
+      #   "10" = [{criteria = {output = "DP-3";};}];
+      # };
 
       keybindings = lib.mkOptionDefault {
-        #"${modifier}+Return" = "exec ${pkgs.kitty}/bin/kitty";
-        #"${modifier}+q" = "kill";
-        # "${modifier}+m" = "exec ${pkgs.i3-wm}/bin/i3-nagbar -t warning -m 'Log out?' -B 'Yes' 'i3-msg exit'";
-        #"${modifier}+e" = "exec ${pkgs.xfce.thunar}/bin/thunar";
-        #"${modifier}+space" = "exec ${pkgs.rofi}/bin/rofi -show drun";
-        #"${modifier}+b" = "exec ${pkgs.rofi}/bin/rofi -show drun";
-        #"${modifier}+l" = "exec ${pkgs.i3lock-fancy}/bin/i3lock-fancy";
-        #"${modifier}+f" = "exec ${pkgs.firefox}/bin/firefox";
-        #"${modifier}+r" = "reload";
-        #"Ctrl+Alt+Delete" = "exit";
-        #"Print" = "exec ${pkgs.maim}/bin/maim -s | ${pkgs.xclip}/bin/xclip -selection clipboard -t image/png";
+        "${modifier}+Return" = "exec ${pkgs.kitty}/bin/kitty";
+        "${modifier}+q" = "kill";
+        "${modifier}+m" = "exec ${pkgs.i3}/bin/i3-nagbar -t warning -m 'Log out?' -B 'Yes' 'i3-msg exit'";
+        "${modifier}+e" = "exec ${pkgs.xfce.thunar}/bin/thunar";
+        "${modifier}+space" = "exec ${pkgs.rofi}/bin/rofi -show drun";
+        "${modifier}+b" = "exec ${pkgs.rofi}/bin/rofi -show drun";
+        "${modifier}+l" = "exec ${pkgs.i3lock-fancy}/bin/i3lock-fancy";
+        "${modifier}+f" = "exec ${pkgs.firefox}/bin/firefox";
+        "${modifier}+r" = "reload";
+        "Ctrl+Alt+Delete" = "exit";
+        "Print" = "exec ${pkgs.maim}/bin/maim -s | ${pkgs.xclip}/bin/xclip -selection clipboard -t image/png";
 
         "${modifier}+Shift+v" = "floating toggle";
 
@@ -147,7 +147,6 @@ in {
 
     extraConfig = ''
       exec_always --no-startup-id ${pkgs.polybar}/bin/polybar
-      # exec_always --no-startup-id ${pkgs.feh}/bin/feh --bg-scale ${config.xdg.configHome}/wallpaper.jpg
       exec_always --no-startup-id ${pkgs.picom}/bin/picom -b
       exec_always --no-startup-id ${pkgs.xorg.xset}/bin/xset r rate 200 40
       exec_always --no-startup-id ${pkgs.dex}/bin/dex -a -s /etc/xdg/autostart/:~/.config/autostart/
@@ -174,7 +173,7 @@ in {
   home.packages = with pkgs; [
     i3-gaps
     i3lock-fancy
-    polybar
+    # polybar
     rofi
     dunst
     maim
