@@ -1,15 +1,6 @@
 {pkgs, ...}: {
   services.polybar = {
     enable = true;
-    package = pkgs.polybar.override {
-      i3GapsSupport = true;
-      alsaSupport = true;
-      pulseSupport = true;
-      nlSupport = false;
-      iwSupport = true;
-      mpdSupport = true;
-      githubSupport = true;
-    };
     config = let
       background = "#0D1016";
       background-alt = "#273747";
